@@ -12,7 +12,7 @@
 :root {
   --r-background-color: #111;
   --r-main-font: Open Sans, sans-serif;
-  --r-main-font-size: 40px;
+  --r-main-font-size: 35px;
   --r-main-color: #000;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
@@ -67,7 +67,7 @@
 }
 .reveal .slides section,
 .reveal .slides section > section {
-  line-height: 1.8;
+  line-height: 1.6;
   font-weight: inherit;
 }
 .reveal h1,
@@ -132,7 +132,7 @@
 }
 .reveal p {
   margin: var(--r-block-margin) 0;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 .reveal h1:last-child,
 .reveal h2:last-child,
@@ -212,7 +212,7 @@
   text-align: left;
   font-size: 0.55em;
   font-family: var(--r-code-font);
-  line-height: 1.8em;
+  line-height: 1.6em;
   word-wrap: break-word;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
@@ -271,7 +271,7 @@
 .reveal small {
   display: inline-block;
   font-size: 0.6em;
-  line-height: 1.8em;
+  line-height: 1.6em;
   vertical-align: top;
 }
 .reveal small * {
@@ -327,5 +327,5 @@ canvas[data-chart] {
   padding: 0.5em;
 }
 .reveal .hljs {
-  min-height: 50%;
+  min-height: 40%;
 }
