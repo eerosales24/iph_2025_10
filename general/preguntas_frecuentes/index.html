@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/slides-extended.css" />
+    <link rel="stylesheet" href="dist/theme/iph.css" id="theme" />
+    <link rel="stylesheet" href="spyder" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+    <script type="text/javascript">
+        function pageInIframe() {
+            return (window.location !== window.parent.location);
+        }
+
+        let forgetPop = true;
+        function onPopState(event) {
+            if(forgetPop){
+                forgetPop = false;
+            } else if( pageInIframe()) {
+                parent.postMessage(event.target.location.href, "app://obsidian.md");
+            }
+        }
+        window.onpopstate = onPopState;
+        window.onmessage = event => {
+            if(event.data == "reload"){
+                window.document.location.reload();
+            }
+            forgetPop = true;
+        }
+
+        function fitElements() {
+            const itemsToFit = document.getElementsByClassName('fitText');
+            for (const item in itemsToFit) {
+                if (Object.hasOwnProperty.call(itemsToFit, item)) {
+                    const element = itemsToFit[item];
+                    fitElement(element, 1, 1000);
+                    element.classList.remove('fitText');
+                }
+            }
+        }
+
+        function fitElement(element, start, end) {
+
+            let size = (end + start) / 2;
+            element.style.fontSize = `${size}px`;
+
+            if (Math.abs(start - end) < 1) {
+                while (element.scrollHeight > element.offsetHeight) {
+                    size--;
+                    element.style.fontSize = `${size}px`;
+                }
+                return;
+            }
+
+            if (element.scrollHeight > element.offsetHeight) {
+                fitElement(element, start, size);
+            } else {
+                fitElement(element, size, end);
+            }
+        }
+
+
+        document.onreadystatechange = () => {
+            fitElements();
+            if (document.readyState === 'complete') {
+                if (pageInIframe() && window.location.href.indexOf("?export") != -1){
+                    parent.postMessage(event.target.location.href, "app://obsidian.md");
+                }
+                if (window.location.href.indexOf("print-pdf") != -1){
+                    let stateCheck = setInterval(() => {
+                        clearInterval(stateCheck);
+                        window.print();
+                    }, 250);
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Introducción a la Programación - Honores
+
+ ####  *Preguntas Frecuentes*
+
+[Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
+
+Departamento de Ingeniería de Sistemas y Computación
+
+Universidad de los Andes
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Tabla de Contenido (1/6)
+
+- [¿Cuáles son los canales de comunicación del curso?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#8)
+- [¿Cuál es el correo del profesor del curso?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#9)
+- [¿Cuáles son los correos de los monitores del curso?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#10)
+- [¿Cuál es el horario de atención del profesor?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#11)
+- [¿Cuáles son las reglas de la sección?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#12)
+- [¿En qué se diferencia IP Honores de IP regular?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#13)
+- [¿En dónde puedo encontrar el material del curso?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#14)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Tabla de Contenido (2/6)
+
+- [¿En dónde puedo encontrar el programa del curso?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#15)
+- [¿En dónde puedo encontrar la bibliografía del curso?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#16)
+- [Definiciones](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#17)
+- [¿Hay algún cronograma de la sección?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#18)
+- [¿Hay alguna regla/política de evaluaciones?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#19)
+- [¿Hay algún requisito de asistencia?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#20)
+- [¿Cómo justificar una inasistencia?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#21)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Tabla de Contenido (3/6)
+
+- [¿Cómo se entrega un proyecto?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#22)
+- [¿Qué pasa si no entrego un proyecto?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#23)
+- [¿Cómo se entrega un examen?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#24)
+- [¿Qué pasa si no entrego el examen?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#25)
+- [¿Qué pasa si no voy al examen?](ht6ps://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#20)
+- [¿Qué sucede si accidentalmente entrego una respuesta incompleta en un proyecto/examen?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#27)
+- [¿Existe alguna forma de mejorar la nota de un proyecto/examen?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#28)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Tabla de Contenido (4/6)
+
+- [¿Cómo funciona la cláusula de arrepentimiento?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#29)
+- [¿Cuáles son las consecuencias de un presunto fraude en un proyecto?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#31)
+- [¿Cuáles son las consecuencias de un presunto fraude en un examen?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#32)
+- [¿Cómo se publican notas?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#33)
+- [¿Cuándo se publican notas?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#33)
+- [¿Cuándo puedo hacer reclamos sobre mis notas?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#34)
+- [¿Cuándo obtendré respuesta a mi reclamo?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#34)
+- [¿Cómo puedo hacer reclamos sobre la nota de un proyecto?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#35)
+- [¿Cómo puedo hacer reclamos sobre la nota de un examen o tarea?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#35)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Tabla de Contenido (5/6)
+
+
+- [¿Cuáles son las funciones de los monitores?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#37)
+- [¿Qué es CupiTaller?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#38)
+- [¿Qué es una "tutoría" de CupiTaller?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#39)
+- [¿Cuál es el horario de atención de los monitores?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#43)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Tabla de Contenido (6/6)
+
+- [¿Qué es la política de ajustes razonables?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#44)
+- [¿Qué es la política de momentos difíciles?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#45)
+- [¿Qué es el protocolo MAAD?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#46)
+- [¿Qué debo hacer si tengo un problema con algún monitor?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#48)
+- [¿Qué debo hacer si tengo un problema con Eduardo?](https://eerosales24.github.io/iph_2025_10/n1/preguntas_frecuentes#49)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuáles son los canales de comunicación del curso?
+
+- [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home)\*
+  - *LMS* (Learning Management System) de la Universidad
+  
+- [Correo Uniandes](https://correo.uniandes.edu.co/)\*
+  - Medio de comunicación oficial de la Universidad de los Andes
+
+\* Ambos sitios deben revisarse con regularidad
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuál es el correo del profesor del curso?
+ 
+- Profesor y coordinador IP/Cupi2:
+	- [Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuáles son los correos de los monitores del curso?
+  
+- [Diego Munevar](mailto:d.munevar@uniandes.edu.co)
+- [Joshua Ross](mailto:j.ross@uniandes.edu.co)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuál es el horario de atención del profesor?
+
+- Atención con **cita previa**:
+  - [ee.rosales24@uniandes.edu.co](mailto:ee.rosales24@uniandes.edu.co)
+  	- Por favor incluya un **asunto muy claro y conciso**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuáles son las reglas de la sección?
+
+- En clase o laboratorio
+  - Se puede preguntar en cualquier momento
+	  - Pedir palabra, levantando la mano
+
+- ❌ Comida
+- ❌ Ruido
+- ❌ Distracciones
+  - Celulares
+    - Modo "No molestar"
+    - Llamada emergencia (contestar afuera)
+    
+- Puerta del salón cerrada
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿En qué se diferencia IP Honores de IP regular?
+
+- Profundización en:
+  - Conceptos fundamentales de programación
+  - Convenciones y buenas prácticas de programación
+- Mayores retos:
+  - Proyecto **exclusivo** de la sección
+- Evaluación más rigurosa:
+  - Algoritmos correctos y eficientes
+  - Documentación, pruebas y depuración
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿En dónde puedo encontrar el material del curso?
+
+1. [Diapositivas de IP Honores](https://eerosales24.github.io/iph_2025_10/#)
+   
+2. Material de IP regular en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home):
+    - Bienvenida al curso
+    - Programa
+    - Guía de instalación de Anaconda
+    - Guía del estudiante de IP
+    - Lecturas sugeridas
+    - Presentaciones en PDF
+    - ....
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿En dónde puedo encontrar el programa del curso?
+
+- Disponible en [Bloque Neón](https://bloqueneon.uniandes.edu.co/d2l/home):
+	- *Introducción a la Programación*
+		- *Contenido*
+			- *Antes de empezar*
+				- *Recursos para empezar*
+					- *Programa del curso*
+						- *Programa*
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿En dónde puedo encontrar la bibliografía del curso?
+
+- [Bibliografía principal](https://eerosales24.github.io/iph_2025_10/n1/introduccion#37)
+  
+- [Bibliografía secundaria](https://eerosales24.github.io/iph_2025_10/n1/introduccion#38)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Definiciones
+
+- [Clase](https://eerosales24.github.io/iph_2025_10/n1/introduccion#14)
+- [Laboratorio](https://eerosales24.github.io/iph_2025_10/n1/introduccion#15)
+- [Tarea](https://eerosales24.github.io/iph_2025_10/n1/introduccion#16)
+  - [senecode](https://eerosales24.github.io/iph_2025_10/n1/introduccion#17)
+- [Actividades de ética](https://eerosales24.github.io/iph_2025_10/n1/introduccion#19)
+- [Proyecto](https://eerosales24.github.io/iph_2025_10/n1/introduccion#20)
+- [Examen](https://eerosales24.github.io/iph_2025_10/n1/introduccion#21)
+- [Trabajo individual](https://eerosales24.github.io/iph_2025_10/n1/introduccion#27)
+  - [Desisoft](https://eerosales24.github.io/iph_2025_10/n1/introduccion#29)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Hay algún cronograma de la sección?
+
+- [Cronograma de IP Honores](https://eerosales24.github.io/iph_2025_10/n1/introduccion#10)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Hay alguna regla/política de evaluaciones?
+
+- [Distribución de porcentajes de notas](https://eerosales24.github.io/iph_2025_10/n1/introduccion#30)
+  
+- [Regla de anulación de proyectos](https://eerosales24.github.io/iph_2025_10/n1/introduccion#31)
+
+- [Regla de aproximaciones](https://eerosales24.github.io/iph_2025_10/n1/introduccion#32)
+
+- [Política de la nota final](https://eerosales24.github.io/iph_2025_10/n1/introduccion#33)
+
+- [Política de retiros](https://eerosales24.github.io/iph_2025_10/n1/introduccion#34)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Hay algún requisito de asistencia?
+
+- Requisito de aprobación del curso
+  - Asistencia >= **80%**\*
+    - Considerando todas las sesiones (clases y laboratorios)
+- Profesor lleva bitácora de asistencia
+  - Llegada tarde
+  	- Puede entrar
+	  	- ❌ Pero conserva la falla
+
+\* **ART. 43** – [Reglamento General de Estudiantes de Pregrado](https://secretariageneral.uniandes.edu.co/images/documents/reglamento-pregrado-web-2024.pdf)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo justificar una inasistencia?
+
+- Se debe presentar una **excusa válida**\* en un plazo de **3 días hábiles**\**
+- La excusa es verificada por el **Centro Médico** de la universidad
+	- NO se aceptan incapacidades de médicos particulares
+- ❌ Excusas falsificadas
+  - Conlleva a apertura de [proceso disciplinario](https://decanaturadeestudiantes.uniandes.edu.co/apoyo/preguntas-frecuentes)
+	
+\* Definición de [incapacidad médica válida](https://decanaturadeestudiantes.uniandes.edu.co/incapacidades-medicas)
+
+\** **ART. 45** – [Reglamento General de Estudiantes de Pregrado](https://secretariageneral.uniandes.edu.co/images/documents/reglamento-pregrado-web-2024.pdf)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿Cómo se entrega un proyecto?
+
+  - A través de Bloque Neón
+    - Instrucciones en el enunciado del proyecto
+    - Se práctica el proceso en el primer laboratorio
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿Qué pasa si no entrego un proyecto?
+
+  - La entrega se puede hacer hasta la fecha y hora establecida en Bloque Neón
+    - **NO hay excepciones a esta regla**
+      - **No se admiten entregas posteriores**
+	      - **Ni usando un medio distinto a Bloque Neón**
+  - La calificación de un proyecto no entregado, vacío o que no se puede abrir es **0.0**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿Cómo se entrega un examen?
+
+  - A través de Bloque Neón
+    - Se práctica el proceso en un examen de práctica
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué pasa si no entrego el examen?
+
+  - La entrega se pueden hacer hasta la fecha y hora establecida en Bloque Neón
+    - **NO hay excepciones a esta regla**
+      - **No se admiten entregas posteriores**
+	      - **Ni usando un medio distinto a Bloque Neón**
+  - La calificación de un examen no entregado es **0.0**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué pasa si no voy al examen?
+
+  - **Ausencia justificada**
+    - Presentar la justificación al profesor en **máximo 3 días hábiles**
+      - Se programará un supletorio
+  
+  - **Ausencia no justificada**
+    - La calificación de un examen no entregado es **0.0**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué sucede si accidentalmente entrego una respuesta incompleta en un proyecto/examen?
+
+  - Se califica únicamente el contenido que haya sido enviado a través de Bloque Neón
+	- **NO hay excepciones a esta regla**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Existe alguna forma de mejorar la nota de un proyecto/examen?
+  - NO se definen "*trabajos adicionales*" para un estudiante específico
+  
+  - **Bonos**: 
+	  - Propuestos **exclusivamente** por el profesor
+		  - Para **todos los estudiantes del curso**
+	  - Opcionales y 100% académicos
+	  - Máximo de 5 puntos (sobre 100)
+	  - Aplicados a las notas que el profesor defina
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo funciona la cláusula de arrepentimiento? (1/2)
+
+- La entrega de un proyecto no 100% original 
+	- Debe reportarse dentro de **72 horas**
+- La nota asignada al proyecto será de cero (**0.0**)
+	- **Pero, sin afectar otras notas**
+- NO se impondrán sanciones disciplinarias
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo funciona la cláusula de arrepentimiento? (2/2)
+
+- Válida sólo **UNA** vez
+
+- En reincidencia:
+	- El profesor puede anular la(s) nota(s) de nivel(es) afectado(s)
+		- Puede iniciar un [proceso disciplinario](https://decanaturadeestudiantes.uniandes.edu.co/apoyo/preguntas-frecuentes)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuáles son las consecuencias de un presunto fraude en un proyecto?
+
+  - Si no se aplicó la cláusula de arrepentimiento:
+    - Nota de cero (**0.0**) en el nivel
+    - Si no está de acuerdo
+      - Puede defenderse en un [proceso disciplinario](https://decanaturadeestudiantes.uniandes.edu.co/apoyo/preguntas-frecuentes)
+  
+- Casos graves
+	- Apertura de proceso disciplinario
+		- Incluyendo a todos los estudiantes involucrados
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuáles son las consecuencias de un presunto fraude en un examen?
+
+  - **NO aplica la cláusula de arrepentimiento**:
+    - Apertura inmediata de [proceso disciplinario](https://decanaturadeestudiantes.uniandes.edu.co/apoyo/preguntas-frecuentes)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo se publican notas?
+  - En Bloque Neón
+    	- Se informa mediante un correo electrónico
+  
+### ¿Cuándo se publican notas?
+  - A más tardar en **10** días hábiles siguientes a la evaluación\*
+
+
+\* **ART. 64** –  [Reglamento General de Estudiantes de Pregrado](https://secretariageneral.uniandes.edu.co/images/documents/reglamento-pregrado-web-2024.pdf)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  ¿Cuándo puedo hacer reclamos sobre mis notas?
+  - El plazo máximo para reclamos es **4** días hábiles después de la entrega de notas\*
+
+###  ¿Cuándo obtendré respuesta a mi reclamo?
+  - El profesor cuenta con **5** días hábiles para responder a un reclamo\*
+  
+
+\* **ART. 64** –  [Reglamento General de Estudiantes de Pregrado](https://secretariageneral.uniandes.edu.co/images/documents/reglamento-pregrado-web-2024.pdf)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo puedo hacer reclamos sobre la nota de un proyecto?
+
+- Correo a: [ee.rosales24@uniandes.edu.co](mailto:ee.rosales24@uniandes.edu.co)
+	- **Con copia al monitor que lo calificó**
+	- Por favor incluya un asunto claro y conciso
+	- Por favor justifique **muy claramente** el motivo de su reclamo
+    	- Ej: Justifique cómo su solución es correcta, tal que no le aplica una penalidad
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo puedo hacer reclamos sobre la nota de un examen o tarea?
+
+- Correo a: [ee.rosales24@uniandes.edu.co](mailto:ee.rosales24@uniandes.edu.co)
+	- Por favor incluya un asunto claro y conciso
+	- Por favor justifique **muy claramente** el motivo de su reclamo
+    	- Ej: Justifique cómo su solución es correcta, tal que no le aplica una penalidad
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuáles son las funciones de los monitores?
+
+- [Monitores y sus funciones](https://eerosales24.github.io/iph_2025_10/n1/introduccion#35)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es [CupiTaller](https://cupitaller.uniandes.edu.co/)?
+
+- Ofrece *tutorías*\* personalizadas y gratuitas
+	- Tutorías agendadas vía [Bookeau](https://cupitaller.bookeau.com/#/login)
+    	- **Se recibe invitación vía email**
+        	- **Desde la semana 3**
+- Ubicación: ML-610
+
+\* A partir de la siguiente diapositiva se define "tutoría"
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es una "tutoría" de [CupiTaller](https://cupitaller.uniandes.edu.co/)? (1/4)
+
+- Sesión de trabajo
+  - Estudiante y tutor
+- Objetivo: Mejorar las capacidades del estudiantes para
+  - Analizar un problema
+  - Entender sus requerimientos
+  - Planear un algoritmo
+  - Escribir un programa y probarlo
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es una "tutoría" de [CupiTaller](https://cupitaller.uniandes.edu.co/)? (2/4)
+
+- Una tutoría **NO REEMPLAZA**:
+	- Clases teóricas
+	- Sesiones de laboratorio
+	- Atención a estudiantes por parte del profesor
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es una "tutoría" de [CupiTaller](https://cupitaller.uniandes.edu.co/)? (3/4)
+
+- En una tutoría **NO SE PUEDE**:
+	- ❌ Usar el tiempo de la tutoría para realizar actividades no autorizadas
+	- ❌ Solicitar que el tutor le solucione el proyecto del nivel o tarea 
+  	-  ❌ Solicitar que el tutor le explique una solución ya desarrollada
+	- ❌ Intentar usar la tutoría como un reemplazo a una
+    	- Clase teórica ó
+    	- Sesión de laboratorio
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es una "tutoría" de [CupiTaller](https://cupitaller.uniandes.edu.co/)? (3/4)
+
+- En una tutoría **NO SE PUEDE**:
+	- ❌ Solicitar soluciones a problemas técnicos del computador
+	- ❌ Hacer uso del celular o medios de distracción
+	- ❌ Solicitar la validación/re-calificación de un evaluable
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuál es el horario de atención de los monitores?
+
+  - Principalmente, durante las sesiones de laboratorio
+  - Si es urgente
+    - Por correo y **SIEMPRE con copia al profesor**\*
+  
+\* Si no se pone en copia al profesor, **el monitor no responderá**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es la política de [ajustes razonables](https://decanaturadeestudiantes.uniandes.edu.co/diversidad/solicitud-de-ajuste-razonable)?
+
+- Aplica a estudiantes 
+	- Que tienen una **discapacidad**
+- El estudiante hace la solicitud
+- Ajustes posibles:
+	- Tiempo adicional para evaluaciones
+	- Cambio al formato de evaluación
+	- Cambio de metodología de enseñanza
+	- Apoyo extra de un monitor o el profesor
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es la [política de momentos difíciles](https://decanaturadeestudiantes.uniandes.edu.co/diversidad/solicitud-de-ajuste-razonable)?
+
+- Aplica a estudiantes que atraviesan
+	-  Una **situación problemática temporal**
+- El profesor evalúa cada caso y llega a un acuerdo con el estudiante
+	- Facilitar al estudiante cumplir con sus deberes académicos
+	- Priorizando su bienestar
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es el [protocolo MAAD](https://uniandes.edu.co/sites/default/files/asset/document/preguntas-frecuentes-maad.pdf)? (1/2)
+
+- Protocolo para casos de **Maltrato, Acoso, Amenaza y Discriminación** -  MAAD
+- Objetivos:
+	- Apoyo emocional, médico y jurídico
+	- Medidas preventivas
+	- Orientación sobre manejo del caso
+	- Vinculación a políticas institucionales o legales
+- Abarca:
+	- Incidentes dentro y fuera del campus
+    	- Y en plataformas tecnológicas
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué es el [protocolo MAAD](https://uniandes.edu.co/sites/default/files/asset/document/preguntas-frecuentes-maad.pdf)? (2/2)
+
+- Reporte en emergencias:
+	- Línea de emergencia **3394949 Ext. 0000**
+	- Teléfonos rojos en campus
+- Reporte no inmediato:
+	- Línea MAAD (lineamaad@uniandes.edu.co)
+	- [Decanatura de Estudiantes](https://decanaturadeestudiantes.uniandes.edu.co/)
+	- [Ombudsperson](https://ombudsperson.uniandes.edu.co/maad/ruta-de-atencion)
+	- [Red de Estudiantes (No estás solx)](https://noestassolo.virtual.uniandes.edu.co/)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué debo hacer si tengo un problema con algún monitor?
+
+  - Notificar a Eduardo
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Qué debo hacer si tengo un problema con Eduardo?
+
+  - Notificar a los Coordinadores de Pregrado ISIS
+    - [pregisis@uniandes.edu.co](pregisis@uniandes.edu.co)
+  
+  - Notificar al consejero académico que le fue asignado
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 1080px; width: 1920px; min-height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Copyright © 2025 Universidad de los Andes**. Esta obra se encuentra sujeta a una licencia Creative Commons ["Attribution-NonCommercial-NoDerivatives 4.0 International"](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode).
+
+**Atribución-NoComercial-SinDerivadas:** Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente. Puede ser reproducida para cualquier uso no-comercial, otorgando crédito a la Universidad de los Andes. No se permiten obras derivadas.
+
+El uso del nombre de la Universidad de los Andes para cualquier fin distinto al reconocimiento respectivo y el uso de su logotipo, no están autorizados por esta licencia.
+
+**Universidad de los Andes | Vigilada Mineducación**  
+Reconocimiento como Universidad, Decreto 1297 del 30 de mayo de 1964.  
+Reconocimiento personería jurídica Resolución 28 del 23 de febrero de 1949 Min. Justicia.
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/mermaid/mermaid.js"></script>
+    <script src="plugin/chart/chart.min.js"></script>
+    <script src="plugin/chart/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+        function extend() {
+            const target = {};
+            for (let i = 0; i < arguments.length; i++) {
+                const source = arguments[i];
+                for (const key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        function isLight(color) {
+            let hex = color.replace('#', '');
+
+            // convert #fff => #ffffff
+            if (hex.length == 3) {
+                hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+            }
+
+            const c_r = parseInt(hex.substr(0, 2), 16);
+            const c_g = parseInt(hex.substr(2, 2), 16);
+            const c_b = parseInt(hex.substr(4, 2), 16);
+            const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+            return brightness > 155;
+        }
+
+        const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+
+        if (isLight(bgColor)) {
+            document.body.classList.add('has-light-background');
+        } else {
+            document.body.classList.add('has-dark-background');
+        }
+
+        // default options to init reveal.js
+        const defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath.MathJax3,
+                RevealMermaid,
+                RevealChart,
+                RevealCustomControls,
+            ],
+            allottedTime: 120 * 1000,
+            mathjax3: {
+                mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+            },
+            markdown: {
+                gfm: true,
+                mangle: true,
+                pedantic: false,
+                smartLists: false,
+                smartypants: false,
+            },
+            mermaid: {
+                theme: isLight ? 'default' : 'dark',
+            },
+            customcontrols: {
+                controls: [
+                ]
+            },
+        };
+
+        if ( pageInIframe() ) {
+            defaultOptions.scrollActivationWidth = 5;
+        }
+
+        // options from URL query string
+        const queryOptions = Reveal().getQueryHash() || {};
+
+        const options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":false,"center":null,"transition":"slide","transitionSpeed":"default","width":"1920","height":"1080","margin":0.04}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+</body>
+
+<!-- created with Slides Extended -->
+</html>
