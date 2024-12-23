@@ -12,7 +12,7 @@
 :root {
   --r-background-color: #111;
   --r-main-font: Open Sans, sans-serif;
-  --r-main-font-size: 40px;
+  --r-main-font-size: 20px;
   --r-main-color: #000;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
@@ -32,12 +32,12 @@
   --r-heading5-font-weight: normal;
   --r-heading6-font-weight: normal;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 2em;
-  --r-heading2-size: 1.7em;
-  --r-heading3-size: 1.4em;
-  --r-heading4-size: 1em;
+  --r-heading1-size: 1.5em;
+  --r-heading2-size: 1.2em;
+  --r-heading3-size: 1em;
+  --r-heading4-size: 0.9em;
   --r-heading5-size: 0.8em;
-  --r-heading6-size: 0.6em;
+  --r-heading6-size: 0.7em;
   --r-code-font: monospace;
   --r-link-color: #0000EE;
   --r-link-color-dark: #d08a1d;
@@ -132,7 +132,7 @@
 }
 .reveal p {
   margin: var(--r-block-margin) 0;
-  line-height: 1.8;
+  line-height: 0.8;
 }
 .reveal h1:last-child,
 .reveal h2:last-child,
