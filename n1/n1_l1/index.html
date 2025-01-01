@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/slides-extended.css" />
+    <link rel="stylesheet" href="dist/theme/iph.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/spyder.css" />
+    <link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+    <script type="text/javascript">
+        function pageInIframe() {
+            return (window.location !== window.parent.location);
+        }
+
+        let forgetPop = true;
+        function onPopState(event) {
+            if(forgetPop){
+                forgetPop = false;
+            } else if( pageInIframe()) {
+                parent.postMessage(event.target.location.href, "app://obsidian.md");
+            }
+        }
+        window.onpopstate = onPopState;
+        window.onmessage = event => {
+            if(event.data == "reload"){
+                window.document.location.reload();
+            }
+            forgetPop = true;
+        }
+
+        function fitElements() {
+            const itemsToFit = document.getElementsByClassName('fitText');
+            for (const item in itemsToFit) {
+                if (Object.hasOwnProperty.call(itemsToFit, item)) {
+                    const element = itemsToFit[item];
+                    fitElement(element, 1, 1000);
+                    element.classList.remove('fitText');
+                }
+            }
+        }
+
+        function fitElement(element, start, end) {
+
+            let size = (end + start) / 2;
+            element.style.fontSize = `${size}px`;
+
+            if (Math.abs(start - end) < 1) {
+                while (element.scrollHeight > element.offsetHeight) {
+                    size--;
+                    element.style.fontSize = `${size}px`;
+                }
+                return;
+            }
+
+            if (element.scrollHeight > element.offsetHeight) {
+                fitElement(element, start, size);
+            } else {
+                fitElement(element, size, end);
+            }
+        }
+
+
+        document.onreadystatechange = () => {
+            fitElements();
+            if (document.readyState === 'complete') {
+                if (pageInIframe() && window.location.href.indexOf("?export") != -1){
+                    parent.postMessage(event.target.location.href, "app://obsidian.md");
+                }
+                if (window.location.href.indexOf("print-pdf") != -1){
+                    let stateCheck = setInterval(() => {
+                        clearInterval(stateCheck);
+                        window.print();
+                    }, 250);
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### IP Honores
+
+ ####  *Laboratorio 1 de Nivel 1 - N1-L1*
+ #### *Metodología*
+
+[Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
+
+Departamento de Ingeniería de Sistemas y Computación
+
+Universidad de los Andes
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Instrucciones generales
+
+- **Objetivo**
+	- Practicar la metodología de IP Honores
+
+- **Evaluación**
+	- Este laboratorio es **evaluable**
+		- Es un **trabajo individual**
+			- Cuenta como una **tarea del Nivel 1**
+
+- **¿Preguntas?**
+	- Formule su pregunta de forma **muy clara y concisa**
+		- Luego (y solo luego de lo anterior), levante la mano
+			- El profesor o los monitores lo ayudarán
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+#  Siga paso a paso las siguientes instrucciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Equipo
+
+- Seleccione una opción:
+	1. [Usaré un equipo del laboratorio](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/7)
+	
+	2. [Usaré mi propio equipo](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/4)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Equipo propio
+
+- Seleccione una opción:
+	1. [Tengo Anaconda ya instalado](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/7)
+	
+	2. [No tengo Anaconda instalado](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/5)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Equipo propio - Instalación de Anaconda (1/2)
+
+- Descargue el instalador de Anaconda
+	1.  Si su sistema es Windows:
+		- [64-Bit Graphical Installer (912.3M)](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe)
+	2.  En el caso de Mac (IOS):
+		- Si su procesador es un Silicon:
+			- [64-Bit (Apple silicon) Graphical Installer (704.7M)](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-arm64.pkg)
+		- Si su procesador es Intel:
+			- [64-Bit (Intel chip) Graphical Installer (734.7M)](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-x86_64.pkg)
+	3.  En caso de Linux:
+		- https://www.anaconda.com/download/success
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Equipo propio - Instalación de Anaconda (2/2)
+
+<img src="ip_honores/n1/img/anaconda_2.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Abrir Spyder (1/2)
+
+- Busque en sus **Programas** a Spyder y ábralo
+
+ <img src="ip_honores/n1/img/spyder_1.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Abrir Spyder (2/2)
+
+- Si no encuentra a Spyder en sus *Programas*:
+	- Busque y abra **Anaconda**
+		- Luego, abra **Spyder**
+
+<img src="ip_honores/n1/img/spyder_3.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Conozca a Spyder (1/3)
+
+- Al abrir Spyder
+	- Debería obtener una interfaz similar a esta:
+
+<img src="ip_honores/n1/img/conozca_spyder_1.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Conozca a Spyder (2/3) 
+
+- **Editor**
+	- Espacio para escribir programas
+		- Que se pueden ejecutar y guardar
+		
+<img src="ip_honores/n1/img/editor.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Conozca a Spyder (3/3) 
+
+- **Intérprete (terminal)**
+	- Espacio que muestra los resultados de ejecución del editor
+		- No se pueden guardar
+	- Espacio para escribir instrucciones Python
+		- No se pueden guardar
+		
+<img src="ip_honores/n1/img/interprete.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+#  Actividad 1
+
+- **Objetivo:**
+	- Aprender a ejecutar un programa Python en Spyder
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (1/12)
+
+- Defina su directorio de trabajo (working directory)
+	- Para ello, cree una carpeta cuyo nombre **no tenga espacios**
+		- Copie la ruta a esa carpeta en la parte superior de Spyder (ver cuadro rojo)
+			- Presione *Enter*
+
+<img src="ip_honores/n1/img/spyder_5.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (2/12)
+
+- Cambie la vista al **Explorador de archivos (Files)**
+	- Para ello, haga clic en **Explorador de archivos (Files)** (ver cuadro rojo)
+
+<img src="ip_honores/n1/img/spyder_6.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (3/12)
+
+- Clic derecho en el área blanca (ver cuadro rojo)
+
+<img src="ip_honores/n1/img/spyder_6_1.png" alt="" style="object-fit: scale-down">
+
+
+- Seleccione una opción:
+	1. [Al hacer clic derecho, se desplegó un menú](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/16)
+	
+	2. [Al hacer clic derecho, NO se desplegó nada](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/17)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (4/12)
+
+- Seleccione: **Nuevo – Archivo (New – File)** (ver cuadro rojo)
+
+<img src="ip_honores/n1/img/spyder_7.png" alt="" style="object-fit: scale-down">
+
+
+- [**Click para continuar en orden**](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/18)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (5/12)
+
+- Si hacer clic derecho no funcionó, entonces vaya a:
+	- **Archivo (File)**
+		- **Nuevo Archivo (New File)**
+			- Esto creará un nuevo archivo llamado `untiled.py` (o similares)
+
+<img src="ip_honores/n1/img/spyder_11.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (6/12)
+
+- Vaya a **Archivo (File)**
+	- **Guardar como (Save as)**
+		- Esto abrirá una ventana que solicita en donde guardar el archivo
+		
+<img src="ip_honores/n1/img/spyder_12.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (7/12)
+
+- Digite el siguiente nombre:
+	- `programa_suma.py`
+
+- Elija el directorio en donde guardar
+	-  **Debe ser el *directorio de trabajo* que definió antes**
+- Luego, elija la opción:
+	- **Guardar (Save)**
+
+<img src="ip_honores/n1/img/spyder_8.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (8/12)
+
+- Verifique que el archivo esté abierto
+	- En el editor de Spyder
+
+<img src="ip_honores/n1/img/spyder_9.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (9/12)
+
+- Copie y pegue el siguiente código **en el editor de Spyder**:
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+    Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    return primer_operando + segundo_operando
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (10/12)
+
+- Ejecute el intérprete (terminal) de Spyder
+	- Para ello, clic en el botón de ► "play" (ver cuadro rojo)
+
+<img src="ip_honores/n1/img/spyder_10.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (11/12)
+
+- Ahora, ejecute la función `suma()`
+	- Para ello, vaya al intérprete (terminal) y ejecute a la función suma
+		- Por ejemplo, al ingresar este llamado:
+		
+```Python
+suma(0,0)
+```
+
+- El resultado debería verse similar a este:
+  
+<img src="ip_honores/n1/img/suma_1.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 1 (12/12)
+
+- Invoque la función `suma()`
+	- Usando otros valores
+		- Ej:
+		
+```Python
+suma(2, 2)
+suma(-2, -10)
+suma(-2, 5)
+```
+
+- El resultado completo debería verse similar a este:
+
+<img src="ip_honores/n1/img/suma_2.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+#  Actividad 2
+
+- **Objetivo:**
+	- Aprender cómo ejecutar las pruebas de una función en Spyder
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (1/9)
+
+- Las pruebas son un **paso fundamental** de la metodología del curso
+	-  ❌ Codificar una función, sin haber creado los casos de prueba
+	- ❌ Entregar una función sin probarla
+	- ❌ Entregar una función con tests fallidos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (2/9)
+
+- Configure el ambiente de pruebas de la función `suma()`
+	- Para ello copie las dos líneas\* destacadas a continuación
+		- Debe pegarlas en el orden mostrado
+			- Esto es, una línea **antes** y otra **después** de la función:
+
+```Python[1, 26]
+import doctest
+
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+    Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    return primer_operando + segundo_operando
+    
+doctest.run_docstring_examples(suma, globals(), verbose=True)
+```
+
+\* Más adelante estudiaremos en detalle las líneas aquí copiadas
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (3/9)
+
+El programa debería verse así en su editor de Spyder:
+
+<img src="ip_honores/n1/img/programa_suma_1.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (4/9)
+
+- Ejecute las pruebas de la función `suma()`
+	- Para ello, clic en el botón de ► "play" (ver cuadro rojo)
+
+<img src="ip_honores/n1/img/spyder_10.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (5/9)
+
+- ✅ Todos los tests son exitosos
+	- Así debería verse el resultado en el intérprete (terminal):
+
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso solo ceros
+Expecting:
+    0
+ok
+Trying:
+    suma(2, 2)  # Caso enteros positivos
+Expecting:
+    4
+ok
+Trying:
+    suma(-2, -10)  # Caso enteros negativos
+Expecting:
+    -12
+ok
+Trying:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expecting:
+    3
+ok
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (6/9)
+
+- **Primer test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+	    ...
+        >>> 	suma(0, 0)  # Caso solo ceros
+	    0
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso solo ceros
+Expecting:
+    0
+ok
+```
+
+- El primer test es exitoso:
+	- Salida esperada: `0`
+	- Salida obtenida: **`0`**
+		- Porque  `primer_operando` + `segundo_operando` (0 + 0) es igual a **`0`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 2 (7/9)
+
+- **Segundo test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+```Plaintext
+Trying:
+    suma(2, 2)  # Caso enteros positivos
+Expecting:
+    4
+ok
+```
+
+- El segundo test es exitoso:
+	- Salida esperada: `4`
+	- Salida obtenida: **`4`**
+		- Porque  `primer_operando` + `segundo_operando` (2 + 2) es igual a **`4`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (8/9)
+
+- **Tercer test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+```Plaintext
+Trying:
+    suma(-2, -10)  # Caso enteros negativos
+Expecting:
+    -12
+ok
+```
+
+- El tercer test es exitoso:
+	- Salida esperada: `-12`
+	- Salida obtenida: **`-12`**
+		- Porque  `primer_operando` + `segundo_operando` (-2 + -10) es igual a **`-12`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 2 (9/9)
+
+-  **Cuarto test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+```Plaintext
+Trying:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expecting:
+    3
+ok
+```
+
+- El cuarto test es exitoso:
+	- Salida esperada: `3`
+	- Salida obtenida: **`3`**
+		- Porque  `primer_operando` + `segundo_operando` (-2 + 5) es igual a **`3`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+#  Actividad 3
+
+- **Objetivo:**
+	- Comprender los tests fallidos de una función
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (1/7)
+
+- Una función podría estar mal implementada
+	- En ese caso, uno o más tests **deberían fallar**
+- A continuación se usará una **versión errónea** de la función `suma()`
+	- El objetivo es entender por qué test fallan
+		- Lo cual se requiere para corregir una función
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (2/7)
+
+- Copie y pegue esta **versión errónea** de la función `suma()`
+	- En lugar de hacer la suma aritmética
+		- La salida siempre es valor de `primer_operando`
+			- Lo cual **no cumple con el propósito de la función**
+
+```Python[24,25]
+import doctest
+
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+    Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    # Implementación errónea:
+    return primer_operando
+    
+doctest.run_docstring_examples(suma, globals(), verbose=True)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (3/7)
+
+- Ejecute las pruebas de la función errónea `suma()`
+	- No todos los tests serán exitosos
+		- Así debería verse el resultado en el intérprete (terminal):
+
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso extremo
+Expecting:
+    0
+ok
+Trying:
+    suma(2, 2)  # Caso enteros positivos
+Expecting:
+    4
+**********************************************************************
+...
+Failed example:
+    suma(2, 2)  # Caso enteros positivos
+Expected:
+    4
+Got:
+    2
+Trying:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expecting:
+    3
+**********************************************************************
+...
+Failed example:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expected:
+    3
+Got:
+    -2
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (4/7)
+
+- **Primer test**: ¿por qué es exitoso?
+	
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+	    ...
+        >>> suma(0, 0)  # Caso solo ceros
+	    0
+	    ...
+    """
+    # Implementación errónea:
+    return primer_operando
+```
+
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso solo ceros
+Expecting:
+    0
+ok
+```
+
+- El primer test es exitoso:
+	- Salida esperada: `0`
+	- Salida obtenida: **`0`**
+		- Porque  `primer_operando` es igual a **`0`**
+
+Este caso destaca la importancia de **hacer varias pruebas**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (5/7)
+
+- **Segundo** test: ¿por qué falla?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+	    ...
+    """
+	# Implementación errónea:
+    return primer_operando
+```
+
+```Plaintext
+Failed example:
+    suma(2, 2)  # Caso enteros positivos
+Expected:
+    4
+Got:
+    2
+```
+- El segundo test es falla:
+	- Salida esperada: `4`
+	- Salida obtenida: **`2`**
+		- Porque `primer_operando` es igual a **`2`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (6/7)
+
+- **Tercer** test: ¿por qué falla?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+	    ...
+    """
+	# Implementación errónea:
+    return primer_operando
+```
+
+```Plaintext
+Failed example:
+    suma(-2, -10)  # Caso enteros negativos
+Expected:
+    -12
+Got:
+    -2
+```
+
+- El tercer test es falla:
+	- Salida esperada: `-10`
+	- Salida obtenida: **`-2`**
+		- Porque  `primer_operando` es igual a **`-2`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+###  Actividad 3 (7/7)
+
+- **Cuarto** test: ¿por qué falla?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+	    ...
+    """
+	# Implementación errónea:
+    return primer_operando
+```
+
+```Plaintext
+Failed example:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expected:
+    3
+Got:
+    -2
+```
+
+- El cuarto test es falla:
+	- Salida esperada: `3`
+	- Salida obtenida: **`-2`**
+		- Porque  `primer_operando` es igual a **`-2`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+# Las siguientes son buenas prácticas OBLIGATORIAS en IP Honores
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Buenas prácticas OBLIGATORIAS en IP Honores (1/5)
+
+- El nombre de una función debe ser **auto explicativo**
+	- Claro y conciso
+	- Ej:
+
+```
+suma
+
+sumar
+
+sumar_dos_enteros
+```
+
+- Si el nombre se compone de varias palabras
+	- Estas deben separarse por guiones bajos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Buenas prácticas OBLIGATORIAS en IP Honores (2/5)
+
+- El nombre de cada parámetro debe ser **auto explicativo**
+	- Claro y conciso
+	- Ej:
+
+```plaintext
+primer_operando
+segundo_operando
+
+primer_sumando
+segundo_sumando
+
+entero1
+entero2
+
+num1
+num2
+```
+
+- Si el nombre se compone de varias palabras
+	- Estas deben separarse por guiones bajos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Buenas prácticas OBLIGATORIAS en IP Honores (3/5)
+
+- **El orden es importante**
+	- **NUNCA** se debe construir (codificar)
+		- Si el análisis y el diseño no se han terminado
+
+<img src="ip_honores/n1/img/resultado.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Buenas prácticas OBLIGATORIAS en IP Honores (4/5)
+
+- **El orden es importante**
+	- **NUNCA** se debe construir (codificar)
+		- Sin haber diseñado y documentado los casos de prueba
+
+<img src="ip_honores/n1/img/resultado.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Buenas prácticas OBLIGATORIAS en IP Honores (5/5)
+
+- Cada caso de prueba deben ser:
+	- **Significativo y no redundante**
+	- **Documentado**
+		- De forma muy clara y concisa
+	
+
+```Plaintext
+	Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+```
+
+ - La documentación se inicia con el símbolo de numeral `#`
+	- El computador no ejecuta aquello ubicado después del numeral
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+#  Actividad 4
+
+- **Objetivo:**
+	- Poner en práctica la metodología de IP Honores
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 4 (1/3)
+
+- Para el desarrollo de esta actividad
+	- **Debe** crear un archivo `.py` por función
+	- Ej:
+		- `programa_suma.py` (ya completado)
+		- `programa_multiplicacion.py`
+		- `programa_division.py`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 4 (2/3)
+
+- Revise su N1-HT-1 (Nivel 1 - Hoja de Trabajo 1)
+	- Implemente y ejecute en Spyder las funciones de cálculo de:
+		- Multiplicación
+		- Cuadrado
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 4 (2/3)
+
+- Ejecute las pruebas de cada función
+	- Para ello, debe cambiar en esta línea el nombre de la función
+		- Esta línea siempre se ubica **después** la función a probar
+
+```Python
+doctest.run_docstring_examples(suma, globals(), verbose=True)
+```
+
+- Reemplace `suma`, por el nombre de su función
+
+- Corrija su función si las pruebas fallan
+
+- Guarde sus cambios
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+#  Actividad 5: 
+
+- **Objetivo:**
+	- Aprender como hacer el envío de un entregable
+		- Mediante Bloque Neón
+
+- **Fecha límite de envío**:
+	- **Enero 27, 11:00pm**
+	- Recordatorio:
+		- Este laboratorio es calificable
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 5 (1/5)
+
+1. Comprima en un archivo `.zip`
+	- Los 3 archivos (`.py`) producidos:
+		- `programa_suma.py`
+		- `programa_multiplicacion.py`
+		- `programa_division.py`
+
+2. Cambie el nombre del archivo `.zip` siguiendo el formato:
+	- **N1-L1-login.zip**
+		- Donde *login* es su nombre de usuario de Uniandes
+			- Ej: `N1-L1-p.perez123.zip`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 5 (2/5)
+
+- Inicie sesión en [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
+
+- Vaya a **"Actividades"**
+	- **"N1-L1"**
+		- Siga los pasos mostrados a continuación:
+
+<img src="ip_honores/n1/img/envio.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 5 (3/5)
+
+- Compruebe el envío correcto de su laboratorio
+	- En Bloque Neón
+		- Vaya a **"Actividades"**
+	- Debería aparecer su envío
+		- Haga clic en el envío (ver cuadro rojo)
+
+<img src="ip_honores/n1/img/enviado.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 5 (4/5)
+
+- Compruebe el envío correcto de su laboratorio
+	- Descargue el archivo `.zip` que envió
+	- Verifique que el contenido en el `.zip` enviado 
+		- Es aquel que usted deseaba enviar
+
+<img src="ip_honores/n1/img/zip_enviado.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+### Actividad 5 (5/5)
+
+- Si el contenido del archivo `.zip` no es correcto o
+	- No hay ningún envío
+		- [Repita el proceso de envío](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/54) muy cuidadosamente
+
+- **Importante:**
+	- La calificación de un laboratorio no entregado, vacío o que no se puede abrir es **0.0**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+# Fin del laboratorio
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
+
+<style> table { width: 50%; border-collapse: collapse; } td { padding: 12px; text-align: justify; font-size: 20px; border: 0.5px solid black; } </style> <table> <tr> <td> <strong>Copyright © 2025 Universidad de los Andes</strong>. Esta obra se encuentra sujeta a una licencia Creative Commons <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode">"Attribution-NonCommercial-NoDerivatives 4.0 International"</a>. <strong>Atribución-NoComercial-SinDerivadas:</strong> Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente. Puede ser reproducida para cualquier uso no-comercial, otorgando crédito a la Universidad de los Andes. No se permiten obras derivadas. El uso del nombre de la Universidad de los Andes para cualquier fin distinto al reconocimiento respectivo y el uso de su logotipo, no están autorizados por esta licencia. <strong>Universidad de los Andes | Vigilada Mineducación</strong> Reconocimiento como Universidad, Decreto 1297 del 30 de mayo de 1964. Reconocimiento personería jurídica Resolución 28 del 23 de febrero de 1949 Min. Justicia. Fuente de iconos: <a href=https://www.flaticon.com>"www.flaticon.com"</a>. <strong>Licencia Flaticon</strong>: Gratis para uso personal o comercial con atribución, como se hace aquí de forma explícita y pública. </td> </tr> </table>
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/mermaid/mermaid.js"></script>
+    <script src="plugin/chart/chart.min.js"></script>
+    <script src="plugin/chart/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+        function extend() {
+            const target = {};
+            for (let i = 0; i < arguments.length; i++) {
+                const source = arguments[i];
+                for (const key in source) {
+                    if (source.hasOwnProperty(key)) {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        }
+
+        function isLight(color) {
+            let hex = color.replace('#', '');
+
+            // convert #fff => #ffffff
+            if (hex.length == 3) {
+                hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+            }
+
+            const c_r = parseInt(hex.substr(0, 2), 16);
+            const c_g = parseInt(hex.substr(2, 2), 16);
+            const c_b = parseInt(hex.substr(4, 2), 16);
+            const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+            return brightness > 155;
+        }
+
+        const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+
+        if (isLight(bgColor)) {
+            document.body.classList.add('has-light-background');
+        } else {
+            document.body.classList.add('has-dark-background');
+        }
+
+        // default options to init reveal.js
+        const defaultOptions = {
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'default', // none/fade/slide/convex/concave/zoom
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealZoom,
+                RevealNotes,
+                RevealMath.MathJax3,
+                RevealMermaid,
+                RevealChart,
+                RevealCustomControls,
+            ],
+            allottedTime: 120 * 1000,
+            mathjax3: {
+                mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+            },
+            markdown: {
+                gfm: true,
+                mangle: true,
+                pedantic: false,
+                smartLists: false,
+                smartypants: false,
+            },
+            mermaid: {
+                theme: isLight ? 'default' : 'dark',
+            },
+            customcontrols: {
+                controls: [
+                ]
+            },
+        };
+
+        if ( pageInIframe() ) {
+            defaultOptions.scrollActivationWidth = 5;
+        }
+
+        // options from URL query string
+        const queryOptions = Reveal().getQueryHash() || {};
+
+        const options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"center":false,"transition":"slide","transitionSpeed":"normal","width":960,"height":700,"margin":"0.001","minScale":"0.1","maxScale":"2.0"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+</body>
+
+<!-- created with Slides Extended -->
+</html>
