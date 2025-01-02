@@ -402,40 +402,24 @@ suma(-2, 5)
 ###  Actividad 2 (2/9)
 
 - Configure el ambiente de pruebas de la función `suma()`
-	- Para ello copie las dos líneas\* destacadas a continuación
+	- Para ello copie las dos líneas<sup id="fn1">1</sup> mostradas a continuación
 		- Debe pegarlas en el orden mostrado
 			- Esto es, una línea **antes** y otra **después** de la función:
 
-```Python[1, 26]
+<br>
+
+```Python
 import doctest
+```
 
-def suma(primer_operando: int, segundo_operando: int) -> int:
-    """
-    Calcula la suma de dos números enteros.
+<br>
 
-    Args:
-        primer_operando (int): El primer número entero a sumar.
-        segundo_operando (int): El segundo número entero a sumar.
-
-    Returns:
-        int: El resultado de sumar los números enteros.
-
-    Test cases:
-        >>> suma(0, 0)  # Caso solo ceros
-        0
-        >>> suma(2, 2)  # Caso enteros positivos
-        4
-        >>> suma(-2, -10)  # Caso enteros negativos
-        -12
-        >>> suma(-2, 5)  # Caso enteros positivos y negativos
-        3
-    """
-    return primer_operando + segundo_operando
-    
+```Python
 doctest.run_docstring_examples(suma, globals(), verbose=True)
 ```
 
-\* Más adelante estudiaremos en detalle las líneas aquí copiadas
+<br>
+<p id="footnote"> <sup id="fn1">1</sup> Más adelante estudiaremos en detalle las líneas aquí copiadas </p>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
 
@@ -631,7 +615,7 @@ ok
 		- La salida siempre es valor de `primer_operando`
 			- Lo cual **no cumple con el propósito de la función**
 
-```Python[24,25]
+```Python
 import doctest
 
 def suma(primer_operando: int, segundo_operando: int) -> int:
@@ -1047,7 +1031,7 @@ doctest.run_docstring_examples(suma, globals(), verbose=True)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" template="" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: start; justify-content: center" absolute="true">
 
-<style> table { width: 50%; border-collapse: collapse; } td { padding: 12px; text-align: justify; font-size: 20px; border: 0.5px solid black; } </style> <table> <tr> <td> <strong>Copyright © 2025 Universidad de los Andes</strong>. Esta obra se encuentra sujeta a una licencia Creative Commons <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode">"Attribution-NonCommercial-NoDerivatives 4.0 International"</a>. <strong>Atribución-NoComercial-SinDerivadas:</strong> Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente. Puede ser reproducida para cualquier uso no-comercial, otorgando crédito a la Universidad de los Andes. No se permiten obras derivadas. El uso del nombre de la Universidad de los Andes para cualquier fin distinto al reconocimiento respectivo y el uso de su logotipo, no están autorizados por esta licencia. <strong>Universidad de los Andes | Vigilada Mineducación</strong> Reconocimiento como Universidad, Decreto 1297 del 30 de mayo de 1964. Reconocimiento personería jurídica Resolución 28 del 23 de febrero de 1949 Min. Justicia. Fuente de iconos: <a href=https://www.flaticon.com>"www.flaticon.com"</a>. <strong>Licencia Flaticon</strong>: Gratis para uso personal o comercial con atribución, como se hace aquí de forma explícita y pública. </td> </tr> </table>
+<style> table { width: 50%; border-collapse: collapse; } td { padding: 12px; text-align: justify; font-size: 10px; border: 0.5px solid black; } </style> <table> <tr> <td> <strong>Copyright © 2025 Universidad de los Andes</strong>. Esta obra se encuentra sujeta a una licencia Creative Commons <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode">"Attribution-NonCommercial-NoDerivatives 4.0 International"</a>. <strong>Atribución-NoComercial-SinDerivadas:</strong> Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente. Puede ser reproducida para cualquier uso no-comercial, otorgando crédito a la Universidad de los Andes. No se permiten obras derivadas. El uso del nombre de la Universidad de los Andes para cualquier fin distinto al reconocimiento respectivo y el uso de su logotipo, no están autorizados por esta licencia. <strong>Universidad de los Andes | Vigilada Mineducación</strong> Reconocimiento como Universidad, Decreto 1297 del 30 de mayo de 1964. Reconocimiento personería jurídica Resolución 28 del 23 de febrero de 1949 Min. Justicia. Fuente de iconos: <a href=https://www.flaticon.com>"www.flaticon.com"</a>. <strong>Licencia Flaticon</strong>: Gratis para uso personal o comercial con atribución, como se hace aquí de forma explícita y pública. </td> </tr> </table>
 </div></script></section></div>
     </div>
 
@@ -1144,7 +1128,7 @@ doctest.run_docstring_examples(suma, globals(), verbose=True)
         // options from URL query string
         const queryOptions = Reveal().getQueryHash() || {};
 
-        const options = extend(defaultOptions, {"controls":true,"progress":true,"slideNumber":true,"center":false,"transition":"slide","transitionSpeed":"normal","width":960,"height":700,"margin":"0.001","minScale":"0.1","maxScale":"2.0"}, queryOptions);
+        const options = extend(defaultOptions, {"controls":"true","progress":"true","slideNumber":"true","center":false,"transition":"slide","transitionSpeed":"normal","width":960,"height":700,"margin":"0.025","minScale":"0.1","maxScale":"2.0","controlsLayout":"bottom-right"}, queryOptions);
     </script>
 
     <script>

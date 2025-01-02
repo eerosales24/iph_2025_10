@@ -76,10 +76,3 @@ Spyder Light Style - Inspired by Spyder IDE's light theme
 .hljs-strong {
   font-weight: bold;
 }
-
-/* Highlight line style */
-.hljs-highlight-line {
-  background-color: yellow; /* Yellow background for highlighted lines */
-  display: block;
-  width: 100%; /* Ensure it covers the entire line */
-}
