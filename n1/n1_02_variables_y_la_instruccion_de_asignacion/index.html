@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/iph.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/spyder.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### <i class="fas fa-award"></i> IP Honores
+
+ ####  *Variables y la instrucción de asignación*
+
+[Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
+
+Departamento de Ingeniería de Sistemas y Computación
+
+Universidad de los Andes
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Motivación
+
+- ¿Por qué necesitamos variables?
+	- Imagine un programa lleno de solo valores:
+	    - `10_000`
+	    - `3.14e-10`
+	    
+<br>
+
+- ¿Qué tan legible sería ese programa?
+	- Las variables nos permiten 
+		- **Describir, manipular organizar y reusar**
+			- Valores en un programa
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Heap (1/3)
+
+- Región de memoria 
+	- Donde Python almacena objetos dinámicos
+- Un objeto es dinámico si
+	- Se crea en tiempo de ejecución
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Heap (2/3)
+
+- Representación simplificada
+	- Ya que heap es una región dinámica
+
+<br>
+
+
+<img src="iph/n1/img/heap.png" alt="" style="width: 35%; height: 40%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Heap (3/3)
+
+- Cada objeto en el heap
+	- Se almacena en un ubicación única en memoria
+		- Asignada según su tamaño
+	- Tiene un dirección única en memoria
+		- La cual es su identidad
+		- La estudiaremos más tarde
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variable (1/5)
+
+- Nombre simbólico 
+	- Que referencia a una ubicación en memoria
+	
+<br>
+
+<img src="iph/n1/img/variable.png" alt="" style="width: 28%; height: 30%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variable (2/5)
+
+- Una variable solo referencia a una ubicación en memoria
+	- En donde reside un objeto
+	
+<br>
+
+<img src="iph/n1/img/variable.png" alt="" style="width: 30%; height: 30%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variable (3/5)
+
+- Como una variable es solo un nombre
+	- Múltiples variables pueden referirse 
+		- A la misma ubicación en memoria
+	
+<br>
+
+<img src="iph/n1/img/variables.png" alt="" style="width: 33%; height: 38%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variable (4/5)
+
+- Las variables se almacenan en el stack
+- **Referencia**
+	- El stack apunta a datos en el heap mediante referencias
+- Los objetos en el heap  
+	- Persisten mientras tengan referencias activas en el stack
+	- Tienen una vida útil
+
+
+<br>
+
+
+<img src="iph/n1/img/stack_heap.png" alt="" style="width: 35%; height: 30%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variable (5/5)
+
+- No es el objetivo del curso estudiar el Heap o el Stack
+- Solo debe de quedar claro que
+	- **Una variable solo es un nombre**
+		- **Que se da una ubicación en memoria**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cómo se asigna una variable?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Instrucción de asignación (1/4)
+
+- Asocia una variable a una ubicación en memoria
+
+- Sintaxis: 
+```Python
+identificador = expresion
+```
+    
+
+- `identificador`: Un identificador válido en Python
+
+- `expresion`: Una expresión que produce un valor
+
+
+- Ej:
+```Python
+promedio = 1.5
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Instrucción de asignación (2/4)
+
+```Python
+promedio = 1.5
+```
+
+<br>
+
+<img src="iph/n1/img/promedio.png" alt="" style="width: 48%; height: 25%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Instrucción de asignación (3/4)
+
+```Python
+promedio = 1.5
+```
+
+<br>
+
+- Por simplicidad 
+	- Se dice que 
+		- A la variable '`promedio`' 
+			- _"Se le asigna"_ `1.5` ó
+			- _"Que es igual a"_ `1.5`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Instrucción de asignación (4/4)
+
+- Múltiples variables pueden hacer referencia 
+	- A la misma ubicación en memoria
+
+
+```Python
+PI = 3.14
+pi = PI
+numero_pi = pi
+```
+
+<br>
+
+<img src="iph/n1/img/promedio_2.png" alt="" style="width: 47%; height: 31%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Identificador
+
+- Nombre textual que se da a
+	- Una variable
+	- Y otros elementos en Python...
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Reglas para identificadores en Python (1/2)
+
+- Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#naming-conventions)
+
+<br>
+
+- Sensible a mayúsculas y minúsculas
+- Debe comenzar con una letra o guión bajo: 
+	- (a-z, A-Z) o _
+- Solo puede contener:
+	- Letras (a-z, A-Z), 
+	- Dígitos (0-9) 
+	- Guiones bajos _
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Reglas para identificadores en Python (2/2)
+
+- Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#naming-conventions)
+
+<br>
+
+
+- ❌ Caracteres especiales 
+	- Ej: -, !, @, #, $, %, etc.
+- ❌ Espacios 
+	- En su lugar, use guiones bajos _
+- ❌ Palabra clave
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Palabra clave
+
+- Palabra reservada que tiene 
+	- Un significado especial en Python:
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center; font-size: 20px;">
+  <tr>
+    <td><code>False</code></td>
+    <td><code>await</code></td>
+    <td><code>else</code></td>
+    <td><code>import</code></td>
+    <td><code>pass</code></td>
+  </tr>
+  <tr>
+    <td><code>None</code></td>
+    <td><code>break</code></td>
+    <td><code>except</code></td>
+    <td><code>in</code></td>
+    <td><code>raise</code></td>
+  </tr>
+  <tr>
+    <td><code>True</code></td>
+    <td><code>class</code></td>
+    <td><code>finally</code></td>
+    <td><code>is</code></td>
+    <td><code>return</code></td>
+  </tr>
+  <tr>
+    <td><code>and</code></td>
+    <td><code>continue</code></td>
+    <td><code>for</code></td>
+    <td><code>lambda</code></td>
+    <td><code>try</code></td>
+  </tr>
+  <tr>
+    <td><code>as</code></td>
+    <td><code>def</code></td>
+    <td><code>from</code></td>
+    <td><code>nonlocal</code></td>
+    <td><code>while</code></td>
+  </tr>
+  <tr>
+    <td><code>assert</code></td>
+    <td><code>del</code></td>
+    <td><code>global</code></td>
+    <td><code>not</code></td>
+    <td><code>with</code></td>
+  </tr>
+  <tr>
+    <td><code>async</code></td>
+    <td><code>elif</code></td>
+    <td><code>if</code></td>
+    <td><code>or</code></td>
+    <td><code>yield</code></td>
+  </tr>
+</table>
+
+- En el curso, estudiaremos varias palabras clave...
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ejemplos de identificadores válidos
+
+```Plaintext
+PI
+promedio
+velocidad_maxima
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ejemplos de identificadores inválidos
+
+- 3variable (empieza con **dígito**)
+- -mi_variable (empieza con **guión**)
+- mi variable (contiene un **espacio**)
+- True (usa una **palabra clave**)
+- mi$variable (contiene un **carácter especial**)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz I
+
+
+- ¿Cuáles de los siguientes son identificadores **inválidos**?
+	 - first_name
+	 - my-var
+	 - 2times
+	 - from
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz I - Respuesta
+
+- `my-var`
+	- No puede contener guión `-`
+		- Solo puede contener guiones bajos `_`
+- `2times`
+	- No puede comenzar con un número
+- `from` 
+	- No puede ser una palabra clave
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variables: Declarar y luego usar (1/3)
+
+- ¿Cuál es el resultado de ejecutar la siguiente instrucción?
+
+```Python
+promedio = promedio +  1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Variables: Declarar y luego usar (2/3)
+
+¿Cuál es el resultado de ejecutar la siguiente instrucción?
+
+```Python
+promedio = promedio +  1
+```
+
+- **Respuesta:**
+
+```Plaintext
+Traceback (most recent call last):
+
+    Cell In[...], line …
+
+        promedio =  promedio + 1  
+NameError: name 'promedio' is not defined
+```
+
+<br>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Errores en Python
+
+<br>
+
+- [Error y Excepción](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/2)
+- [SyntaxError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/3)
+- [NameError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/7)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Para cerrar
+
+- Buenas prácticas **obligatorias** en el <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/3" target="_blank">nombramiento de variables</a>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
+
+<br>
+<br>
+
+ [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":"0.025","minScale":"0.1","maxScale":"2.0","controls":"true","controlsLayout":"bottom-right","progress":"true","slideNumber":"true","center":"false","transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
