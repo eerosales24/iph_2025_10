@@ -122,21 +122,21 @@ Universidad de los Andes
 
 ###  `SyntaxError` (Error de sintaxis)
 
-- Error resultante de usar una sintaxis inválida
-- Ocurre en el momento del análisis (parse time)
-	- Antes de la ejecución
+- Error cuando el código no cumple las reglas de sintaxis de Python
+- Detectado en el momento del análisis (parse time),
+	- **Antes de la ejecución**
 
-- Hace que el intérprete de Python falle
-	- En procesar la línea de código
-	- Solución: 
-		- Cumpliendo la sintaxis de Python
+- Hace que el intérprete de Python no puede procesar el código
+
+- Solución: 
+	- Corregir el código para cumplir la sintaxis de Python
 - Ayuda: [SyntaxError](https://docs.python.org/3/library/exceptions.html#SyntaxError)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### `SintaxError` - Ejemplo (1/2)
 
-- En el intérprete de Python:
+- Si se ingresa lo siguiente en el intérprete:
 ```Python
 4 000
 ```
@@ -179,7 +179,7 @@ SyntaxError: invalid syntax
 ```
 
 - Ocurrió un `SyntaxError` dentro de la celda 1, en la línea 1
-- `^` señala los ceros finales problemáticos después del número 4
+- `^` Señala los ceros finales problemáticos después del número 4
 - Usar espacios dentro de un número 
 	- Es una **sintaxis inválida** en Python
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
