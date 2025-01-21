@@ -104,6 +104,8 @@ Universidad de los Andes
 - [Error y Excepción](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/2)
 - [SyntaxError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/3)
 - [NameError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/7)
+- [ValueError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/10)
+- [TypeError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/13)
 - En construcción...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -260,6 +262,140 @@ promedio = promedio +  1  # NameError: name 'promedio' is not defined`
 promedio = 101
 promedio = promedio +  1  
 # promedio será igual a 101
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `ValueError`
+
+- Excepción que ocurre cuando 
+	- Se provee un valor incorrecto
+			
+- Ayuda: [ValueError](https://docs.python.org/3/library/exceptions.html#ValueError)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `ValueError` - Ejemplo
+
+```Python
+int('esto_es_un_string')
+```
+
+
+
+<div class="callout callout-color7">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-bolt" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Error
+
+</div>
+</div>
+<div class="callout-content">
+
+`int()` espera un número o una cadena con un entero
+
+</div>
+</div>
+<!-- .element: style="width: 80%; font-size: 24px; transform: rotate(0deg)" -->
+
+- Si se provee una cadena alfanumérica que no sea un entero
+	- Se produce un `ValueError`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `ValueError`
+
+- ¿Cómo se soluciona el siguiente error?
+```Python
+int('abc12')
+# ValueError: invalid literal for int() with base 10: 'abc12'
+```
+
+<br>
+
+- **Proveer un argumento válido:**
+```Python
+int('12')  # → 12
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  `TypeError`
+
+- Excepción que ocurre cuando una operación 
+	- Se aplica sobre un tipo incorrecto de datos
+- Ayuda: [TypeError](https://docs.python.org/3/library/exceptions.html#TypeError)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `TypeError` - Ejemplo
+
+```Python
+'Result: ' + 5
+```
+
+
+<div class="callout callout-color7">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-bolt" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Error
+
+</div>
+</div>
+<div class="callout-content">
+
+Los operandos de la concatenación deben ser strings
+
+</div>
+</div>
+<!-- .element: style="width: 80%; font-size: 24px; transform: rotate(0deg)" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `TypeError` (1/2)
+
+- ¿Cómo se soluciona el siguiente error?
+```Python
+'Result: ' + 5
+# TypeError: can only concatenate str (not "int") to str
+```
+
+<br>
+
+- **Opción 1:** Usar operandos del tipo válido (vía conversión previa):
+```Python
+'Result: ' + str(5)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `TypeError` (2/2)
+
+- ¿Cómo se soluciona el siguiente error?
+```Python
+'Result: ' + 5
+# TypeError: can only concatenate str (not "int") to str
+```
+
+<br>
+
+- **Opción 2:** Usar directamente operandos del tipo válido:
+```Python
+'Result: ' + '5'
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
