@@ -139,6 +139,7 @@ Universidad de los Andes
 ### `SintaxError` - Ejemplo (1/2)
 
 - Si se ingresa lo siguiente en el intérprete:
+
 ```Python
 4 000
 ```
@@ -190,6 +191,7 @@ SyntaxError: invalid syntax
 ###  Solucionando un `SyntaxError`
 
 - ¿Cómo se soluciona el siguiente error?
+
 ```Python
 4 000  # SyntaxError: invalid syntax
 ```
@@ -197,6 +199,7 @@ SyntaxError: invalid syntax
 <br>
 
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->No usar espacios dentro de un número:
+
 ```Python
 4000
 ```
@@ -250,6 +253,7 @@ La variable `promedio` no fue definida (declarada) antes de su primer uso
 ###  Solucionando un `NameErrror`
 
 - ¿Cómo se soluciona el siguiente error?
+
 ```Python
 promedio = promedio +  1  # NameError: name 'promedio' is not defined`
 ```
@@ -313,6 +317,7 @@ Error
 ### Solucionando un `ValueError`
 
 - ¿Cómo se soluciona el siguiente error?
+
 ```Python
 int('abc12')
 # ValueError: invalid literal for int() with base 10: 'abc12'
@@ -321,6 +326,7 @@ int('abc12')
 <br>
 
 - **Proveer un argumento válido:**
+
 ```Python
 int('12')  # → 12
 ```
@@ -369,6 +375,7 @@ Los operandos de la concatenación deben ser strings
 ### Solucionando un `TypeError` (1/2)
 
 - ¿Cómo se soluciona el siguiente error?
+
 ```Python
 'Result: ' + 5
 # TypeError: can only concatenate str (not "int") to str
@@ -377,6 +384,7 @@ Los operandos de la concatenación deben ser strings
 <br>
 
 - **Opción 1:** Usar operandos del tipo válido (vía conversión previa):
+
 ```Python
 'Result: ' + str(5)
 ```
@@ -386,6 +394,7 @@ Los operandos de la concatenación deben ser strings
 ### Solucionando un `TypeError` (2/2)
 
 - ¿Cómo se soluciona el siguiente error?
+
 ```Python
 'Result: ' + 5
 # TypeError: can only concatenate str (not "int") to str
@@ -394,6 +403,7 @@ Los operandos de la concatenación deben ser strings
 <br>
 
 - **Opción 2:** Usar directamente operandos del tipo válido:
+
 ```Python
 'Result: ' + '5'
 ```

@@ -8,7 +8,7 @@ Spyder Light Style - Inspired by Spyder IDE's light theme
   padding: 0.5em;
   background: #ebebeb; /* Slightly darker gray background for better contrast */
   color: #000000; /* Black for non-highlighted text */
-  font-size: 1.2em; /* Incrementa el tamaño del texto */
+  font-size: 1.4em; /* Incrementa el tamaño del texto */
 }
 
 .hljs-keyword,
@@ -24,12 +24,12 @@ Spyder Light Style - Inspired by Spyder IDE's light theme
 .hljs-bullet,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: #228B22; /* Dark green for strings and template elements */
+  color: #006400; /* Darker green for strings and template elements */
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #5a5a5a; /* Slightly darker gray for comments and quotes */
+  color: #404040; /* Darker gray for comments and quotes */
   font-style: italic;
 }
 
