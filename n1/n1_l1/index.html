@@ -809,6 +809,21 @@ type(.1)
 
 - ¿Cuál es el resultado de ejecutar lo siguiente?
 ```Python
+type('0.0')
+```
+
+
+<br>
+
+- **Respuesta**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III
+
+- ¿Cuál es el resultado de ejecutar lo siguiente?
+```Python
 type(3.14e-10)
 ```
 
@@ -819,7 +834,21 @@ type(3.14e-10)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz III
+### Quiz IV
+
+- ¿Cuál es el resultado de ejecutar lo siguiente?
+```Python
+type('')
+```
+
+<br>
+
+- **Respuesta**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz V
 
 - ¿Cuál es el resultado de ejecutar lo siguiente?
 ```Python
@@ -833,7 +862,21 @@ type(4_000)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (1/3)
+### Quiz VI
+
+- ¿Cuál es el resultado de ejecutar lo siguiente?
+```Python
+type('IP Honores')
+```
+
+<br>
+
+- **Respuesta**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad IV (1/4)
 
 - En la terminal de Spyder 
 	- Ejecute por aparte, cada una de las siguientes líneas:
@@ -852,7 +895,7 @@ type(numero)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (2/3)
+### Actividad IV (2/4)
 
 - Ejemplo de salida:
 
@@ -860,7 +903,7 @@ type(numero)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (3/3)
+### Actividad IV (3/4)
 
 - En el tipado dinámico en Python
 	- **Solo un referencia es válida**
@@ -869,6 +912,50 @@ type(numero)
 <br>
 
 <img src="iph/n1/img/ej_tipado_dinamico.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad IV (4/4)
+
+- En la terminal de Spyder 
+	- Ejecute por aparte, cada una de las siguientes líneas:
+```Python
+dato = 42
+```
+```Python
+type(dato)
+```
+```Python
+dato = 42.0
+```
+```Python
+type(numero)
+```
+```Python
+dato = "42.0"
+```
+```Python
+type(dato)
+```
+
+- Comprenda los resultados obtenidos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Reuso de nombres de variables
+
+- Reusar el mismo identificador de una variable
+	- Tal que que en el programa haya sido de varios tipos
+		- Es una mala práctica de programación
+			- = código poco legible y difícil de mantener
+
+- Aquí cada identificador revela su propósito único
+	- Evitando confusiones:
+```Python
+altura = 42
+precio = 42.0
+mensaje = "42.0"
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
