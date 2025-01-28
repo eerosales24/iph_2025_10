@@ -99,12 +99,16 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Conversión de Tipos
+### Conversión de tipos (1/2)
 
 - Crear un nuevo objeto
-	- Con un tipo de dato deseado 
-		- Basado en el valor del original
-- El tipo de dato del objeto original no cambia
+	- Con un **tipo de dato** deseado 
+		- Basado en el **valor** del original
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Conversión de tipos (2/2)
+
 - El objeto original permanece intacto, sin modificaciones
 - Las funciones de conversión de Python
 	- Retornan un nuevo objeto
@@ -118,9 +122,8 @@ Universidad de los Andes
 ```Python
 int(objeto)
 ```
-        - `objeto`: Un número 
-	        - Ó una cadena de **solo dígitos**
-- Ej:
+	- `objeto`: Un número 
+		- Ó una cadena que represente a un entero
 ```Python
 int(5.5)  # → 5
 int(.5)  # → 0
@@ -137,8 +140,8 @@ int(7)  # → 7  # (sin efecto)
 ```Python
 float(objeto)
 ```
-        - `objeto`: Un número 
-	        - Ó una cadena de **solo dígitos**
+	- `objeto`: Un número 
+		- Ó una cadena que represente a un número
 - Ej:
 ```Python
 float(5)  # → 5.0
@@ -155,7 +158,7 @@ float(7.5)  # → 7.5 (sin efecto)
 ```Python
 str(objeto)
 ```
-        - `objeto`: Un objeto de cualquier tipo
+	- `objeto`: Un objeto de cualquier tipo
 - Ayuda: [str](https://docs.python.org/3/library/functions.html#func-str)
 - Ej:
 ```Python

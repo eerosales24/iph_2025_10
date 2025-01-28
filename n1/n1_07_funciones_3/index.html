@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/iph.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/spyder.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### IP Honores
+
+ ####  *Funciones III*
+
+[Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
+
+Departamento de Ingeniería de Sistemas y Computación
+
+Universidad de los Andes
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Función en Python
+
+- **Bloque de código** reutilizable y con nombre
+	- Diseñado para una **tarea específica**
+	- Puede recibir datos de entrada
+	- O puede retornar una salida (resultado)
+		- Ej: Un promedio
+	- Puede producir un efecto 
+		- Ej: Reproducir una canción
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (1/7)
+
+- En IP Honores se aplica una versión resumida de la
+  - Metodología de desarrollo de software:
+
+<img src="iph/n1/img/desarrollo.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (2/7)
+
+- **El orden importa**
+- Analogía: 
+	- Construir un edificio
+		- ❌ Luego, hacer su diseño
+	
+<br>
+<img src="iph/n1/img/sw.png" alt="" style="object-fit: scale-down">
+
+<!-- .element: style="width: 20%; height: 25%" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (3/7)
+
+- **Análisis**:
+	1.  Identificar y especificar el problema
+	2.  Identificar restricciones
+	3.  Documentar
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (4/7)
+
+- **Diseño**:
+	 1. Formular ejemplos
+		- Casos significativos y no redundantes
+	 2. Diseñar el algoritmo
+	 3. Diseñar y documentar casos de prueba
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (5/7)
+
+- **Construcción**:
+	- Codificar/implementar el diseño usando:
+		- Documentación
+        - Convenciones
+        - Buenas prácticas de programación
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (6/7)
+
+- **Pruebas**:
+	1. Verificar si el resultado obtenido es el esperado
+	2. Depurar:
+    	- Corregir errores
+    	- Pulir/mejorar/optimizar
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología (7/7)
+
+- Aplicar **paso a paso** la metodología
+	- Permite solucionar un problema
+		- A través de la programación
+
+
+<img src="iph/n1/img/resultado.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Pongamos en práctica la metodología del curso
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### El problema
+
+- Se requiere calcular la suma de dos números enteros
+
+<img src="iph/n1/img/suma.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Metodología
+
+- Usemos la metodología del curso:
+
+<br>
+<img src="iph/n1/img/sw.png" alt="" style="object-fit: scale-down">
+
+<!-- .element: style="width: 20%; height: 25%" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (1/11)
+
+- ✅ **Leer y comprender el enunciado**
+	
+- ✅ **Identificar el problema:**
+	- Se trata de un problema muy simple
+		- La suma aritmética de dos números enteros
+
+- **Especificar el problema:**
+	- Usamos una serie de preguntas
+		- Que ayudan a este fin
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (2/11)
+
+- **¿Cuál es el propósito de la función?**
+	- Calcular la suma aritmética de dos números enteros
+	
+<br>
+
+- **¿Cuál será el nombre la función?**
+	- El nombre debe ser **auto explicativo**
+		- Ej:
+			- `suma`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (3/11)
+		
+- **¿Qué dato(s) de entrada requiere?**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Dos números enteros
+
+<br>
+
+- **¿Qué salida (resultado) producirá?**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Un número entero que es
+		- La suma aritmética de los datos de entrada
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (4/11)
+		
+- **Especificar las restricciones:**
+	- Usamos una dos preguntas
+		- Que ayudan a este fin
+<br>
+
+- **¿Qué restricciones le aplican a los datos de entrada?**
+	- Deben ser dos números enteros
+	
+<br>
+
+- **¿Qué restricciones le aplican a la salida?**
+	- Debe ser un número entero
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (5/11)
+		
+- **Especificar las restricciones:**
+	- **Datos de entrada**:
+		- Deben ser dos números enteros
+	- **Salida**:
+		- Debe ser un número entero
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (6/11)
+
+- Escribir la documentación: 
+	- **¿Cuál es el propósito de la función?**
+
+```Python[2]
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (7/11)
+
+- Escribir la documentación: 
+	-  **¿Qué dato(s) de entrada requiere?**
+
+```Python[4-6]
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+    """
+```
+
+- Los parámetros **deben** tener **nombres auto explicativos**
+	- Múltiples palabras separadas por guiones bajos:
+		- `primer_operando`
+		- `segundo_operando`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (8/11)
+
+- Escribir la documentación: 
+	- **¿Qué salida (resultado) producirá?**
+
+```Python[8,9]
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (9/11)
+
+- Así se ve la documentación básica de la función en Python:
+
+```Python
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+    """
+```
+
+- Note que la documentación refleja las restricciones
+	- `(int)` indica que el tipo de dato esperado es un entero
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (10/11)
+
+- Así se ve la documentación básica de la función en Python:
+
+```Python
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+    """
+```
+
+- Note que la documentación se encierra
+	- Entre comillas triples  `""" """`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Análisis (11/11)
+
+- Así se ve la documentación básica de la función en Python:
+
+```Python
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+    """
+```
+
+- Note que la documentación está indentada
+	- Desplazada **4 espacios** horizontales
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Salidas de la etapa de análisis
+
+- ✅  Documentación de la función
+- ✅  Especificación de restricciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (1/7)
+
+- **Formular ejemplos**
+	- Usando **casos significativos y no redundantes**
+
+```plaintext
+0 + 0 = 0
+2 + 2 = 4
+-2 + -10 = -12
+-2 + 5 = 3
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (2/7)
+
+- Los casos contemplan:
+	- Caso extremo: suma de solo ceros
+	- Caso normal: suma de enteros positivos
+	- Caso normal: suma de enteros negativos
+	- Caso normal: suma de enteros negativos y positivos
+
+```plaintext
+0 + 0 = 0
+2 + 2 = 4
+-2 + -10 = -12
+-2 + 5 = 3
+```
+
+- Todos los casos son significativos y 
+	- No redundantes entre ellos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (3/7)
+
+- Diseñar el algoritmo para solucionar el problema 
+	- A partir de la formulación de ejemplos
+
+<br>
+
+ - El algoritmo será muy simple
+	- Únicamente sumar dos números
+		- La suma será directa:
+        
+```Python
+    primer_operando + segundo_operando
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (4/7)
+
+- Diseñar los casos de  pruebas en Python 
+	- A partir de la formulación de ejemplos
+		- Y el diseño del algoritmo
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (5/7)
+
+- Se define y documenta cada caso de prueba
+	- Así se veía un ejemplo:
+	
+```plaintext
+-2 + 5 = 3 
+```
+- Así se ve un caso de prueba, documentado:
+```Python
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+```
+
+<img src="iph/n1/img/pruebas.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (6/7)
+
+```Python
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+```
+
+- Explicación:
+	- Si se llama a la función `suma`
+		- Usando como datos de entrada: **`-2`** y **`5`**
+			- Los datos de entrada se separan por comas
+		- Se **debe** obtener como resultado: **`3`**
+	- La documentación se inicia con el símbolo de numeral `#`
+		- El computador no ejecuta aquello ubicado después del numeral
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Diseño (7/7)
+
+- Así se ven los casos de prueba de una función en Python
+	- En este caso se usarán 4 casos
+		- Se incluyen **dentro de la documentación**
+
+```Python[11-19]
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+    Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Salidas de la etapa de diseño
+
+- ✅  Diseño del algoritmo
+- ✅  Documentación ampliada de la función con
+	- Casos de prueba
+		- **Significativos y no redundantes**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (1/8)
+
+- Definir (declarar) la función:
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+```
+
+- Se inicia con `def`
+- Seguido del nombre de la función
+- Seguido de los parámetros en paréntesis
+	- Cada uno con su tipo de dato
+	- Los parámetros se separan por comas
+- Seguido del tipo de retorno (resultado)
+- Se finaliza con dos puntos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (2/8)
+
+- Explicación de los parámetros y su tipo:
+
+```Python
+(primer_operando: int, segundo_operando: int)
+```
+
+<br>
+
+- Los parámetros se incluyen entre paréntesis
+	- Se deben usar nombres auto explicativos
+- Conforme a las restricciones
+	- Ambos parámetros serán enteros (`int`)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (3/8)
+
+- Explicación del tipo de dato de la salida (resultado):
+
+```Python
+-> int
+```
+
+- La salida producida (resultado)
+	- Conforme a las restricciones
+		- También será un entero (`int`)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (4/8)
+
+- Incluir la documentación:
+
+```Python[2-21]
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+    Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+```
+
+- Note que la documentación está indentada:
+	- Desplazada 4 espacios horizontales
+		- Con respecto a la signatura
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (5/8)
+
+-  Escribir la implementación de la función
+- Por ahora, se omitirá la validación de las restricciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (6/8)
+
+-  Escribir la implementación de la función
+
+<br>
+
+- El algoritmo a escribir será muy simple:
+	- Únicamente sumar dos números
+		- La suma será directa:
+        
+```Python
+    primer_operando + segundo_operando
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (7/8)
+
+-   Escribir la implementación de la función
+
+<br>
+
+- En este caso, el resultado de la suma
+	- Se **retorna**  usando la instrucción `return`
+	
+    <br>
+    
+```
+return primer_operando + segundo_operando
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Construcción (8/8)
+
+- Así se ve la implementación completa de la función `suma()`
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+    Test cases:
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    return primer_operando + segundo_operando
+```
+
+- Note que el cuerpo de la función está indentado
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
+
+<br>
+<br>
+
+ [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":"0.025","minScale":"0.1","maxScale":"2.0","controls":"true","controlsLayout":"bottom-right","progress":"true","slideNumber":"true","center":"false","transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
