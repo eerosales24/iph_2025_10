@@ -114,11 +114,16 @@ Universidad de los Andes
 ### Índice
 
 - [Nombramiento de variables](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/3)
+- [Nombramiento de constantes](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/6)
+- [Nombramiento de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/7)
+- [Documentación de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/9)
+- [Definición de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10)
+- [Implementación de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11)
 - En construcción...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de variables (1/4)
+### Nombramiento de variables(1/3)
 
 - Usar identificadores **autoexplicativos**
 - Ej:
@@ -127,7 +132,7 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de variables (2/4)
+### Nombramiento de variables (2/3)
 
 - Por legibilidad usar **snake_case**
 	- Es decir, separar palabras con guiones bajos
@@ -137,7 +142,7 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de variables (3/4)
+### Nombramiento de variables (3/3)
 
 - Usar identificadores **concisos**
 	- Nombres largos son difíciles de leer
@@ -147,14 +152,103 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de variables (4/4)
+### Nombramiento de constantes
 
-- Los nombres de constantes se escriben en **mayúsculas** por convención
+- Los valores fijos se modelan como constantes
+	- Los nombres de constantes se escriben en **mayúsculas** por convención\*
 	- Ej: 
 	```Python
 	PESO_PROMEDIO = 200.15
 	LIMITE_VELOCIDAD = 60
+	IVA = .19
 	```
+
+<br>
+
+\* Salvo por el uso de mayúsculas, aplican también las buenas prácticas en el [nombramiento de variables](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/3)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Nombramiento de funciones (1/2)
+
+- El nombre de una función es un identificador
+	- Por lo tanto, le aplican las [reglas de identificadores](https://eerosales24.github.io/iph_2025_10/n1/n1_02_variables_y_la_instruccion_de_asignacion/#/16)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Nombramiento de funciones (2/2)
+
+- Por legibilidad usar `snake_case`
+	- Ej: `ordenar_nombres`
+- Siempre usar
+	- Nombre concisos y **auto explicativos**
+- Evitar usar
+	- Nombres largos y confusos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Documentación de funciones
+
+- Las funciones deben documentarse
+	- [PEP 257](https://peps.python.org/pep-0257/)
+
+- Aquí el formato genérico de un docstring:
+
+```python
+    """
+    Propósito de la función.
+
+    Args:
+        nombre parametro 1 (tipo del parametro 1): Descripción.
+        ...
+        nombre parametro n (tipo del parametro n): Descripción.
+        
+    Returns:
+        tipo de retorno: Descripción del valor de retorno.
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Definición de funciones
+
+- Siempre incluir en la signatura 
+	- El(los) tipo(s) de parámetro(s) y el tipo de retorno
+
+- Aquí el formato genérico de un la signatura:
+
+```Python[2-5]
+def 
+nombre_funcion
+(parametro_1: tipo_parametro_1 ... 
+ parametro_n: tipo_parametro_n) 
+ -> tipo_de_retorno:
+     # Cuerpo de la función
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Implementación de funciones (1/2)
+
+- Se debe aplicar el SRP
+	- **"Una función debe tener una, y solo una, razón para cambiar"**
+	-  Una función debe tener un **único propósito**
+	-  Si una función tiene dos propósitos
+		- Es una indicación
+			- De que se debe distribuir 
+				- En dos o más funciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Implementación de funciones (2/2)
+
+- Se debe aplicar el SRP
+    - **El cuerpo de la función debe ser conciso**
+        - Si no es así
+	        - Normalmente se requerirá de otra(s) nueva(s) función(es)
+	- **Limitar el tamaño de la lista de parámetros**
+	    - Demasiados parámetros podría indicar
+		    - Que se requerirá de otra(s) nueva(s) función(es)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 

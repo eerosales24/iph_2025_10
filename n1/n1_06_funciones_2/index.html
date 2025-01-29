@@ -87,7 +87,7 @@
       <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### IP Honores
+### <i class="fas fa-award"></i> IP Honores
 
  ####  *Funciones II*
 
@@ -660,21 +660,65 @@ print(resultado)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Ejemplo de función que usa flotantes
+### Orden de argumentos (1/2)
+
+- El orden de los argumentos en la invocación **importa**:
+
+<img src="iph/n1/img/orden.png" alt="" style="width: 80%; height: 25%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Quiz I
+
+```python
+def resta(primer_operando: int, segundo_operando: int) -> int:
+    return primer_operando - segundo_operando
+```
+
+¿Cuál es el resultado de la siguiente instrucción?
+```python
+resta(5, 10)
+```
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->-5
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Orden de argumentos (2/2)
+
+
+```python
+def resta(primer_operando: int, segundo_operando: int) -> int:
+    return primer_operando - segundo_operando
+```
+
+<br>
+
+- Estas dos invocaciones son **distintas**:
+
+```python
+resta(10, 5)  # → 5
+
+resta(5, 10)  # → -5
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II
+
+- Esta función 
+	- Recibe como datos de entrada a dos flotantes
+	- Produce como salida (resultado) un flotante
+	
 ```Python
 def suma(num1: float, num2: float) -> float:
     return num1 + num2
 ```
 
-- Esta función 
-	- Recibe como datos de entrada a dos flotantes
-	- Produce como salida (resultado) un flotante
+<br>
 
-- ¿La función sirve con enteros?
+- ¿Esta función sirve con enteros?
 	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Sí
+		- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Porque un `int` "cabe" adentro de un `float`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
