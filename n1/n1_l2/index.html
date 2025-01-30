@@ -89,8 +89,7 @@
 
 ### <i class="fas fa-award"></i> IP Honores
 
- ####  *Laboratorio 1 de Nivel 1 - N1-L1*
- 
+ ####  *Laboratorio 2 de Nivel 1 - N1-L2*
 
 [Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
 
@@ -103,12 +102,9 @@ Universidad de los Andes
 ### Instrucciones generales
 
 - **Objetivos**
-	- Familiarizarse con:
-		- Spyder
-	- Comprender los conceptos de:
-		- Variable y la instrucción de asignación
-		- Identidad de un objeto
-		- Tipado dinámico
+	- Practicar la metodología de desarrollo de software del curso
+	- Aprender a enviar un entregable del curso
+	- Aprender a usar [senecode](https://senecode.virtual.uniandes.edu.co/)
 
 <br>
 
@@ -123,864 +119,933 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Equipo
-
-- Seleccione una opción:
-	1. [Usaré un equipo del laboratorio](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/7)
-
-	<br>
-
-	2. [Usaré mi propio equipo](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/4)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Equipo propio
-
-- Seleccione una opción:
-	1. [Ya tengo el software **Anaconda** instalado](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/7)
-
-	<br>
-
-	1. [No tengo ese software instalado](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/5)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Equipo propio - Instalación de Anaconda (1/2)
-
-- Descargue el instalador de Anaconda:
-	1.  Windows:
-		- [64-Bit Graphical Installer (912.3M)](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe)
-	2.  Mac (IOS):
-		- Procesador _Silicon_:
-			- [64-Bit (Apple silicon) Graphical Installer (704.7M)](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-arm64.pkg)
-		- Procesador _Intel_:
-			- [64-Bit (Intel chip) Graphical Installer (734.7M)](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-x86_64.pkg)
-	3.  Linux:
-		- https://www.anaconda.com/download/success
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Equipo propio - Instalación de Anaconda (2/2)
-
-<img src="iph/n1/img/anaconda_2.png" alt="" style="width: 70%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Abrir Spyder (1/2)
-
-- Busque en sus **Programas** a Spyder y abra esta aplicación:
-
-<img src="iph/n1/img/spyder_1.png" alt="" style="width: 50%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Abrir Spyder (2/2)
-
-- Si no encuentra a Spyder en sus *Programas*:
-	- Busque y abra la aplicación **Anaconda**
-		- Luego, abra **Spyder**
-
-<img src="iph/n1/img/spyder_3.png" alt="" style="object-fit: scale-down">
-
-<!-- .element: style="width: 80%; height: 50%" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Herramientas
-
-<img src="iph/n1/img/herramientas.png" alt="" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-<img src="iph/n1/img/spyder.png" alt="" style="width: 25%; height: 15%; object-fit: fill">
-
-
-- [Spyder](https://www.spyder-ide.org/)
-  - Entorno de Desarrollo Integrado 
-	- Integrated Development Environment - **IDE**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Spyder - Interfaz 
-
-<img src="iph/n1/img/spyder_gui.png" alt="" style="width: 43%; height: 45%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Editor de Spyder
-
-- Espacio para escribir programas
-
-<br>
-
-		
-<img src="iph/n1/img/editor.png" alt="" style="object-fit: scale-down">
-
-<!-- .element: style="width: 25%; height: 45%" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Terminal de Spyder
-
-
-- Da acceso al **intérprete de Python - IPython**
-	- Muestra los resultados de ejecución del editor
-	- Ejecuta directamente instrucciones Python
-		
-	<br>
-	
-<img src="iph/n1/img/terminal.png" alt="" style="object-fit: scale-down">
-
-<!-- .element: style="width: 25%; height: 45%" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
 #  Actividad I
 
 - **Objetivo:**
-	- Aprender a usar la terminal de Spyder
+	- Aprender a ejecutar un programa Python en Spyder
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (1/6)
+###  Actividad I (1/12)
 
-- La terminal de Spyder da acceso al **intérprete de Python - IPython**
-	- Este traduce (interpreta) y ejecuta código Python
-		- Línea a línea 
+- Defina su directorio de trabajo (working directory)
+	- Para ello, cree una carpeta cuyo nombre **no tenga espacios**
+		- Copie la ruta a esa carpeta 
+			- En la parte superior de Spyder (ver cuadro rojo)
+				- Presione *Enter*
 
-
-<img src="iph/n1/img/terminal.png" alt="" style="object-fit: scale-down">
-
-<!-- .element: style="width: 15%; height: 30%" -->
+<img src="iph/n1/img/spyder_5.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (2/6)
+###  Actividad I (2/12)
 
-- Ejemplo de uso del intérprete de IPython
-	- A través de la terminal de Spyder
+- Cambie la vista al **Explorador de archivos (Files)**
+	- Para ello, haga clic en **Explorador de archivos (Files)** (ver cuadro rojo)
 
-<img src="iph/n1/img/ejemplo_terminal.png" alt="" style="object-fit: scale-down">
+<img src="iph/n1/img/spyder_6.png" alt="" style="width: 40%; height: 50%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (3/6)
+###  Actividad I (3/12)
 
-<img src="iph/n1/img/instruccion.png" alt="" style="object-fit: scale-down">
+- Clic derecho en el área blanca (ver cuadro rojo)
+
+<img src="iph/n1/img/spyder_6_1.png" alt="" style="width: 60%; height: 50%; object-fit: fill">
 
 
-
-- `2 + 2`
-	-  Es una **instrucción**
-- `[1]`:
-	- Cada línea es una celda
-		- Aquí, la **celda 1**
-- `In`:
-	- Se **ingresa** una instrucción
+- Seleccione una opción:
+	1. Al hacer clic derecho, [se desplegó un menú](https://eerosales24.github.io/iph_2025_10/n1/n1_l2/#/7)
+	
+	2. Al hacer clic derecho, [NO se desplegó nada](https://eerosales24.github.io/iph_2025_10/n1/n1_l2/#/8)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (4/6)
+###  Actividad I (4/12)
 
-<img src="iph/n1/img/salida.png" alt="" style="object-fit: scale-down">
+- Seleccione: **Nuevo – Archivo (New – File)** (ver cuadro rojo)
+
+<img src="iph/n1/img/spyder_7.png" alt="" style="width: 50%; height: 50%; object-fit: fill">
 
 
-- `4`:
-	-  Es un **resultado** (salida)
-- `Out`:
-	-  La **salida** (resultado) de ejecución
-		-  De una instrucción
+- [**Click para continuar en orden**](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/10)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (5/6)
+###  Actividad I (5/12)
 
-<img src="iph/n1/img/ejemplo_terminal_1.png" alt="" style="object-fit: scale-down">
+- Si hacer clic derecho no funcionó, entonces vaya a:
+	- **Archivo (File)**
+		- **Nuevo Archivo (New File)**
+			- Esto creará un nuevo archivo llamado `untiled.py` (o similares)
 
-
-- En resumen:
-	- IPython interpreta y ejecuta la instrucción ingresada:
-		- **`2 + 2`**
-	-  Y muestra el resultado:
-		- **`4`**
+<img src="iph/n1/img/spyder_11.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (6/6)
+###  Actividad I (6/12)
 
-- Usando la terminal de Spyder
-	- **Compruebe los resultados de la siguiente tabla**:
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;font-size: 20px;">
-  <thead style="background-color: #d0e6f8;">
-    <tr>
-      <th style="color: black;">Operador</th>
-      <th style="color: black;">Descripción</th>
-      <th style="color: black;">Ejemplo</th>
-      <th style="color: black;">Resultado</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>+</td>
-      <td>Suma</td>
-      <td><strong>5 + 5</strong></td>
-      <td><strong>10</strong></td>
-    </tr>
-    <tr>
-      <td>−</td>
-      <td>Resta</td>
-      <td><strong>10 - 2</strong></td>
-      <td><strong>8</strong></td>
-    </tr>
-    <tr>
-      <td>*</td>
-      <td>Multiplicación</td>
-      <td><strong>7 * 3</strong></td>
-      <td><strong>21</strong></td>
-    </tr>
-    <tr>
-      <td>/</td>
-      <td>División</td>
-      <td><strong>9 / 2</strong></td>
-      <td><strong>4.5</strong></td>
-    </tr>
-    <tr>
-      <td>//</td>
-      <td>División (entera)</td>
-      <td><strong>9 // 2</strong></td>
-      <td><strong>4</strong></td>
-    </tr>
-    <tr>
-      <td>%</td>
-      <td>Módulo  (o resto)</td>
-      <td><strong>9 % 2</strong></td>
-      <td><strong>1</strong></td>
-    </tr>
-    <tr>
-      <td>**</td>
-      <td>Exponenciación</td>
-      <td><strong>2 ** 4</strong></td>
-      <td><strong>16</strong></td>
-    </tr>
-  </tbody>
-</table>
+- Vaya a **Archivo (File)**
+	- **Guardar como (Save as)**
+		- Esto abrirá una ventana que solicita en donde guardar el archivo
+		
+<img src="iph/n1/img/spyder_12.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (7/12)
+
+- Digite el siguiente nombre:
+	- `programa_suma.py`
+
+- Elija el directorio en donde guardar
+	-  **Debe ser el *directorio de trabajo* que definió antes**
+- Luego, elija la opción:
+	- **Guardar (Save)**
+
+<img src="iph/n1/img/spyder_8.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (8/12)
+
+- Verifique que el archivo esté abierto
+	- En el editor de Spyder
+
+<img src="iph/n1/img/spyder_9.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (9/12)
+
+- Copie y pegue el siguiente código en el **editor de Spyder**:
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    return primer_operando + segundo_operando
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (10/12)
+
+- Ejecute el intérprete (terminal) de Spyder
+	- Para ello, clic en el botón de ► "play" (ver cuadro rojo)
+
+<img src="iph/n1/img/spyder_10.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (11/12)
+
+- Ahora, ejecute la función `suma()`
+	- Para ello, vaya al intérprete (terminal) y ejecute a la función suma
+		- Por ejemplo, al ingresar este llamado:
+		
+```Python
+suma(0,0)
+```
+
+- El resultado debería verse similar a este:
+  
+<img src="iph/n1/img/suma_1.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (12/12)
+
+- Invoque la función `suma()`
+	- Usando otros valores
+		- Ej:
+		
+```Python
+suma(2, 2)
+suma(-2, -10)
+suma(-2, 5)
+```
+
+- El resultado completo debería verse similar a este:
+
+<img src="iph/n1/img/suma_2.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #  Actividad II
 
 - **Objetivo:**
-	- Comprender en la práctica el concepto de variable
+	- Aprender cómo ejecutar las pruebas de una función en Spyder
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (1/6)
+###  Actividad II (1/9)
 
-- En la terminal de Spyder 
-	- Ejecute la siguiente línea:
+- Las pruebas son un **paso fundamental** de la metodología del curso
+	- ❌ Entregar una función sin probarla
+	- ❌ Entregar una función con tests fallidos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (2/9)
+
+- Configure el ambiente de pruebas de la función `suma()`
+	- Para ello copie las dos líneas<sup id="fn1">1</sup> mostradas a continuación
+		- Debe pegarlas en el orden mostrado
+			- Esto es, una línea **antes** y otra **después** de la función:
+
+<br>
+
 ```Python
-pi = 3.14
-```
-
-<img src="iph/n1/img/ej_variable.png" alt="" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-###  Actividad II (2/6)
-
-- **Recuerde:**
-	- Una variable solo referencia a una ubicación en memoria
-		- En donde reside un objeto
-
-
-<img src="iph/n1/img/ej_pi.png" alt="" style="width: 30%; height: 30%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-###  Actividad II (3/6)
-
-- Ubíquese en el panel de exploración de Spyder
-	- Y seleccione el **Variable Explorer** (Explorador de Variables)
-
-<img src="iph/n1/img/panel.png" alt="" style="width: 80%; height: 80%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-###  Actividad II (4/6)
-
-- Así debería verse el mismo:
-
-<img src="iph/n1/img/var_explorer_2.png" alt="" style="object-fit: scale-down">
-
-
-
-- **Name**: 
-	- `pi`  es una variable (un nombre)
-- **Type**: 
-	- `pi` referencia a un objeto cuyo tipo de dato es un `float`
-- **Size**: 
-	- Tamaño (irrelevante por ahora)
-- **Value**: 
-	- El valor del objeto, cuya dirección referencia `pi` es
-		-  `3.14`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Actividad II (5/6)
-
-- En la terminal de Spyder 
-	- Ejecute la siguiente línea:
-```Python
-pi = 0.0
+import doctest
 ```
 
 <br>
 
-- **Revise qué cambios suceden en el Explorador de Variables**
-
-<br>
-
-<img src="iph/n1/img/ej_pi_2.png" alt="" style="width: 20%; height: 20%; object-fit: fill">
+```Python
+doctest.run_docstring_examples(suma, globals(), verbose=True)
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad II (6/6)
+###  Actividad II (3/9)
 
-- En la terminal de Spyder 
-	- Ejecute las siguientes líneas:
+Ahora el programa debería verse así en su editor de Spyder:
+
+```python
+import doctest
+
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    return primer_operando + segundo_operando
+
+doctest.run_docstring_examples(suma, globals(), verbose=True)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (4/9)
+
+- Ejecute las pruebas de la función `suma()`
+	- Para ello, clic en el botón de ► "play" (ver cuadro rojo)
+
+<img src="iph/n1/img/spyder_10.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (5/9)
+
+- ✅ Todos los tests son exitosos
+	- Así debería verse el resultado en el intérprete (terminal):
+
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso solo ceros
+Expecting:
+    0
+ok
+Trying:
+    suma(2, 2)  # Caso enteros positivos
+Expecting:
+    4
+ok
+Trying:
+    suma(-2, -10)  # Caso enteros negativos
+Expecting:
+    -12
+ok
+Trying:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expecting:
+    3
+ok
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (6/9)
+
+- **Primer test**: ¿por qué es exitoso?
+
 ```Python
-pi = 3.14
-promedio = 1.5
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+	    ...
+        >>> 	suma(0, 0)  # Caso solo ceros
+	    0
+	    ...
+    """
+    return primer_operando + segundo_operando
 ```
 
-<br>
 
-- **Revise qué cambios suceden en el Explorador de Variables**
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso solo ceros
+Expecting:
+    0
+ok
+```
 
-<br>
+- El primer test es exitoso:
+	- Salida esperada: `0`
+	- Salida obtenida: **`0`**
+		- Porque  `primer_operando` + `segundo_operando` (0 + 0) es igual a **`0`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="iph/n1/img/pi_promedio.png" alt="" style="width: 35%; height: 20%; object-fit: fill">
+### Actividad II (7/9)
+
+- **Segundo test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+```Plaintext
+Trying:
+    suma(2, 2)  # Caso enteros positivos
+Expecting:
+    4
+ok
+```
+
+- El segundo test es exitoso:
+	- Salida esperada: `4`
+	- Salida obtenida: **`4`**
+		- Porque  `primer_operando` + `segundo_operando` (2 + 2) es igual a **`4`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (8/9)
+
+- **Tercer test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+```Plaintext
+Trying:
+    suma(-2, -10)  # Caso enteros negativos
+Expecting:
+    -12
+ok
+```
+
+- El tercer test es exitoso:
+	- Salida esperada: `-12`
+	- Salida obtenida: **`-12`**
+		- Porque  `primer_operando` + `segundo_operando` (-2 + -10) es igual a **`-12`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (9/9)
+
+-  **Cuarto test**: ¿por qué es exitoso?
+
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+	    ...
+    """
+    return primer_operando + segundo_operando
+```
+
+```Plaintext
+Trying:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expecting:
+    3
+ok
+```
+
+- El cuarto test es exitoso:
+	- Salida esperada: `3`
+	- Salida obtenida: **`3`**
+		- Porque  `primer_operando` + `segundo_operando` (-2 + 5) es igual a **`3`**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #  Actividad III
 
 - **Objetivo:**
-	- Comprender en la práctica la instrucción de asignación
-	- Comprender el concepto de la identidad de un objeto
+	- Comprender los tests fallidos de una función
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Instrucción de asignación (repaso)
+###  Actividad III (1/7)
 
-- Asocia una variable a una ubicación en memoria
+- Una función podría estar mal implementada
+	- En ese caso, uno o más tests **deberían fallar**
+- A continuación se usará una **versión errónea** de la función `suma()`
+	- El objetivo es entender por qué test fallan
+		- Lo cual se requiere para **corregir** una función
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-- Sintaxis: 
+###  Actividad III (2/7)
+
+- Copie y pegue esta **versión errónea** de la función `suma()`
+	- En esta versión, no hace la suma aritmética
+		- Sino que la salida siempre es valor de `primer_operando`
+			- Lo cual **no cumple con el propósito de la función**
+
 ```Python
-identificador = expresion
-```
+import doctest
+
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+    Calcula la suma de dos números enteros.
+
+    Args:
+        primer_operando (int): El primer número entero a sumar.
+        segundo_operando (int): El segundo número entero a sumar.
+
+    Returns:
+        int: El resultado de sumar los números enteros.
+
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+    """
+    # Implementación errónea:
+    return primer_operando
     
-
-- `identificador`: Un identificador válido en Python
-
-- `expresion`: Una expresión que produce un valor
-
-
-- Ej:
-```Python
-pi = 3.14
+doctest.run_docstring_examples(suma, globals(), verbose=True)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Comprendiendo la instrucción de asignación (1/2) 
+###  Actividad III (3/7)
 
-- En este ejemplo, se usa la instrucción de asignación
-	- Para asignar 3 nombres distintos, al mismo objeto:
-```Python
-PI = 3.14
-pi = PI
-numero_pi = PI
-```
+- Ejecute las pruebas de la función errónea `suma()`
+	- No todos los tests serán exitosos
+		- Así debería verse el resultado en el intérprete (terminal):
 
-<br>
-
-<img src="iph/n1/img/variables.png" alt="" style="width: 23%; height: 28%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la instrucción de asignación (2/2)
-
-- Hay un solo objeto
-	- Que reside en el heap
-- La ubicación en donde se almacena el objeto
-	- Tiene múltiples nombres
-	- Es decir, se **referencia** por múltiples variables
-
-
-<br>
-<img src="iph/n1/img/promedio_2.png" alt="" style="width: 44%; height: 31%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Objeto (repaso)
-
-- Un objeto en Python tiene asociado
-	- Tipo
-	- Valor
-	- Identidad
-		- **Estudiemos la identidad de un objeto**
-
-<br>
-
-<img src="iph/n1/img/objeto.png" alt="" style="width: 35%; height: 23%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Identidad de un Objeto (1/3)
-
-- En la versión estándar de Python
-	- La identidad de un objeto es
-		-  La dirección de su ubicación **en memoria**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Identidad de un Objeto (2/3)
-
-- Conceptualmente, en el heap
-	- Cada objeto tiene una identidad única
-		- Aquí representada por un color
-
-<br>
-
-<img src="iph/n1/img/heap.png" alt="" style="width: 35%; height: 40%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Identidad de un Objeto (3/3)
-
-- En Python hay una forma de consultar
-	- La identidad de un objeto:
-		- La función `id()`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Función - Introducción Preliminar (1/2)
-
-
-<img src="iph/n1/img/funcion.png" alt="" style="width: 60%; height: 40%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Función - Introducción Preliminar (2/2)
- 
-- Código fuente **reutilizable**
-	- Diseñado para una **tarea específica**
-	
-	<br>
-
-- Puede tomar datos de entrada
-- Produce un resultado o efecto
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### ¿Cómo obtener la identidad de un objeto?
-
-- En Python es posible consultar la identidad de un objeto
-	- Gracias a la función `id()`
-- Luego, estudiaremos más a fondo el concepto de función
-	- Por ahora, solo usemos la función `id()`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `id()`
-
-- Retorna la identidad del objeto dado
-    
-- Sintaxis: 
-```Python
-id(object)
-```
-
-- Ej:
-```Python
-pi = 3.14
-id(pi)
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso extremo
+Expecting:
+    0
+ok
+Trying:
+    suma(2, 2)  # Caso enteros positivos
+Expecting:
+    4
+**********************************************************************
+...
+Failed example:
+    suma(2, 2)  # Caso enteros positivos
+Expected:
+    4
+Got:
+    2
+Trying:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expecting:
+    3
+**********************************************************************
+...
+Failed example:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expected:
+    3
+Got:
+    -2
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad III (1/7)
+###  Actividad III (4/7)
 
-- En la terminal de Spyder 
-	- Ejecute las siguientes líneas:
+- **Primer test**: ¿por qué es exitoso?
 	
 ```Python
-PI = 3.14
-pi = PI
-numero_pi = PI
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+	    ...
+        >>> suma(0, 0)  # Caso solo ceros
+	    0
+	    ...
+    """
+    # Implementación errónea:
+    return primer_operando
 ```
+
+```Plaintext
+Trying:
+    suma(0, 0)  # Caso solo ceros
+Expecting:
+    0
+ok
+```
+
+- El primer test es exitoso:
+	- Salida esperada: `0`
+	- Salida obtenida: **`0`**
+		- Porque  `primer_operando` es igual a **`0`**
+
+Este caso destaca la importancia de **hacer varias pruebas**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad III (2/7)
+###  Actividad III (5/7)
 
-- Luego, ejecute por aparte, cada una de las siguientes líneas:
+- **Segundo** test: ¿por qué falla?
+
 ```Python
-id(PI)
-```
-```Python
-id(pi)
-```
-```Python
-id(numero_pi)
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+	    ...
+    """
+	# Implementación errónea:
+    return primer_operando
 ```
 
-- Cada una de estas líneas
-	- Retornará la identidad del mismo objeto
-		- Cuya ubicación en memoria 
-			- Se referencia por las tres variables
+```Plaintext
+Failed example:
+    suma(2, 2)  # Caso enteros positivos
+Expected:
+    4
+Got:
+    2
+```
+- El segundo test es falla:
+	- Salida esperada: `4`
+	- Salida obtenida: **`2`**
+		- Porque `primer_operando` es igual a **`2`**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad III (3/7)
+###  Actividad III (6/7)
 
-- Ejemplo\* de salida:
+- **Tercer** test: ¿por qué falla?
 
-- Todas las variables (nombres)
-	- Referencian a la misma ubicación en memoria
-		- En donde reside el objeto:
-			- De tipo de dato `float`
-			- Con valor `3.14`
-
-<br>
-
-<img src="iph/n1/img/ej_id.png" alt="" style="object-fit: scale-down">
-
-
-
-
-<p id="footnote"> <sup id="fn1">*</sup> La dirección obtenida en el ejemplo, depende la sesión de IPython</p>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Actividad III (4/7)
-
-- ¿Retornar?
-	- Cuando una función devuelve un valor
-		- Como en el caso de `id()`
-			- Se dice que **retorna**
-		
 ```Python
-pi = 3.14
-id(pi)  # Se retorna la identidad del objeto referenciado por pi
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Actividad III (5/7)
-
-- **Valor de retorno**
-
- - Cuando una función retorna un valor
-	- Se le denomina _valor de retorno_
-```Python
-pi = 3.14
-id(pi)  # → 6237168528
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+	    ...
+    """
+	# Implementación errónea:
+    return primer_operando
 ```
 
-
-- El valor de retorno de la función `id()` 
-	- Es la dirección de memoria\* 
-		- Donde se almacena el objeto especificado
-
-	<br>
-
-<p id="footnote"> <sup id="fn1">*</sup> La dirección obtenida en el ejemplo, depende la sesión de IPython</p>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Actividad III (6/7)
-
-- En la terminal de Spyder 
-	- Ejecute las siguientes líneas:
-```Python
-pi = 3.14
-promedio = 1.5
+```Plaintext
+Failed example:
+    suma(-2, -10)  # Caso enteros negativos
+Expected:
+    -12
+Got:
+    -2
 ```
 
-<br>
-
-<img src="iph/n1/img/pi_promedio.png" alt="" style="width: 35%; height: 20%; object-fit: fill">
+- El tercer test es falla:
+	- Salida esperada: `-10`
+	- Salida obtenida: **`-2`**
+		- Porque  `primer_operando` es igual a **`-2`**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad III (7/7)
+###  Actividad III (7/7)
 
-- Utilice a la función `id()`
-	- Para ver la identidad de los dos objetos referenciados
+- **Cuarto** test: ¿por qué falla?
 
-<br>
+```Python
+def suma(primer_operando: int, segundo_operando: int) -> int:
+    """
+		...
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+	    ...
+    """
+	# Implementación errónea:
+    return primer_operando
+```
 
-<img src="iph/n1/img/pi_promedio_2.png" alt="" style="width: 35%; height: 40%; object-fit: fill">
+```Plaintext
+Failed example:
+    suma(-2, 5)  # Caso enteros positivos y negativos
+Expected:
+    3
+Got:
+    -2
+```
+
+- El cuarto test es falla:
+	- Salida esperada: `3`
+	- Salida obtenida: **`-2`**
+		- Porque  `primer_operando` es igual a **`-2`**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### La metodología de IP Honores (1/2)
+
+- **El orden es importante**
+	- **NUNCA** se debe construir (codificar)
+		- Si el análisis y el diseño no se han terminado
+
+<img src="iph/n1/img/resultado.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### La metodología de IP Honores (2/2)
+
+- **El orden es importante**
+	- **NUNCA** se debe construir (codificar)
+		- Sin haber diseñado y documentado los casos de prueba
+
+<img src="iph/n1/img/resultado.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #  Actividad IV
 
 - **Objetivo:**
-	- Comprender en la práctica el tipado dinámico de Python
+	- Poner en práctica la metodología de IP Honores
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Tipado dinámico
+### Actividad IV (1/3)
 
-- En Python, una variable pueden referenciar 
-  - A la ubicación en memoria
-	  - De un objeto de cualquier tipo
-<br>
-
-- **Cambio de referencia**
-	- Durante la ejecución, 
-		- Una variable puede cambiar su referencia a otra ubicación
-		  - En donde resida un objeto de cualquier tipo
-	- Solo una referencia es válida 
-	  - En un instante de tiempo
+- Para el desarrollo de esta actividad
+	- Debe crear un archivo `.py` por función
+	- Ej:
+		- `programa_suma.py`
+			- Contendrá a la función `suma()` aquí trabajada
+		- `programa_imc.py` 
+			- Contendrá a la función que hizo en [**N1-HT1**](https://eerosales24.github.io/iph_2025_10/n1/n1_ht1.pdf)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Comprendiendo el tipado dinámico de Python
+### Actividad IV (2/3)
 
+- Implemente y ejecute en Spyder la función que calcula el IMC
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Actividad IV (3/3)
+
+- Ejecute las pruebas de su función
+	- Para ello, debe cambiar en esta línea el nombre de su función
+		- Esta línea siempre se ubica **después** la función a probar
+		
 ```Python
-# Inicialmente, `numero` referencia a un entero
-numero = 42
-
-# Posteriormente `numero` referencia a un flotante
-numero = 42.0
+doctest.run_docstring_examples(nombre_funcion, globals(), verbose=True)
 ```
 
-<br>
+- Reemplace `nombre_funcion`, por el nombre de su función que calcula el IMC
 
+- Ejecute las pruebas
 
-<img src="iph/n1/img/ej_tipado_dinamico.png" alt="" style="object-fit: scale-down">
+- Corrija su función si las pruebas fallan
+
+- Guarde sus cambios en el archivo: `programa_imc.py`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### ¿Cómo obtener el tipo de dato de un objeto?
+#  Actividad V
 
-- En Python es posible consultar el tipo de dato de un objeto
-	- Gracias a la función `type()`
-- Luego, estudiaremos más a fondo el concepto de función
-	- Por ahora, solo usemos la función `type()`
+- **Objetivo:**
+	- Aprender como hacer el envío de un entregable
+		- Mediante Bloque Neón
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `type()`
+### Actividad V (1/5)
 
-- Retorna el tipo de dato del objeto dado
-- Sintaxis:  
-```Python
-type(objeto)
-````
-- Ej:
-```Python
-type(3.2)  # → float
-type(17)  # → int
-```
+1. Comprima en un archivo `.zip`
+	- Los 2 archivos (`.py`) producidos:
+		- `programa_suma.py`
+		- `programa_imc.py`
+
+2. Cambie el nombre del archivo `.zip` siguiendo el formato:
+	- **N1-L2-login.zip**
+		- Donde *login* es su nombre de usuario de Uniandes
+			- Ej: `N1-L2-p.perez123.zip`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz I
+### Actividad V (2/5)
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type(.1)
-```
+- Inicie sesión en [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
 
-<br>
+- Vaya a **"Actividades"**
+	- **"N1-L2"**
+		- Siga los pasos mostrados a continuación:
 
--  **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`float`
+<img src="iph/n1/img/envio.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz II
+### Actividad V (3/5)
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type('0.0')
-```
+- Compruebe el envío correcto de su laboratorio
+	- En Bloque Neón
+		- Vaya a **"Actividades"**
+	- Debería aparecer su envío
+		- Haga clic en el envío (ver cuadro rojo)
 
-
-<br>
-
-- **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+<img src="iph/n1/img/enviado.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz III
+### Actividad V (4/5)
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type(3.14e-10)
-```
+- Compruebe el envío correcto de su laboratorio
+	- Descargue el archivo `.zip` que envió
+	- Verifique que el contenido en el `.zip` enviado 
+		- Es aquel que usted deseaba enviar
 
-<br>
+<img src="iph/n1/img/zip_enviado.png" alt="" style="object-fit: scale-down">
 
-- **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`float`
+<!-- .element: style="width: 40%; height: 50%" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz IV
+### Actividad V (5/5)
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type('')
-```
+- Si el contenido del archivo `.zip` 
+	- No es correcto o no hay ningún envío
+		- [Repita el proceso de envío](https://eerosales24.github.io/iph_2025_10/n1/n1_l1/#/54) muy cuidadosamente
 
 <br>
 
-- **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+- **Importante:**
+	- El proceso de envío de un proyecto será muy similar
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz V
+#  Actividad VI
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type(4_000)
-```
-
-<br>
-
-- **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`int`
+- **Objetivo:**
+	- Aprender a usar senecode
+	- Iniciar la primera tarea de N1
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz VI
+### Actividad VI (1/15)
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type("")
-```
+- Inicie sesión en senecode:
+	- Vaya a [senecode](https://senecode.virtual.uniandes.edu.co/)
+	- Inicie sesión con su usuario y clave Uniandes
 
-<br>
-
-- **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+<img src="iph/n1/img/senecode_login.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz VII
+### Actividad VI (2/15)
 
-- ¿Cuál es el resultado de ejecutar lo siguiente?
-```Python
-type('IP Honores')
-```
+- Ingrese a la primera tarea
+	- Busque y haga clic en: '**Tarea N1 - Tarea 1**':
 
-<br>
-
-- **Respuesta**:
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->`str`
+<img src="iph/n1/img/tarea1.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (1/4)
+### Actividad VI (3/15)
 
-- En la terminal de Spyder 
-	- Ejecute por aparte, cada una de las siguientes líneas:
-```Python
-numero = 42
-```
-```Python
-type(numero)
-```
-```Python
-numero = 42.0
-```
-```Python
-type(numero)
-```
+- La tarea contiene **10** ejercicios:
+	- Altura de una persona (1 pt.)
+	- Área de una habitación (1 pt.)
+	- Tiempo de descarga (1 pt.)
+	- Unidades de tiempo a segundos (1 pt.)
+	- Tarifa de un taxi (1 pt.)
+	- Suma de los primeros n enteros positivos (1 pt.)
+	- Índice de masa corporal (1 pt.)
+	
+	<br>
+
+	- Requieren de un tema a ver el próximo martes:
+		- Eficiencia de combustible (2 pt.)
+		- Caída libre (2 pt.)
+		- Volumen de un cilindro (2 pt.)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (2/4)
+### Actividad VI (4/15)
 
-- Ejemplo de salida:
-
-<img src="iph/n1/img/ej_tipado_dinamico_2.png" alt="" style="object-fit: scale-down">
+- Tomemos como ejemplo:
+	- **Altura de una persona**
+- Haga clic sobre este ejercicio
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (3/4)
+### Actividad VI (5/15)
 
-- En el tipado dinámico en Python
-	- **Solo un referencia es válida**
-	  - **En un instante de tiempo**
+- Se desplegará la descripción completa del ejericicio:
 
-<br>
-
-<img src="iph/n1/img/ej_tipado_dinamico.png" alt="" style="object-fit: scale-down">
+<img src="iph/n1/img/alt_persona_1.png" alt="" style="width: 65%; height: 50%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Actividad IV (4/4)
+### Actividad VI (6/15)
 
-- En la terminal de Spyder 
-	- Ejecute por aparte, cada una de las siguientes líneas:
-```Python
-dato = 42
-```
-```Python
-type(dato)
-```
-```Python
-dato = 42.0
-```
-```Python
-type(dato)
-```
-```Python
-dato = "42.0"
-```
-```Python
-type(dato)
-```
-
-- Comprenda los resultados obtenidos
+  - Lea **muy cuidadosamente** la descripción del problema
+  - Lea **muy cuidadosamente** la especificación de la función requerida
+	  - Parámetros (nombre y tipos)
+	  - Tipo de retorno (tipo)
+	  - Restricciones (si alguna)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Reuso de nombres de variables
+### Actividad VII (7/15)
 
-- Reusar el mismo nombre (identificador) dado a una variable
-	- Es una mala práctica de programación
-		- = código poco legible y difícil de mantener
+- Para iniciar el ejercicio
+	- Haga click en 'Nuevo envío':
 
-- Aquí cada nombre revela su propósito único
-	- Evitando confusiones:
-```Python
-edad = 42
-promedio = 42.0
-mensaje = "42.0"
-```
+<img src="iph/n1/img/envio_senecode.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Fin de N1-L1
+### Actividad VII (8/15)
 
-- No es necesario hacer ningún envío de este laboratorio
+- Se desplegará un esqueleto de la función a implementar
+
+<img src="iph/n1/img/alt_persona_2.png" alt="" style="width: 90%; height: 30%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad VII (9/15)
+
+- ¿Debo crear doctests?
+	- En Spyder:
+		- Puede crearlos para probar adecuadamente su función
+			- Antes de enviarla en senecode
+		
+	- En senecode:
+		- No, porque senecode ejecuta casos de prueba ya predefinidos
+			- Y este mostrará la salida de los mismos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad VII (10/15)
+
+ - Copie su implementación final a senecode
+ - Reemplace la palabra `pass` por su implementación 
+- Clic en 'Subir solución' para enviarla
+
+<img src="iph/n1/img/alt_persona_3.png" alt="" style="width: 90%; height: 50%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad VII (11/15)
+
+- La revisión sintáctica **debe** ser exitosa
+
+<img src="iph/n1/img/revision_vc.png" alt="" style="object-fit: scale-down">
 
 
-<br>
-<br>
+- Si la revisión sintáctica falla
+	- Resuelva el error en su código
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
- [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
+### Actividad VII (12/15)
+
+- Clic en 'Enviar solución' para enviar la solución
+
+<img src="iph/n1/img/revision_vc.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad VII (13/15)
+
+- Espere unos segundos a que senecode califique
+
+<img src="iph/n1/img/alt_persona_4.png" alt="" style="object-fit: scale-down">
+
+
+- Luego, refresque la página o haga clic en 'Ver envío'
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad VII (14/15)
+
+- La retroalimentación **NO** debe mostrar errores
+
+<img src="iph/n1/img/alt_persona_5.png" alt="" style="object-fit: scale-down">
+
+
+- Si hay errores, debe corregirlos e intentar un nuevo envío
+	- Tiene **intentos ilimitados**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Actividad VII (15/15)
+
+- Repita el proceso anterior
+	- Resolviendo todos los ejercicios
+- Fecha límite de entrega:
+	- **Viernes 7 de febrero 11pm**
+	- Recuerde: Esta tarea es un evaluable de Nivel 1
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Fin de N1-L2
 </div></script></section></div>
     </div>
 

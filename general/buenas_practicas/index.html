@@ -117,8 +117,10 @@ Universidad de los Andes
 - [Nombramiento de constantes](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/6)
 - [Nombramiento de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/7)
 - [Documentación de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/9)
-- [Definición de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10)
-- [Implementación de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11)
+- [Diseño de casos de prueba](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10)
+- [Implementación del encabezado de la función](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11)
+- [Implementación del cuerpo de la función](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/12)
+
 - En construcción...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -210,7 +212,33 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Definición de funciones
+### Diseño de casos de prueba
+
+- Las funciones deben incluir los casos de prueba
+	- En forma de doctests
+- Cada doctest debe ser significativo y no redundante
+- Cada doctest debe estar documentado
+	- De forma muy concisa y clara
+- Ej:
+
+```Python
+   """
+        ...
+        
+        >>> suma(0, 0)  # Caso solo ceros
+        0
+        >>> suma(2, 2)  # Caso enteros positivos
+        4
+        >>> suma(-2, -10)  # Caso enteros negativos
+        -12
+        >>> suma(-2, 5)  # Caso enteros positivos y negativos
+        3
+   """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Implementación del encabezado de la función
 
 - Siempre incluir en la signatura 
 	- El(los) tipo(s) de parámetro(s) y el tipo de retorno
@@ -228,7 +256,7 @@ nombre_funcion
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación de funciones (1/2)
+### Implementación del cuerpo de la función (1/4)
 
 - Se debe aplicar el SRP
 	- **"Una función debe tener una, y solo una, razón para cambiar"**
@@ -240,7 +268,7 @@ nombre_funcion
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación de funciones (2/2)
+### Implementación del cuerpo de la función (2/4)
 
 - Se debe aplicar el SRP
     - **El cuerpo de la función debe ser conciso**
@@ -252,7 +280,44 @@ nombre_funcion
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-[<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
+### Implementación del cuerpo de la función (3/4)
+
+- La variables, incluyendo a las constantes
+	- Deben ser locales al contexto en donde son usadas
+- Ej:
+```Python
+def volumen_cilindro(radio_base: float, altura: float) -> float:
+    PI = 3.1416
+    area_base = PI * radio_base * radio_base
+    return area_base * altura
+```
+
+- Aquí `PI` es definida adentro de `volumen_cilindro`
+	- Porque es la única función que la usa
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Implementación del cuerpo de la función (4/4)
+
+```Python
+PI = 3.1416
+
+def volumen_cilindro(radio_base: float, altura: float) -> float:
+    area_base = PI * radio_base * radio_base
+    return area_base * altura
+
+def area_circulo(radio: float) -> float:
+    return PI * radio ** 2
+```
+
+
+- Aquí `PI` es definida de forma externa a las funciones
+	- Porque así se puede usar en ambas funciones
+
+
+
+
+ [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
 </div></script></section></div>
     </div>
 

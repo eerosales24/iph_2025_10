@@ -467,11 +467,8 @@ Universidad de los Andes
 <br>
 
  - El algoritmo será muy simple
-	 - La suma será directa:
-
-	<br>
-
-```Python
+	 - El único paso sería sumar aritméticamente los operandos:
+```plaintext
     primer_operando + segundo_operando
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -552,6 +549,12 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Diseñar los casos de prueba es obligatorio
+
+ Buenas prácticas **obligatorias** en el <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10" target="_blank">diseño de casos de prueba</a>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 ### Salidas de la etapa de diseño
 
 - ✅  Diseño del algoritmo
@@ -563,7 +566,7 @@ Universidad de los Andes
 
 ### Construcción (1/8)
 
-- Definir (declarar) la función:
+- Escribir el encabezado de la función:
 
 ```Python
 def suma(primer_operando: int, segundo_operando: int) -> int:
@@ -581,7 +584,7 @@ def suma(primer_operando: int, segundo_operando: int) -> int:
 
 ### Los tipos de datos son obligatorios
 
- Buenas prácticas **obligatorias** en la  <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10" target="_blank">definición de funciones</a>
+ Buenas prácticas **obligatorias** en la <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11" target="_blank">implementación del encabezado de funciones</a>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -616,7 +619,8 @@ def suma(primer_operando: int, segundo_operando: int) -> int:
 
 ### Construcción (4/8)
 
-- Incluir la documentación:
+- Escribir el cuerpo de la función
+	- Empezando por la documentación:
 
 ```Python[2-21]
 def suma(primer_operando: int, segundo_operando: int) -> int:
@@ -648,23 +652,23 @@ def suma(primer_operando: int, segundo_operando: int) -> int:
 
 ### Construcción (5/8)
 
-- Escribir la implementación de la función
-
+- Escribir el cuerpo de la función
+	- Definiendo las restricciones
+	
 <br>
 
-- **Nota**: En Nivel 1, se omitirá la validación de las restricciones
+- **Nota**: En Nivel 1, se omitirá la validación de las restricciones en el cuerpo de la función
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Construcción (6/8)
 
--  Escribir la implementación de la función
+-  Escribir el cuerpo de la función
+	- Implementando el algoritmo en Python
 
 <br>
 
-- El algoritmo a escribir será muy simple:
-	- La suma será directa:
-        
+- En este caso, el algoritmo es muy sencillo de implementar:
 ```Python
     primer_operando + segundo_operando
 ```
@@ -673,15 +677,12 @@ def suma(primer_operando: int, segundo_operando: int) -> int:
 
 ### Construcción (7/8)
 
--   Escribir la implementación de la función
+- Escribir el cuerpo de la función
+	- Implementando el algoritmo en Python
 
 <br>
 
-- En este caso, el resultado de la suma
-	- Se **retorna**  usando la instrucción `return`
-	
-    <br>
-    
+- El resultado de la suma se **retorna**  usando la instrucción `return`
 ```
 return primer_operando + segundo_operando
 ```
@@ -720,9 +721,18 @@ def suma(primer_operando: int, segundo_operando: int) -> int:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Una función tiene un propósito específico
+### Implementando el cuerpo de una función
 
- Buenas prácticas **obligatorias** en la  <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11" target="_blank">implementación de funciones</a>
+ Verificar las buenas prácticas **obligatorias** en la  <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/12" target="_blank">implementación del cuerpo de funciones</a>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Salidas de la etapa de construcción
+
+- ✅  Implementación de la función y sus pruebas usando:
+	- Documentación
+	- Convenciones
+	- Buenas prácticas de programación
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -734,22 +744,10 @@ def suma(primer_operando: int, segundo_operando: int) -> int:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Bono de N1
+### Tarea
 
-1. Completar  esta actividad es **necesario para N1-L2**
-
-	<br>
-
-2. Entregar la actividad para que sea calificada, es opcional
-	- Bono de **5 puntos** (sobre 100)
-		- **Si todas las respuestas son correctas**
-			-  Aplicable **únicamente** a la nota de N1-EXAM
-	- Fecha límite de entrega (en forma impresa):
-		- **Viernes 31** de enero **10:50am**
-
-	<br>
-
-	1.  [**N1-HT1**](https://eerosales24.github.io/iph_2025_10/n1/n1_ht1.pdf)
+- Completar  esta actividad es **necesario para N1-L2**
+	- [**N1-HT1**](https://eerosales24.github.io/iph_2025_10/n1/n1_ht1.pdf)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
