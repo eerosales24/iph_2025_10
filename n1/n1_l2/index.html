@@ -279,7 +279,7 @@ suma(0,0)
 		
 ```Python
 suma(2, 2)
-suma(-2, 10)
+suma(-2, -10)
 suma(-2, 5)
 ```
 
@@ -588,7 +588,7 @@ doctest.run_docstring_examples(suma, globals(), verbose=True)
 
 ```Plaintext
 Trying:
-    suma(0, 0)  # Caso extremo
+    suma(0, 0)  # Caso solo ceros
 Expecting:
     0
 ok
@@ -597,7 +597,7 @@ Trying:
 Expecting:
     4
 **********************************************************************
-...
+File "/Users/eduardo/Desktop/untitled5.py", line 24, in NoName
 Failed example:
     suma(2, 2)  # Caso enteros positivos
 Expected:
@@ -605,11 +605,23 @@ Expected:
 Got:
     2
 Trying:
+    suma(-2, -10)  # Caso enteros negativos
+Expecting:
+    -12
+**********************************************************************
+File "/Users/eduardo/Desktop/untitled5.py", line 26, in NoName
+Failed example:
+    suma(-2, -10)  # Caso enteros negativos
+Expected:
+    -12
+Got:
+    -2
+Trying:
     suma(-2, 5)  # Caso enteros positivos y negativos
 Expecting:
     3
 **********************************************************************
-...
+File "/Users/eduardo/Desktop/untitled5.py", line 28, in NoName
 Failed example:
     suma(-2, 5)  # Caso enteros positivos y negativos
 Expected:
