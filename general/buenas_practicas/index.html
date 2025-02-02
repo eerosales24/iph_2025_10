@@ -111,40 +111,102 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Índice
+### Índice (1/3)
 
-- [Nombramiento de variables](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/3)
-- [Nombramiento de constantes](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/6)
-- [Nombramiento de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/7)
-- [Documentación de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/9)
-- [Diseño de casos de prueba](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10)
-- [Implementación del encabezado de la función](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11)
-- [Implementación del cuerpo de la función](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/12)
+- [BP-1 Reglas para identificadores en Python](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/5)
+
+- [BP-2 Nombres autoexplicativos](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/8)
+
+- [BP-3 Nombres concisos](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/9)
+
+- [BP-4 snake_case](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10)
+
+- [BP-5 Uso de constantes](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11)
+
+- [BP-6 Nombramiento de constantes](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/12)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Índice (2/3)
+
+- [BP-7 Documentación de funciones](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/13)
+
+- [BP-8 Casos de prueba](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/14)
+
+- [BP-9 Tipos de dato en la signatura](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/15)
+
+- [BP-10 Cumplimiento del SRP](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/16)
+
+- [BP-11 Uso de variables locales](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/20)
+
+- [BP-12 Funciones integradas](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/22)
+
+- [BP-13 Responsabilidades de la lógica](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/24)
+
+- [BP-14 Responsabilidades de la interfaz](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/25)
+
+- [BP-15 Comentarios](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/26)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Índice (3/3)
 
 - En construcción...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de variables(1/3)
+### BP-1 Reglas para identificadores en Python (1/3)
+
+- **Identificador**: Nombre textual que se da a
+	- Una variable
+	- Una función
+	- Y otros elementos en Python...
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-1 Reglas para identificadores en Python (2/3)
+
+- Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#naming-conventions)
+
+<br>
+
+- Sensible a mayúsculas y minúsculas
+- Debe comenzar con una letra o guión bajo: 
+	- (a-z, A-Z) o _
+- Solo puede contener:
+	- Letras (a-z, A-Z), 
+	- Dígitos (0-9) 
+	- Guiones bajos _
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-1 Reglas para identificadores en Python (3/3)
+
+- Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#naming-conventions)
+
+<br>
+
+
+- ❌ Caracteres especiales 
+	- Ej: -, !, @, #, $, %, etc.
+- ❌ Espacios 
+	- En su lugar, use guiones bajos _
+- ❌ [Palabras clave de Python](https://eerosales24.github.io/iph_2025_10/n1/n1_02_variables_y_la_instruccion_de_asignacion/#/18)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-2 Nombres autoexplicativos
 
 - Usar identificadores **autoexplicativos**
+	- Nombre de variable = su propósito en el programa
+	- Nombre de función = su propósito en el programa
 - Ej:
 	 - ❌ alt
 	 - ✅  altura
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de variables (2/3)
-
-- Por legibilidad usar **snake_case**
-	- Es decir, separar palabras con guiones bajos
-	- Ej: 
-		- `salario_promedio`
-		- `altura_maxima`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Nombramiento de variables (3/3)
+### BP-3 Nombres concisos
 
 - Usar identificadores **concisos**
 	- Nombres largos son difíciles de leer
@@ -154,11 +216,32 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de constantes
+### BP-4 snake_case
 
-- Los valores fijos se modelan como constantes
-	- Los nombres de constantes se escriben en **mayúsculas** por convención\*
+- Por legibilidad, usar **snake_case**
+	- Es decir, separar palabras con guiones bajos
 	- Ej: 
+		- `salario_promedio`
+		- `altura_maxima`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-5 Uso de constantes
+
+- Los valores fijos en el programa se modelan como constantes
+- Ej:
+	```Python
+	ALTURA_MAXIMA = 30.67
+	PI = 3.14
+	```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-6 Nombramiento de constantes
+
+
+- Los nombres de constantes se escriben en **mayúsculas** por convención\*
+- Ej: 
 	```Python
 	PESO_PROMEDIO = 200.15
 	LIMITE_VELOCIDAD = 60
@@ -167,31 +250,13 @@ Universidad de los Andes
 
 <br>
 
-\* Salvo por el uso de mayúsculas, aplican también las buenas prácticas en el [nombramiento de variables](https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/3)
+\* Al nombramiento de constantes, le aplica BP-1 a BP-4
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nombramiento de funciones (1/2)
+### BP-7 Documentación de funciones
 
-- El nombre de una función es un identificador
-	- Por lo tanto, le aplican las [reglas de identificadores](https://eerosales24.github.io/iph_2025_10/n1/n1_02_variables_y_la_instruccion_de_asignacion/#/16)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Nombramiento de funciones (2/2)
-
-- Por legibilidad usar `snake_case`
-	- Ej: `ordenar_nombres`
-- Siempre usar
-	- Nombre concisos y **auto explicativos**
-- Evitar usar
-	- Nombres largos y confusos
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Documentación de funciones
-
-- Las funciones deben documentarse
+- Las funciones deben documentarse\*
 	- [PEP 257](https://peps.python.org/pep-0257/)
 
 - Aquí el formato genérico de un docstring:
@@ -209,12 +274,16 @@ Universidad de los Andes
         tipo de retorno: Descripción del valor de retorno.
     """
 ```
+
+<br>
+
+\* La única excepción en Nivel 1, son las funciones en consolas
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Diseño de casos de prueba
+### BP-8 Casos de prueba
 
-- Las funciones deben incluir los casos de prueba
+- Las funciones deben incluir varios de casos de prueba\*
 	- En forma de doctests
 - Cada doctest debe ser significativo y no redundante
 - Cada doctest debe estar documentado
@@ -235,15 +304,19 @@ Universidad de los Andes
         3
    """
 ```
+
+<br>
+
+\* La única excepción en Nivel 1, son las funciones en consolas
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación del encabezado de la función
+### BP-9 Tipos de dato en la signatura
 
-- Siempre incluir en la signatura 
+- Siempre incluir en la signatura
 	- El(los) tipo(s) de parámetro(s) y el tipo de retorno
 
-- Aquí el formato genérico de un la signatura:
+- Aquí el formato genérico de uNa signatura:
 
 ```Python[2-5]
 def 
@@ -256,31 +329,49 @@ nombre_funcion
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación del cuerpo de la función (1/4)
+### BP-10 Cumplimiento del SRP (1/4)
 
-- Se debe aplicar el SRP
+
+- Aplicar el Principio de Responsabilidad Única (Single Responsibility Principle) - SRP 
 	- **"Una función debe tener una, y solo una, razón para cambiar"**
-	-  Una función debe tener un **único propósito**
-	-  Si una función tiene dos propósitos
-		- Es una indicación
-			- De que se debe distribuir 
-				- En dos o más funciones
+		-  Una función debe tener un  **propósito único**
+-  Si una función tiene dos o más propósitos
+	- Es una indicación
+		- De que la implementación se debería distribuir 
+			- En dos o más funciones
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación del cuerpo de la función (2/4)
+### BP-10 Cumplimiento del SRP (2/4)
 
-- Se debe aplicar el SRP
-    - **El cuerpo de la función debe ser conciso**
-        - Si no es así
-	        - Normalmente se requerirá de otra(s) nueva(s) función(es)
-	- **Limitar el tamaño de la lista de parámetros**
-	    - Demasiados parámetros podría indicar
-		    - Que se requerirá de otra(s) nueva(s) función(es)
+- No duplicar código
+	- Si una función requiere de otra para cumplir su propósito
+		- Se debe invocar a esa función
+	- La composición de funciones
+		- Evita la duplicación de código
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación del cuerpo de la función (3/4)
+### BP-10 Cumplimiento del SRP (3/4)
+
+- Limitar el tamaño del cuerpo de la función
+	- Un cuerpo con demasiadas líneas podría indicar
+		- Que se debe distribuir la implementación
+			- En dos o más funciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-10 Cumplimiento del SRP (4/4)
+
+
+- Limitar el tamaño de la lista de parámetros
+	- Demasiados parámetros podrían indicar
+		- Que se debe distribuir la implementación
+			- En dos o más funciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-11 Uso de variables locales (1/2)
 
 - La variables, incluyendo a las constantes
 	- Deben ser locales al contexto en donde son usadas
@@ -297,7 +388,7 @@ def volumen_cilindro(radio_base: float, altura: float) -> float:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Implementación del cuerpo de la función (4/4)
+### BP-11 Uso de variables locales (2/2)
 
 ```Python
 PI = 3.1416
@@ -316,8 +407,103 @@ def area_circulo(radio: float) -> float:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-[<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
-</div></script></section></div>
+### BP-12 Funciones integradas (1/2)
+
+- No "reinventar la rueda":
+    - Use funciones integradas (<a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener noreferrer">built-in functions</a>):
+    - Tipos: <a href="https://docs.python.org/3/library/functions.html#type" target="_blank" rel="noopener noreferrer">type()</a>,    <a href="https://docs.python.org/3/library/functions.html#float" target="_blank" rel="noopener noreferrer">float()</a>,  <a href="https://docs.python.org/3/library/functions.html#int" target="_blank" rel="noopener noreferrer">int()</a>,  <a href="https://docs.python.org/3/library/functions.html#func-str" target="_blank" rel="noopener noreferrer">str()</a>
+    - Identidad: <a href="https://docs.python.org/3/library/functions.html?highlight=id#id" target="_blank" rel="noopener noreferrer">id()</a>
+    - Numéricas: <a href="https://docs.python.org/3/library/functions.html#abs" target="_blank" rel="noopener noreferrer">abs()</a>,  <a href="https://docs.python.org/3/library/functions.html#round" target="_blank" rel="noopener noreferrer">round()</a>,  <a href="https://docs.python.org/3/library/functions.html#min" target="_blank" rel="noopener noreferrer">min()</a>,  <a href="https://docs.python.org/3/library/functions.html#max" target="_blank" rel="noopener noreferrer">max()</a>,  <a href="https://docs.python.org/3/library/functions.html#pow" target="_blank" rel="noopener noreferrer">pow()</a>
+    - Entrada: <a href="https://docs.python.org/3/library/functions.html#input" target="_blank" rel="noopener noreferrer">input()</a>
+    - Salida: <a href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener noreferrer">print()</a>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-12 Funciones integradas (2/2)
+
+- No "reinventar la rueda":
+	- Usar funciones de módulos estándar (Ej: <a href="https://docs.python.org/3/library/math.html" target="_blank" rel="noopener noreferrer">math</a>, <a href="https://docs.python.org/3/library/random.html" target="_blank" rel="noopener noreferrer">random</a>):
+		- `math`: <a href="https://docs.python.org/3/library/math.html#math.sqrt" target="_blank" rel="noopener noreferrer">math.sqrt()</a>, <a href="https://docs.python.org/3/library/math.html#math.sin" target="_blank" rel="noopener noreferrer">math.sin()</a>, <a href="https://docs.python.org/3/library/math.html#math.cos" target="_blank" rel="noopener noreferrer">math.cos()</a>, <a href="https://docs.python.org/3/library/math.html#math.log10" target="_blank" rel="noopener noreferrer">math.log10()</a>
+		- `random`: <a href="https://docs.python.org/3/library/random.html#random.random" target="_blank" rel="noopener noreferrer">random.random()</a>, <a href="https://docs.python.org/3/library/random.html#random.randint" target="_blank" rel="noopener noreferrer">random.randint()</a>
+	- Ayuda: <a href="https://docs.python.org/3/library/functions.html#help" target="_blank" rel="noopener noreferrer">help()</a>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-13  Responsabilidades de la lógica
+
+- La lógica **NUNCA**
+	- Recibe datos de entrada
+		- ❌ NO usa `input()`
+	- Muestra resultados
+		- ❌ NO usa `print()`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-14  Responsabilidades de la interfaz
+
+- La interfaz\* **NUNCA**
+	- ❌ Contiene funciones que implementan
+	    - ❌ La lógica del programa
+
+	<br>
+
+\* En el curso, la interfaz es implementada en consolas
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-15  Comentarios (1/4)
+
+
+Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#comments)
+
+- Comentarios de una sola línea:
+	- Comienzan con `#` seguido de texto
+	- Pueden contener caracteres especiales
+	- Ej:
+```Python
+# Comentario de una sola línea
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-15  Comentarios (2/4)
+
+- Comentarios de una sola línea:
+	- Por convención se colocan a dos espacios de código
+	- Ej:
+
+```Python
+3.1416  # Valor de PI
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-15  Comentarios (3/4)
+
+- Comentarios en bloque:
+	- Agrupación de múltiples comentarios
+	- Cada uno empezando con `#`
+		- Se puede usar indentación
+
+- Ej:
+
+```Python
+   # Primera línea de un comentario en bloque
+   # Segunda línea
+   #     Tercera línea
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-15  Comentarios (4/4)
+
+- Moderación: 
+	- Evite el exceso de comentarios
+		- Deteriora la legibilidad
+- Claridad: 
+	- Comente segmentos significativos/complejos de código
+		- ❌ Explicar el código línea a línea
+</div></script></section><section  data-markdown><script type="text/template"></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>

@@ -664,7 +664,17 @@ print(resultado)
 
 - El orden de los argumentos en la invocación **importa**:
 
-<img src="iph/n1/img/orden.png" alt="" style="width: 80%; height: 25%; object-fit: fill">
+```python
+def resta(primer_operando: int, segundo_oeprando: int) -> int:
+    # Al invocarse la función así: resta(10, 5)
+      # `primer_operando` será igual a 10
+      # `segundo_oeprando` será igual a 5
+    return primer_operando - segundo_oeprando  # Retorna 5
+```
+
+```python
+resta(10, 5)
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -679,7 +689,7 @@ def resta(primer_operando: int, segundo_operando: int) -> int:
 ```python
 resta(5, 10)
 ```
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->-5
++ -5
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 

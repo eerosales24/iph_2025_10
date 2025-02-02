@@ -143,7 +143,7 @@ Universidad de los Andes
 		- Asignada según su tamaño
 	- Tiene un dirección única en memoria
 		- La cual es su identidad
-		- La estudiaremos más tarde
+		- La estudiaremos más tarde...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -183,11 +183,11 @@ Universidad de los Andes
 
 ### Variable (4/5)
 
-- Las variables se almacenan en el stack
-- **Referencia**
-	- El stack apunta a datos en el heap mediante referencias
+- Las variables se almacenan en el Stack
+- **Referencia**:
+	- El Stack apunta a datos en el heap mediante referencias
 - Los objetos en el heap  
-	- Persisten mientras tengan referencias activas en el stack
+	- Persisten mientras tengan referencias activas en el Stack
 	- Tienen una vida útil
 
 
@@ -204,6 +204,7 @@ Universidad de los Andes
 - Solo debe de quedar claro que
 	- **Una variable solo es un nombre**
 		- **Que se da una ubicación en memoria**
+			- En donde reside un objeto
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -213,7 +214,7 @@ Universidad de los Andes
 
 ### Instrucción de asignación (1/4)
 
-- Asocia una variable a una ubicación en memoria
+- Asocia/asigna una variable a una ubicación en memoria
 
 - Sintaxis: 
 ```Python
@@ -287,34 +288,10 @@ numero_pi = pi
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Reglas para identificadores en Python (1/2)
+### Reglas para identificadores en Python
 
-- Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#naming-conventions)
-
-<br>
-
-- Sensible a mayúsculas y minúsculas
-- Debe comenzar con una letra o guión bajo: 
-	- (a-z, A-Z) o _
-- Solo puede contener:
-	- Letras (a-z, A-Z), 
-	- Dígitos (0-9) 
-	- Guiones bajos _
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Reglas para identificadores en Python (2/2)
-
-- Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#naming-conventions)
-
-<br>
-
-
-- ❌ Caracteres especiales 
-	- Ej: -, !, @, #, $, %, etc.
-- ❌ Espacios 
-	- En su lugar, use guiones bajos _
-- ❌ Palabra clave
+- Existen reglas que le aplican a los identificadores:
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/5" target="_blank" rel="noopener noreferrer">BP1 - Reglas para identificadores en Python</a>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -458,7 +435,7 @@ NameError: name 'promedio' is not defined
 ### Errores en Python
 
 
-- [NameError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/7)
+- <a href="https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/7" target="_blank" rel="noopener noreferrer">NameError</a>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -489,8 +466,13 @@ IVA = 0.19
 
 ### Para cerrar
 
-- Buenas prácticas **obligatorias** en el <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/3" target="_blank">nombramiento de variables</a>
-- Buenas prácticas **obligatorias** en el <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/6" target="_blank">nombramiento de constantes</a>
+- Las siguientes buenas prácticas le aplican a las variables:
+
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/8" target="_blank" rel="noopener noreferrer">BP-2 Nombres autoexplicativos</a>
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/9" target="_blank" rel="noopener noreferrer">BP-3 Nombres concisos</a>
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/10" target="_blank" rel="noopener noreferrer">BP-4 snake_case</a>
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/11" target="_blank" rel="noopener noreferrer">BP-5 Uso de constantes</a>
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/12" target="_blank" rel="noopener noreferrer">BP-6 Nombramiento de constantes</a>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
