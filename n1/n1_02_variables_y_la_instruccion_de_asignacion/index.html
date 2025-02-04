@@ -464,6 +464,112 @@ IVA = 0.19
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Asignaciones con operador
+
+-   Combinación de operador y  asignación:
+	-     +=, -=, *=, /=, %=, //=, **=
+-   Ej:
+
+```Python
+# Asuma ejecución secuencial de cada línea
+x = 1
+x += 1  # → 2 (Equivalente a: x = x + 1)
+x -= 1  # → 1 (Equivalente a: x = x - 1)
+x *= 1  # → 1 (Equivalente a: x = x * 1)
+x /= 1  # → 1.0 (Equivalente a: x = x / 1)
+x //= 1  # → 1.0 (Equivalente a: x = x // 1)
+x **= 1  # → 1.0 (Equivalente a: x = x ** 1)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Asignaciones con operador - Resumen
+
+<table border="1" style="border-collapse: collapse; width: 90%; text-align: center; font-size: 20px; padding: 8px;">
+  <thead style="background-color: #d0e6f8;">
+    <tr>
+      <th style="color: black; padding: 4px;">Operador</th>
+      <th style="color: black; padding: 4px;">Descripción</th>
+      <th style="color: black; padding: 4px;">Ejemplo</th>
+      <th style="color: black; padding: 4px;">Equivalente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px;"><code>+=</code></td>
+      <td style="padding: 4px;">Suma y asignación</td>
+      <td style="padding: 4px;"><code>x += 5</code></td>
+      <td style="padding: 4px;"><code>x = x + 5</code></td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;"><code>-=</code></td>
+      <td style="padding: 4px;">Resta y asignación</td>
+      <td style="padding: 4px;"><code>x -= 5</code></td>
+      <td style="padding: 4px;"><code>x = x - 5</code></td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;"><code>*=</code></td>
+      <td style="padding: 4px;">Multiplicación y asignación</td>
+      <td style="padding: 4px;"><code>x *= 5</code></td>
+      <td style="padding: 4px;"><code>x = x * 5</code></td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;"><code>/=</code></td>
+      <td style="padding: 4px;">División y asignación</td>
+      <td style="padding: 4px;"><code>x /= 5</code></td>
+      <td style="padding: 4px;"><code>x = x / 5</code></td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;"><code>//=</code></td>
+      <td style="padding: 4px;">División entera y asignación</td>
+      <td style="padding: 4px;"><code>x //= 5</code></td>
+      <td style="padding: 4px;"><code>x = x // 5</code></td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;"><code>%=</code></td>
+      <td style="padding: 4px;">Módulo y asignación</td>
+      <td style="padding: 4px;"><code>x %= 5</code></td>
+      <td style="padding: 4px;"><code>x = x % 5</code></td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;"><code>**=</code></td>
+      <td style="padding: 4px;">Exponenciación y asignación</td>
+      <td style="padding: 4px;"><code>x **= 5</code></td>
+      <td style="padding: 4px;"><code>x = x ** 5</code></td>
+    </tr>
+  </tbody>
+</table>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Quiz II
+
+- ¿Cuál es el valor retornado por cada expresión y el valor asignado a `resultado`  (asumiendo ejecución secuencial de cada línea)?
+
+```Python
+y = 2
+y += 2
+y *= 2
+y -= 3
+y //= 2
+resultado = y + 2
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Solución
+
+```Python
+y = 2  # y = 2
+y += 2  # → 4 (Equivalente a: y = y + 2)
+y *= 2  # → 8 (Equivalente a: y = y * 2)
+y -= 3  # → 5 (Equivalente a: y = y - 3)
+y //= 2  # → 2 (Equivalente a: y = y // 2)
+resultado = y + 2  # resultado = 4
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 ### Para cerrar
 
 - Las siguientes buenas prácticas le aplican a las variables:
