@@ -179,7 +179,7 @@ Universidad de los Andes
 ### `logica.py` 
 
 ```Python
-# logica.py:
+# En logica.py:
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -193,7 +193,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### `logica.py` 
 
 ```Python
-# logica.py:
+# En logica.py:
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -210,7 +210,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### `consola.py`
 
 ```Python
-# consola.py:
+# En consola.py:
 import logica as l
 
 def ejecutar_convertir_a_dolares() -> None:
@@ -245,7 +245,7 @@ def ejecutar_convertir_a_dolares() -> None:
 ### Paso 1: Crear el módulo a importar
 
 ```Python
-# logica.py:
+# En logica.py:
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -268,7 +268,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### Paso 3: Importar usando la instrucción `import` (1/4)
 
 ```Python[2]
-# consola.py:
+# En consola.py:
 import logica as l
 # ...
 ```
@@ -282,7 +282,7 @@ import logica as l
 ### Paso 3: Importar usando la instrucción `import` (2/4)
 
 ```Python[2]
-# consola.py:
+# En consola.py:
 import logica as l
 ```
 
@@ -295,7 +295,7 @@ import logica as l
 ### Paso 3: Importar usando la instrucción `import` (3/4)
 
 ```Python[2]
-# consola.py:
+# En consola.py:
 import logica as l
 ```
 
@@ -308,7 +308,7 @@ import logica as l
 ### Paso 3: Importar usando la instrucción `import` (4/4)
 
 ```Python[2]
-# consola.py:
+# En consola.py:
 import logica as l
 ```
 
@@ -341,7 +341,7 @@ import logica as l
 ### Usando un módulo importado
 
 ```Python[7]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def ejecutar_convertir_a_dolares() -> None:
@@ -365,7 +365,7 @@ def ejecutar_convertir_a_dolares() -> None:
 ### Invocar a una función de la lógica (1/2)
 
 ```Python
-    # consola.py:
+    # En consola.py:
     # ...
     dolares = l.convertir_a_dolares(pesos, trm)
     # ...
@@ -378,7 +378,7 @@ def ejecutar_convertir_a_dolares() -> None:
 - La función invocada, está en `logica.py`:
 
 ```Python
-# logica.py:
+# En logica.py:
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -400,7 +400,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### Errores al invocar a funciones de la lógica (1/3)
 
 ```Python
-    # consola.py:
+    # En consola.py:
     # ...
     dolares = l.convertir_a_euros(pesos, trm)
     # ...
@@ -416,7 +416,7 @@ has no attribute 'convertir_a_euros'
 	- En el módulo de lógica:
 	
 ```Python
-# logica.py:
+# En logica.py:
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -426,7 +426,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### Errores al invocar a funciones de la lógica (2/3)
 
 ```Python
-    # consola.py:
+    # En consola.py:
     # ...
     dolares = l.convertir_a_pesos(pesos)
     # ...
@@ -443,7 +443,7 @@ missing 1 required positional argument: 'trm'
 		- Pero sólo se provee uno (falta `trm`):
 
 ```Python
-# logica.py
+# En logica.py
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -453,7 +453,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### Errores al invocar a funciones de la lógica (3/3)
 
 ```Python
-    # consola.py:
+    # En consola.py:
     # ...
     dolares = l.convertir_a_pesos(pesos, "error")
     # ...
@@ -470,7 +470,7 @@ TypeError: unsupported operand type(s) for /:
 		- `trm` debe ser `int` o `float`
 
 ```Python
-# logica.py
+# En logica.py
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -500,7 +500,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### `consola.py` (1/2)
 
 ```Python
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -520,7 +520,7 @@ iniciar_aplicacion()
 2. La consola hace la invocación a esa única función
 
 ```Python[4, 10]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -537,7 +537,7 @@ iniciar_aplicacion()
 ### Ejecutando el programa (1/7)
 
 ```Python[10]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -557,7 +557,7 @@ iniciar_aplicacion()
 ### Ejecutando el programa (2/7)
 
 ```Python[5]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -578,7 +578,7 @@ iniciar_aplicacion()
 ### Ejecutando el programa (3/7)
 
 ```Python[6]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -599,7 +599,7 @@ iniciar_aplicacion()
 ### Ejecutando el programa (4/7)
 
 ```Python[7]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -612,7 +612,7 @@ iniciar_aplicacion()
 ```
 
 ```Python
-# logica.py:
+# En logica.py:
 def convertir_a_dolares(pesos: float, trm: float) -> float:
     return pesos / trm
 ```
@@ -627,7 +627,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 ### Ejecutando el programa (5/7)
 
 ```Python[7]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -648,7 +648,7 @@ iniciar_aplicacion()
 ### Ejecutando el programa (6/7)
 
 ```Python[8]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
@@ -670,7 +670,7 @@ iniciar_aplicacion()
 ### Ejecutando el programa (7/7)
 
 ```Python[12]
-# consola.py:
+# En consola.py:
 import logica as l
 
 def iniciar_aplicacion() -> None:
