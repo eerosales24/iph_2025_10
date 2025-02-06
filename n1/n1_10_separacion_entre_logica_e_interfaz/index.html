@@ -126,7 +126,8 @@ Universidad de los Andes
 - Medio a través del cual el usuario 
   - Se comunica con el programa
 - Existen varios tipos
-  - En este curso sólo se usará la _consola_
+  - En el Nivel 1 se usará la _consola_
+  - (Y la ventana `Plot` de Sypder para ver gráficos, en N1-L3)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -213,7 +214,7 @@ def convertir_a_dolares(pesos: float, trm: float) -> float:
 # En consola.py:
 import logica as l
 
-def ejecutar_convertir_a_dolares() -> None:
+def iniciar_aplicacion() -> None:
     trm = float(input('Ingrese la TRM: '))
     pesos = float(input('Ingrese la cantidad de pesos: '))
     dolares = l.convertir_a_dolares(pesos, trm)
@@ -344,7 +345,7 @@ import logica as l
 # En consola.py:
 import logica as l
 
-def ejecutar_convertir_a_dolares() -> None:
+def iniciar_aplicacion() -> None:
     trm = float(input('Ingrese la TRM: '))
     pesos = float(input('Ingrese la cantidad de pesos: '))
     dolares = l.convertir_a_dolares(pesos, trm)
@@ -516,7 +517,7 @@ iniciar_aplicacion()
 
 ### `consola.py` (2/2)
 
-1. En Nivel 1, cada consola define una sola función
+1. En Nivel 1, cada consola define **una sola función**
 2. La consola hace la invocación a esa única función
 
 ```Python[4, 10]
