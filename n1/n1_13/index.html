@@ -212,7 +212,7 @@ print(pytamaro.__version__)
 
 ### Documentación de Pytamaro
 
-- La documentación de la librería no está disponible en español
+- La documentación de la librería **no está disponible en español**
 	- Entonces, aquí se provee una versión traducida
 		- **Solo de aquello** que vamos a usar en Nivel 1
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -255,7 +255,9 @@ print(pytamaro.__version__)
 def rectangle(ancho: float, alto: float, color: Color) -> Graphic:
 	"""
 	Crea un rectángulo con el ancho y alto dados, relleno con un color dado.
-	
+
+    Nota: La función no muestra el rectángulo, solo lo crea y retorna.
+
 	Args:
 	    ancho (float):  Ancho del rectángulo en píxeles.
 	    alto (float): Alto del rectángulo en píxeles.
@@ -384,7 +386,7 @@ show_graphic(rectangle(100, 150, blue))
     # TODO1: Importe todo lo que necesitará
 		
     """
-    Crea un rectángulo con la altura dada, una ancho proporcional de
+    Crea un rectángulo con la altura dada, un ancho proporcional de
 	3/2 de esa altura, relleno del color dado.
 	
     Nota: La función no muestra el rectángulo, solo lo crea y retorna.
@@ -399,6 +401,20 @@ show_graphic(rectangle(100, 150, blue))
 	# TODO2: Implemente la función: rectangulo_bandera().  
 	
 ```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Y los doctests?
+
+- Tal y como se indica en las buenas prácticas del curso:
+	-  <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/14" target="_blank" rel="noopener noreferrer">BP-8 Casos de prueba</a>
+		- No se crean doctests para funciones que producen gráficos
+
+	<br>
+
+- Para funciones que producen gráficos (Ej: PyTamaro)
+	- La prueba es **visual**
+		- Ver siguiente diapositiva
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -433,6 +449,8 @@ show_graphic(rectangulo_bandera(alto, green))
 def ellipse(ancho: float, alto: float, color: Color) -> Graphic:
     """
     Crea una elipse con el ancho y alto dados, rellena con un color dado.
+
+    Nota: La función no muestra la elipse, solo la crea y retorna.
 
     Args:
         ancho (float): Ancho de la elipse en píxeles.
@@ -505,7 +523,6 @@ def overlay(grafico_del_frente: Graphic, grafico_de_fondo: Graphic) -> Graphic:
     Returns:
         Graphic: El gráfico resultante después de la superposición.
     """
-    return overlay(grafico_frente, grafico_fondo)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -520,8 +537,8 @@ def bandera_de_japon(alto: float) -> Graphic:
     Crea un gráfico que ilustra la bandera de Japón.
     Esta se compone de un rectangulo blanco y un punto rojo que representa al sol.
 
-    Nota: La función no muestra la bandera de Japón, solo la crea 
-	y la retorna como un gráfico (Graphic).
+    Nota: La función no muestra la bandera de Japón, solo la crea y la retorna
+	como un gráfico (Graphic).
 
     Args:
         alto (float): Altura de la bandera.
@@ -566,6 +583,8 @@ def above(grafico_superior: Graphic, grafico_inferior: Graphic) -> Graphic:
     """
     Crea un nuevo gráfico colocando un gráfico sobre otro, alineados
 	horizontalmente al centro.
+
+    Nota: La función no muestra el gráfico apilado, solo lo crea y retorna.
 
     Args:
         grafico_superior (Graphic): Gráfico a colocar arriba.
@@ -637,6 +656,8 @@ def rotate(angulo: float, grafico: Graphic) -> Graphic:
     alrededor de su posición de anclaje por el ángulo dado. Un ángulo
     negativo corresponde a una rotación en sentido horario.
 
+    Nota: La función no muestra el gráfico rotado, solo lo rota y retorna.
+
     Args:
         angulo (float): Ángulo de rotación en grados.
         grafico (Graphic): El gráfico a rotar.
@@ -656,8 +677,8 @@ def bandera_de_suiza(lado_cuadrado: float, ancho_linea_cruz: float, alto_linea_c
     Crea un gráfico que ilustra la bandera de Suiza.
     Esta se compone de un cuadrado rojo y una cruz blanca.
     
-    Nota: La función no muestra la bandera de Suiza, solo la crea 
-	y la retorna como un gráfico (Graphic).
+    Nota: La función no muestra la bandera de Suiza, solo la crea y la retorna
+	como un gráfico (Graphic).
 
     Args:
         lado_cuadrado (float): Tamaño del lado del cuadrado de fondo.
@@ -711,6 +732,12 @@ show_graphic(bandera_de_suiza(320, 200, 60))
 	- Para ello, en  [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
 		- Vaya a **"Actividades"**
 			- **"N1-L3"**
+
+
+
+<br>
+
+ [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
 </div></script></section></div>
     </div>
 
