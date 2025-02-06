@@ -184,7 +184,7 @@ pip install pytamaro
 
 <br> 
 
-1. **DEBE REINICIAR Spyder** (cerrarlo y volverlo a abrir)
+2. **DEBE REINICIAR Spyder** <!-- .element: class="fragment highlight-red" --> (cerrarlo y volverlo a abrir)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -213,8 +213,13 @@ print(pytamaro.__version__)
 ### Documentación de Pytamaro
 
 - La documentación de la librería **no está disponible en español**
-	- Entonces, aquí se provee una versión traducida
+	- Entonces, aquí se provee una versión traducida de
 		- **Solo de aquello** que vamos a usar en Nivel 1
+
+<br>
+
+- **Nota:** La librería usa una mayúscula inicial para definir sus propios tipos de datos
+	- Ej: Graphic, Color
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -298,7 +303,7 @@ show_graphic(rectangle(600, 100, red))
 
 - Al usar `from`
 	- Se podrá invocar directamente a las funciones:
-		- `rectangle` y  `show_grafic`
+		- `rectangle()` y  `show_grafic()`
 			- Y al color rojo rojo (`red`)
 				- Solo usando su nombre
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -314,7 +319,7 @@ show_graphic(rectangle(600, 100, red))
 
 - `rectangle(600, 100, red)`
 	- Crea un rectángulo
-		- (NO lo muestra en pantalla aún)
+		- (NO lo muestra aún)
 
 	<br>
 
@@ -334,7 +339,7 @@ show_graphic(rectangle(600, 100, red))
 
 - `show_graphic(rectangle(600, 100, red))`
 	- Muestra el rectángulo:
-		- Así se ve en Spyder (pestaña **`Plots`**):
+		- Así se vería en Spyder (pestaña **`Plots`**):
 
 
 <img src="iph/n1/rectangulo_spyder.png" alt="" style="width: 40%; height: 30%; object-fit: fill">
@@ -366,25 +371,39 @@ from pytamaro import rectangle, blue, show_graphic
 show_graphic(rectangle(100, 150, blue))
 ```
 
-- Note que se importo a `blue`
+- Note que se importó a `blue`
 	- En lugar de `red`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 #  Actividad II
 
-- **Objetivo:**
+- **Objetivos:**
+	- Aprender a separar la lógica de la vista
 	- Aprender a graficar rectángulos
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Quiz II
+###  Actividad II (1/4)
 
+- En su directorio de trabajo:
+	- Cree un archivo llamado `logica.py`
+		- Este contendrá a todas las funciones que **crean** gráficos
+		- **Importante:**
+			- No contendrá a ninguna función que **muestre** gráficos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+###  Actividad II (2/4)
+
+- En su archivo `logica.py`
+	- Copie y pegue el siguiente código e implemente el `TODO1`:
 
 ```python
-    # TODO1: Importe todo lo que necesitará
-		
+    # En logica.py:
+    from pytamaro import Color, Graphic, rectangle
+	
+	def rectangulo_bandera(alto: float, color: Color) -> Graphic:
     """
     Crea un rectángulo con la altura dada, un ancho proporcional de
 	3/2 de esa altura, relleno del color dado.
@@ -398,8 +417,8 @@ show_graphic(rectangle(100, 150, blue))
     Returns:
         Graphic: Un rectángulo con las dimensiones y color especificados.
     """
-	# TODO2: Implemente la función: rectangulo_bandera().  
-	
+    ancho = (3/2) * alto 
+	# TODO1: Complete la función: rectangulo_bandera() 
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -414,20 +433,37 @@ show_graphic(rectangle(100, 150, blue))
 
 - Para funciones que producen gráficos (Ej: PyTamaro)
 	- La prueba es **visual**
-		- Ver siguiente diapositiva
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz II - Resultado esperado
+###  Actividad II (3/4) 
 
-- Puede llamar a la función: `show_graphic()`
-	- Para ver el resultado:
+- En su directorio de trabajo:
+	- Cree un archivo llamado `vista_rectangulo.py`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (4/4) 
+
+- En su archivo `vista_rectangulo.py`:
+	- Copie y pegue el siguiente código
+		- Para invocar a su función `rectangulo_bandera()`:
 
 ```python
-alto = 300
-show_graphic(rectangulo_bandera(alto, green))
+# En vista_rectangulo.py:
+import logica as l
+from pytamaro import show_graphic, green
+
+def iniciar_aplicacion():
+    alto = 300
+    color = green
+    show_graphic(l.rectangulo_bandera(alto, color))
+
+iniciar_aplicacion()
 ```
-- Que se vería así en la pestaña `Plots` de Spyder:
+
+- Al ejecutar la consola,
+	- Así debería verse el gráfico en la pestaña `Plots` de Spyder:
 
 <img src="iph/n1/img/rect_green.png" alt="" style="width: 40%; height: 40%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -464,10 +500,14 @@ def ellipse(ancho: float, alto: float, color: Color) -> Graphic:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Elipse - Ejemplo de uso (1/2)
+### `ellipse()` - Ejemplo de uso (1/3)
+
+- La función `circulo()` usa a la función `ellipse()` de PyTamaro
+- Copie y pegue esta función en su archivo `logica.py`:
 
 ```python
-from pytamaro import Color, Graphic, ellipse
+# En logica.py:
+from pytamaro ellipse
 
 def circulo(diametro: float, color: Color) -> Graphic:
     """
@@ -487,19 +527,38 @@ def circulo(diametro: float, color: Color) -> Graphic:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Elipse - Ejemplo de uso (2/2)
+### `ellipse()` - Ejemplo de uso (2/3)
+
+- En su directorio de trabajo:
+	- Cree un archivo llamado `vista_circulo.py`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `ellipse()` - Ejemplo de uso (3/3)
+
+- En su archivo `vista_circulo.py`:
+	- Copie y pegue el siguiente código
+		- Para invocar a la función `circulo()`:
+
 
 ```python
-from pytamaro import Color, Graphic, ellipse, show_graphic, black
+# En vista_circulo.py:
+import logica as l
+from pytamaro import show_graphic, black
 
-alto = 300
-diametro = alto * 3/5
-show_graphic(circulo(diametro, black))
+def iniciar_aplicacion():
+    alto = 300
+    diametro = alto * 3/5
+    color = black
+    show_graphic(l.circulo(diametro, color))
+
+iniciar_aplicacion()
 ```
 
-- Así se vería el círculo en la pestaña `Plots` de Spyder:
+- Al ejecutar la consola,
+	- Así debería verse el gráfico en la pestaña `Plots` de Spyder:
 
-<img src="iph/n1/img/circ_negro.png" alt="" style="width: 40%; height: 40%; object-fit: fill">
+<img src="iph/n1/img/circ_negro.png" alt="" style="width: 30%; height: 30%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -527,9 +586,13 @@ def overlay(grafico_del_frente: Graphic, grafico_de_fondo: Graphic) -> Graphic:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad III (1/2)
+###  Actividad III (1/3)
 
+- En su archivo `logica.py`
+	- Copie y pegue el siguiente código e implemente el TODO2:
+	
 ```python
+# En logica.py:
 from pytamaro import Color, Graphic, rectangle, ellipse, white, red, overlay, show_graphic
 
 def bandera_de_japon(alto: float) -> Graphic:
@@ -546,26 +609,42 @@ def bandera_de_japon(alto: float) -> Graphic:
     Returns:
         Graphic: La bandera de Japón como un gráfico.
     """
-	# TODO1: Implemente la función: bandera_de_japon().
+	# TODO2: Implemente la función: bandera_de_japon()
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad III (2/2) 
+###  Actividad III (2/3)
 
-- Resultado esperado
-	- Puede llamar a la función: `show_graphic()`
-		- Para ver el resultado:
+- En su directorio de trabajo:
+	- Cree un archivo llamado `vista_bandera_de_japon.py`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad III (3/3) 
+
+- En su archivo `vista_bandera_de_japon.py`:
+	- Copie y pegue el siguiente código
+		- Para invocar a su función `bandera_de_japon()`:
 
 ```python
-alto = 300
-show_graphic(bandera_de_japon(alto))
+# En vista_bandera_de_japon.py:
+import logica as l
+from pytamaro import show_graphic
+
+def iniciar_aplicacion():
+    alto = 300
+    show_graphic(l.bandera_de_japon(alto))
+
+iniciar_aplicacion()
 ```
-- Que se vería así en la pestaña `Plots` de Spyder:
+
+- Al ejecutar la consola,
+	- Así debería verse el gráfico en la pestaña `Plots` de Spyder:
 
 <img src="iph/n1/img/band_japon.png" alt="" style="object-fit: scale-down">
 
-<!-- .element: style="width: 40%; height: 40%" -->
+<!-- .element: style="width: 30%; height: 30%" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -578,11 +657,13 @@ show_graphic(bandera_de_japon(alto))
 
 ### `above()`
 
+- Lea la documentación para saber cómo invocar a esta función de PyTamaro:
+
 ```python
 def above(grafico_superior: Graphic, grafico_inferior: Graphic) -> Graphic:
     """
-    Crea un nuevo gráfico colocando un gráfico sobre otro, alineados
-	horizontalmente al centro.
+    Crea un nuevo gráfico colocando un gráfico sobre otro (apilándolos),
+	alineados horizontalmente en el centro.
 
     Nota: La función no muestra el gráfico apilado, solo lo crea y retorna.
 
@@ -597,16 +678,24 @@ def above(grafico_superior: Graphic, grafico_inferior: Graphic) -> Graphic:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad IV (1/2)
+###  Actividad IV (1/3)
 
+- En su archivo `logica.py`
+	- Copie y pegue el siguiente código e implemente el `TODO3`:
 
 ```python
+# En logica.py:
+from pytamaro import above, rgb_color, blue
+
+AMARILLO_BANDERA_COLOMBIA = rgb_color(252, 209, 22)
+    
 def bandera_de_colombia(ancho_bandera: float) -> Graphic:
     """
     Crea un gráfico de la bandera de Colombia con franjas amarilla, azul y roja.
     La franja amarilla ocupa la mitad superior, mientras que las franjas azul y
-	roja ocupan cada una un cuarto de la altura total. Por simplicidad, use los
-	colores de Pytamaro: `yellow`, `blue` y `red`.
+	roja ocupan cada una un cuarto de la altura total. El color amarillo a usar
+    ya se define en la constante: AMARILLO_BANDERA_COLOMBIA. Por simplicidad, use 
+	los colores de Pytamaro: `blue` y `red`, para el azul y rojo, respectivamente.
     
     Nota: La función no muestra la bandera de Colombia, solo la crea 
 	y la retorna como un gráfico (Graphic).
@@ -617,24 +706,40 @@ def bandera_de_colombia(ancho_bandera: float) -> Graphic:
     Returns:
         Graphic: La bandera de Colombia como un gráfico.
     """
-	# TODO1: Implemente la función: bandera_de_colombia().
+	# TODO3: Implemente la función: bandera_de_colombia()
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad IV (2/2) 
+###  Actividad IV (2/3)
 
-- Resultado esperado
-	- Puede llamar a la función: `show_graphic()`
-		- Para ver el resultado:
+- En su directorio de trabajo:
+	- Cree un archivo llamado `vista_bandera_de_colombia.py`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad IV (3/3) 
+
+- En su archivo `vista_bandera_de_colombia.py`:
+	- Copie y pegue el siguiente código
+		- Para invocar a su función `bandera_de_colombia()`:
 
 ```python
-ancho = 320
-show_graphic(bandera_de_colombia(ancho))
-```
-- Que se vería así en la pestaña `Plots` de Spyder:
+# En vista_bandera_de_colombia.py:
+import logica as l
+from pytamaro import show_graphic
 
-<img src="iph/n1/img/band_col.png" alt="" style="width: 40%; height: 40%; object-fit: fill">
+def iniciar_aplicacion():
+    ancho = 320
+    show_graphic(l.bandera_de_colombia(ancho))
+
+iniciar_aplicacion()
+```
+
+- Al ejecutar la consola,
+	- Así debería verse el gráfico en la pestaña `Plots` de Spyder:
+
+<img src="iph/n1/img/band_col.png" alt="" style="width: 30%; height: 30%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -669,47 +774,90 @@ def rotate(angulo: float, grafico: Graphic) -> Graphic:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad V (1/2)
+###  Actividad V (1/3)
+
+- En su archivo `logica.py`
+	- Copie y pegue el siguiente código e implemente los `TODO4` y `TODO5`:
 
 ```python
-def bandera_de_suiza(lado_cuadrado: float, ancho_linea_cruz: float, alto_linea_cruz: float) -> Graphic:
+# En logica.py:
+from pytamaro import rotate
+
+def cruz(ancho_linea: float, alto_linea: float, color_cruz) -> Graphic:
+    """
+    Crea una cruz con un color parametrizable.
+
+    Nota: La función no muestra la cruz, solo la crea y la retorna como un
+	gráfico (Graphic).
+
+    Args:
+        ancho_linea (float): Ancho de una línea de la cruz.
+        alto_linea (float): Alto de una línea de la cruz.
+        color_cruz: Color de la cruz. Ejemplo: `white`.
+
+    Returns:
+        Graphic: Una cruz con el color especificado.
+    """
+    # TODO4: Implemente la función: crear_cruz()
+
+
+def bandera_de_suiza(lado_cuadrado: float, ancho_linea_cruz: float, alto_linea_cruz: float, color_cruz: float) -> Graphic:
     """
     Crea un gráfico que ilustra la bandera de Suiza.
     Esta se compone de un cuadrado rojo y una cruz blanca.
-    
-    Nota: La función no muestra la bandera de Suiza, solo la crea y la retorna
+		
+    Nota1: Esta función usa a la función `cruz()` (composición) para obtener
+	la cruz blanca (como un gráfico) a superponer sobre el cuadrado rojo.
+
+    Nota2: La función no muestra la bandera de Suiza, solo la crea y la retorna
 	como un gráfico (Graphic).
 
     Args:
         lado_cuadrado (float): Tamaño del lado del cuadrado de fondo.
-        ancho_linea_cruz (float): Ancho de una línea  de la cruz.
+        ancho_linea_cruz (float): Ancho de una línea de la cruz.
         alto_linea_cruz (float): Alto de una línea de la cruz.
+        color_cruz: Color de la cruz. Ejemplo: `white`.
 
     Returns:
         Graphic: La bandera de Suiza como un gráfico.
     """
-    # TODO1: Implemente la función: bandera_de_suiza().
+    # TODO5: Implemente la función: bandera_de_suiza()
 ```
-
-- Puede crear una función auxiliar para crear la cruz si lo desea
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad V (2/2) 
+###  Actividad V (2/3)
 
-- Resultado esperado:
-	- Puede llamar a la función: `show_graphic()`
-		- Para ver el resultado:
+- En su directorio de trabajo:
+	- Cree un archivo llamado `vista_bandera_de_suiza.py`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad V (3/3) 
+
+- En su archivo `vista_bandera_de_suiza.py`:
+	- Copie y pegue el siguiente código
+		- Para invocar a su función `bandera_de_suiza()`
 
 ```python
-lado_cuadrado = 320
-ancho_linea_cruz = 200
-alto_linea_cruz = 60
-show_graphic(bandera_de_suiza(320, 200, 60))
-```
-- Que se vería así en la pestaña `Plots` de Spyder:
+# En vista_bandera_suiza.py:
+import logica as l
+from pytamaro import show_graphic, white
 
-<img src="iph/n1/img/band_suiza.png" alt="" style="width: 35%; height: 40%; object-fit: fill">
+def iniciar_aplicacion():
+    lado_cuadrado = 320
+    ancho_linea_cruz = 200
+    alto_linea_cruz = 60
+    color = white
+    show_graphic(l.bandera_de_suiza(lado_cuadrado, ancho_linea_cruz, alto_linea_cruz, color))
+
+iniciar_aplicacion()
+```
+
+- Al ejecutar la consola,
+	- Así debería verse el gráfico en la pestaña `Plots` de Spyder:
+
+<img src="iph/n1/img/band_suiza.png" alt="" style="width: 25%; height: 30%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -721,17 +869,41 @@ show_graphic(bandera_de_suiza(320, 200, 60))
 		- Variables y la instrucción de asignación
 		- Funciones
 		- Módulos e importación
+		- Separación entre lógica e interfaz
 		- Buenas prácticas
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Entrega (1/2)
+
+1. Comprima en un archivo `.zip` todos los archivos Python producidos:
+	- `logica`
+	- `vista_rectangulo`
+	- `vista_circulo`
+	- `vista_bandera_japon`
+	- `vista_bandera_de_colombia`
+	- `vista_bandera_de_suiza`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Entrega (2/2)
+
+2. Haga el envío del `.zip` en  [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
+	- Vaya a **"Actividades"**
+		- **"N1-L3"**
+
+<br>
+
+
+- Nota: Si no recuerda el proceso, consúltelo aquí:
+	- [N1-L2 - Envío de un entregable a Bloque Neón](https://eerosales24.github.io/iph_2025_10/n1/n1_l2/#/42)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Fin de N1-L3
 
-- No es necesario hacer ningún envío de este laboratorio
-- Si lo desea, puede guardar sus archivos
-	- Para ello, en  [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
-		- Vaya a **"Actividades"**
-			- **"N1-L3"**
+- Si no alcanzó a terminar el laboratorio
+	- Se dará un tiempo adicional el próximo martes
 
 
 
