@@ -106,7 +106,9 @@ Universidad de los Andes
 - [NameError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/7)
 - [ValueError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/10)
 - [TypeError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/13)
-- En construcción...
+- [ZeroDivisionError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/17)
+
+ En construcción...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -406,6 +408,70 @@ Los operandos de la concatenación deben ser strings
 
 ```Python
 'Result: ' + '5'
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `ZeroDivisionError`
+
+- Excepción que ocurre cuando
+  - Se intenta realizar una división por cero
+- Ayuda: [ZeroDivisionError](https://docs.python.org/3/library/exceptions.html#ZeroDivisionError)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `ZeroDivisionError` - Ejemplo
+
+
+```Python
+promedio = 100/0
+```
+
+
+<div class="callout callout-color7">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-bolt" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Error
+
+</div>
+</div>
+<div class="callout-content">
+
+No es posible dividir entre 0
+
+</div>
+</div>
+<!-- .element: style="width: 80%; font-size: 24px; transform: rotate(0deg)" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `ZeroDivisionError` (1/2)
+
+- **Evitar**: 
+	- División por cero
+	- División entera por cero
+	- Módulo de una división por cero
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `ZeroDivisionError` (2/2)
+
+- ¿Cómo se soluciona el siguiente error?
+
+```Python
+promedio = 100/0  # ZeroDivisionError: division by zero
+```
+-  **Nunca dividir por cero, usar otro valor:**
+
+```Python
+promedio = 100/4  # promedio = 25.0
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">

@@ -293,7 +293,89 @@ n * string
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Caracteres de Control (o Escape)
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; font-size: 22px;">
+  <thead style="background-color: #d0e6f8;">
+    <tr>
+      <th style="color: black;">Carácter</th>
+      <th style="color: black;">Nombre</th>
+      <th style="color: black;">Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>\\</code></td>
+      <td>Barra invertida</td>
+      <td><code>print('C:\\\\Program Files\\\\')</code><br># → C:\Program Files\</td>
+    </tr>
+    <tr>
+      <td><code>\'</code></td>
+      <td>Comilla sencilla</td>
+      <td><code>print("Don't take it")</code><br># → Don't take it</td>
+    </tr>
+    <tr>
+      <td><code>\"</code></td>
+      <td>Comilla doble</td>
+      <td><code>print("He said, \\\"Hello!\\\"")</code><br># → He said, "Hello!"</td>
+    </tr>
+    <tr>
+      <td><code>\\n</code></td>
+      <td>Cambio de línea</td>
+      <td><code>print('Line 1\\nLine 2')</code><br># → Line 1<br># → Line 2</td>
+    </tr>
+    <tr>
+      <td><code>\\t</code></td>
+      <td>Tabulador</td>
+      <td><code>print('Title:\\tMr.')</code><br># → Title:   Mr.</td>
+    </tr>
+    <tr>
+      <td><code>\\</code></td>
+      <td>Salto de línea<br>(permite cadenas de varias líneas)</td>
+      <td><code>texto = 'Esta es una cadena \\<br>que continúa en la siguiente línea.'</code></td>
+    </tr>
+  </tbody>
+</table>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ejemplo de usar comillas y escaparlas  (1/2)
+
+- Comillas dobles con comillas simples:
+
+```python
+"Ella dijo: 'hola'."  # → Ella dijo: 'hola'.
+```
+   
+<br>
+	
+- Comillas dobles con comillas dobles (escape necesario):
+
+```python
+"Ella dijo: \"hola\"."  # → Ella dijo: "hola".
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ejemplo de usar comillas y escaparlas  (1/2)
+
+
+- Comillas simples con comillas dobles:
+```python
+'Ella dijo: "hola".'  # → Ella dijo: "hola".
+```
+
+  <br>
+
+- Comillas simples con comillas simples (escape necesario):
+```python
+'Ella dijo: \'hola\'.'  # → Ella dijo: 'hola'.
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 <i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
+
 
 <br>
 <br>
