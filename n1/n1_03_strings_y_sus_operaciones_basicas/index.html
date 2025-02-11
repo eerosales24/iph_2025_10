@@ -295,7 +295,7 @@ n * string
 
 ### Caracteres de Control (o Escape)
 
-<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; font-size: 22px;">
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; font-size: 20px;">
   <thead style="background-color: #d0e6f8;">
     <tr>
       <th style="color: black;">Carácter</th>
@@ -307,17 +307,17 @@ n * string
     <tr>
       <td><code>\\</code></td>
       <td>Barra invertida</td>
-      <td><code>print('C:\\\\Program Files\\\\')</code><br># → C:\Program Files\</td>
+      <td><code>print('C:\\\Program Files\\\')</code><br># → C:\Program Files\</td>
     </tr>
     <tr>
       <td><code>\'</code></td>
       <td>Comilla sencilla</td>
-      <td><code>print("Don't take it")</code><br># → Don't take it</td>
+      <td><code>print('Don\'t take it')</code><br># → Don't take it</td>
     </tr>
     <tr>
       <td><code>\"</code></td>
       <td>Comilla doble</td>
-      <td><code>print("He said, \\\"Hello!\\\"")</code><br># → He said, "Hello!"</td>
+      <td><code>print("He said, \"Hello!\"")</code><br># → He said, "Hello!"</td>
     </tr>
     <tr>
       <td><code>\\n</code></td>
@@ -327,12 +327,12 @@ n * string
     <tr>
       <td><code>\\t</code></td>
       <td>Tabulador</td>
-      <td><code>print('Title:\\tMr.')</code><br># → Title:   Mr.</td>
+      <td><code>print('Title:\\tMr.')</code><br># → Title: &nbsp;&nbsp;&nbsp;&nbsp; Mr.</td>
     </tr>
     <tr>
       <td><code>\\</code></td>
       <td>Salto de línea<br>(permite cadenas de varias líneas)</td>
-      <td><code>texto = 'Esta es una cadena \\<br>que continúa en la siguiente línea.'</code></td>
+      <td><code>texto = 'Es \\<br> una sola línea'<br>print(texto) # → Es una sola línea</code></td>
     </tr>
   </tbody>
 </table>
