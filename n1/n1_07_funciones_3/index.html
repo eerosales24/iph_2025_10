@@ -510,7 +510,7 @@ def calcular_perimetro_rectangulo(ancho: float, alto: float) -> float:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Ejemplo de composición de funciones (1/4)
+### Ejemplo de composición de funciones (1/5)
 
 - ¿Cuál es el propósito de cada función?
 
@@ -538,7 +538,7 @@ print(calcular_area_total(4.0, 4.0, 4.0))  # → 24.0
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Ejemplo de composición de funciones (2/4)
+### Ejemplo de composición de funciones (2/5)
 
 ```python[1,12]
 def calcular_area_cuadrado(lado: float) -> float:
@@ -564,7 +564,7 @@ print(calcular_area_total(4.0, 4.0, 4.0))  # → 24.0
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Ejemplo de composición de funciones (3/4)
+### Ejemplo de composición de funciones (3/5)
 
 ```python[4,13]
 def calcular_area_cuadrado(lado: float) -> float:
@@ -590,7 +590,28 @@ print(calcular_area_total(4.0, 4.0, 4.0))  # → 24.0
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Ejemplo de composición de funciones (4/4)
+### Ejemplo de composición de funciones (4/5)
+
+```python
+def calcular_area_cuadrado(lado: float) -> float:
+    ...
+   
+def calcular_area_triangulo(base: float, altura: float) -> float:
+    ...
+   
+def calcular_area_total(
+	lado: float, 
+	base: float, 
+	altura: float) -> float:
+    ...
+```
+
+- Los parámetros de distintas funciones podrían llamarse igual
+	- Ya que son válidos **únicamente** en la función que los usa
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ejemplo de composición de funciones (5/5)
 
 - La composición evita la duplicación de código
 	- El código en `calcular_area_cuadrado()` y `calcular_area_triangulo()`
