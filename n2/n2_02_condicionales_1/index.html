@@ -89,7 +89,7 @@
 
 ### <i class="fas fa-award"></i> IP Honores
 
-*Condicionales I*
+ #### *Condicionales I*
 
 [Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
 
@@ -148,7 +148,7 @@ if clima == 'soleado':
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if` Ejemplo (1/5)
+### `if` - Ejemplo (1/5)
 
 ```Python[1]
 if clima == 'soleado':
@@ -159,7 +159,7 @@ if clima == 'soleado':
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if` Ejemplo (2/5)
+### `if` - Ejemplo (2/5)
 
 ```Python[2]
 if clima == 'soleado':
@@ -171,7 +171,7 @@ if clima == 'soleado':
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if` Ejemplo (3/5)
+### `if` - Ejemplo (3/5)
 
 <img src="iph/n2/img/if_start_end.png" alt="" style="width: 45%; height: 20%; object-fit: fill">
 
@@ -181,7 +181,7 @@ if clima == 'soleado':
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if` Ejemplo (4/5)
+### `if` - Ejemplo (4/5)
 - ¿Qué pasa si el clima NO está soleado?
 
 ```Python
@@ -191,7 +191,7 @@ if clima == 'soleado':
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if` Ejemplo (5/5)
+### `if` - Ejemplo (5/5)
 - ¿Qué pasa si el clima NO está soleado?
 
 <img src="iph/n2/img/if_skip.png" alt="" style="width: 60%; height: 15%; object-fit: fill">
@@ -202,10 +202,10 @@ if clima == 'soleado':
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if` - Diagrama de Flujo
+### `if` - Diagrama de flujo
 
 
-<img src="iph/n2/img/df_1.png" alt="" style="object-fit: scale-down">
+<img src="iph/n2/img/df_1.png" alt="" style="width: 50%; height: 50%; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -221,7 +221,6 @@ if numero > 5:
 
 if numero % 2 == 0:
     print('El número es par')
-
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -239,7 +238,6 @@ if numero > 5:
 
 if numero % 2 == 0:
     print('El número es par')
-
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -258,7 +256,6 @@ if numero > 5:
 if numero % 2 == 0:  # Evalúa a False
     # No se ejecuta:
     print('El número es par')
-   
 ```
 
 - Se imprime únicamente:
@@ -280,7 +277,6 @@ if numero > 5:
 if numero % 2 == 0:
     # No se ejecuta:
     print('El número es par')
-   
 ```
 
 - El cuerpo del segundo condicional no se ejecuta
@@ -374,10 +370,12 @@ if num > 0:
 
 - Así debería verse un esqueleto inicial de la función:
 
-```Python
+```Python[1,2,4]
 def resultado_examen(puntuacion: float) -> str:
     resultado = 'no aprobado'  # Variable de retorno
+		
     # TODO: Completar la función
+		
     return resultado
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -389,10 +387,12 @@ def resultado_examen(puntuacion: float) -> str:
 	- Implica usar un condicional
 		- Para cambiar la variable de retorno
 
-```Python[3]
+```Python[4]
 def resultado_examen(puntuacion: float) -> str:
     resultado = 'no aprobado'  # Variable de retorno
+		
     # TODO: Completar la función
+		
     return resultado
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -624,7 +624,7 @@ def clasificacion_edad(edad: int) -> str:
 ### Quiz V
 
 - Implemente la función `diferencia_absoluta()`
-	- No usar la función `abs()`
+	- Nota: No usar la función `abs()` en este caso
 
 ```Python
     """

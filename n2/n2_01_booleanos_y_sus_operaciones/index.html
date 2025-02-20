@@ -219,13 +219,6 @@ type(False)  # → bool
 
 ### `bool()`
 - Función integrada para convertir a booleano
-- Ej:
-```Python
-bool(1)  # → True
-bool(0)  # → False
-```
-
-- Ayuda:  [bool](https://docs.python.org/3/library/functions.html#bool)
 
 - Crea un nuevo objeto de tipo `bool` a partir de un objeto dado
     - Sintaxis: 
@@ -373,7 +366,7 @@ True
 		- Valores
 		- Variables
 		- Operadores
-		- Funciones, etc.
+		- Invocaciones a funciones, etc.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -792,26 +785,6 @@ False and False  # → False
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Álgebra booleana - `and`
-
-```Python
-x and y == y and x
-
-x and (y and z) == (x and y) and z
-
-x and (y or z) == (x and y) or (x and z)
-
-x and True == x
-
-x and False == False
-
-x and x == x
-
-x and not x == False
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
 ### Quiz VI
 
 - ¿Cuál es el valor retornado por cada expresión?
@@ -934,26 +907,6 @@ False and False  # → False
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Álgebra booleana - `or`
-
-```Python
-x or y == y or x
-
-x or (y or z) == (x or y) or z
-
-x or (y and z) == (x or y) and (x or z)
-
-x or False == x
-
-x or True == True
-
-x or x == x
-
-x or not x == True
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
 ### Quiz VII
 
 - ¿Cuál es el valor retornado por cada expresión?
@@ -1025,6 +978,46 @@ not bool('')  # → True
     </tr>
   </tbody>
 </table>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Álgebra booleana - `and`
+
+```Python
+x and y == y and x
+
+x and (y and z) == (x and y) and z
+
+x and (y or z) == (x and y) or (x and z)
+
+x and True == x
+
+x and False == False
+
+x and x == x
+
+x and not x == False
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Álgebra booleana - `or`
+
+```Python
+x or y == y or x
+
+x or (y or z) == (x or y) or z
+
+x or (y and z) == (x or y) and (x or z)
+
+x or False == x
+
+x or True == True
+
+x or x == x
+
+x or not x == True
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -1134,7 +1127,7 @@ not 0.0  # → True
 	- Expresiones relacionales
 	- Valores
 	- Variables 
-	- Ó *funciones booleanas*
+	- Ó *invocaciones a funciones booleanas*
 - **Función booleana**:  
 	- Función que retorna un booleano
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -1566,8 +1559,8 @@ def son_iguales(objeto_1: object, objeto_2: object, objeto_3: object) -> bool:
 ```
 
 - Es una estrategia para organizar los TODOs
-	- Sin resolverse: `TODO`
-	- Resueltos: `TODO - DONE`
+	- **Sin resolverse**: `TODO`
+	- **Resueltos**: `TODO - DONE`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
