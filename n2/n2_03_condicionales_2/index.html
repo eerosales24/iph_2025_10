@@ -796,25 +796,53 @@ if temperatura > 20:  # if independiente
 	- Hacer algo si una condición se cumple
 		- En otro caso, hacer otra cosa, entre varias, 
 			- Si se cumple una condición
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```Python
+### Clasificación  animal según desarrollo de la cría (1/2)
+
+1. **Vivíparos**:
+	-  La cría se desarrolla en la madre y nace completamente formada (hay placenta)
+	    - Ej: Mamíferos placentarios (humanos, perros, ballenas)
+    
+2. **Ovíparos** :
+	- La cría se desarrolla en un huevo fuera del cuerpo de la madre
+	    - Ej: Aves (gallinas), reptiles (tortugas), anfibios (ranas), peces
+	    
+3. **Ovovivíparos**: 
+	- Retienen los huevos dentro del cuerpo hasta que eclosionan (sin placenta)
+	    - Ej: Tiburón blanco, serpientes como la víbora áspid
+	    
+4. **Marsupiales**:
+	- Las crías nacen inmaduras y terminan su desarrollo en un bolsa (marsupio)
+	    - Ej: Canguros, koalas, zarigüeyas
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Clasificación  animal según desarrollo de la cría (2/2)
+
+```Plaintext
 # Lenguaje natural:
-si la persona es menor de 5 años
-    entonces, el tiquete es gratis
-si la persona es mayor de 60 años
-    entonces tiene 20% de descuento
-si la persona es estudiante
-    entonces tiene 10% de descuento
+si el animal da a luz crías vivas
+    entonces, es vivíparo
+si el animal pone huevos
+    entonces, es ovíparo
+si el animal retiene los huevos hasta la eclosión
+    entonces, es ovovivíparo
+si el animal tiene bolsa marsupial
+    entonces, es marsupial
 ````
 
 ```Python
 # En Python:
-if edad < 5:
-    precio_tiquete = 0
-elif edad > 60:
-    precio_tiquete = precio_adulto * 0.8
-elif es_estudiante():
-    precio_tiquete = precio_adulto * 0.9
+if da_a_luz:
+    tipo_animal = "Vivíparo"
+elif pone_huevos:
+    tipo_animal = "Ovíparo"
+elif retiene_huevos:
+    tipo_animal = "Ovovivíparo"
+elif tiene_bolsa_marsupial:
+    tipo_animal = "Marsupial"
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -829,324 +857,79 @@ elif es_estudiante():
 
 - Múltiples `elif`
 - Todos los casos son mutuamente excluyentes
-	- Solo un caso puede ser ejecutado
+	- Solo **un caso** puede ser ejecutado
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if-elif` - Ejemplo
+### `if-elif` - Ejemplo (1/5)
 
-- Suponga que `edad = 21`
-	- Y `es_estudiante()` retorna `True`
-
-<img src="iph/n2/img/if_elif_6.png" alt="" style="width: 60%; height: 35%; object-fit: fill">
+- Suponga que:  `da_a_luz = True`
 
 
-- Solo el último `elif` se ejecuta
+<img src="iph/n2/img/if_elif_6.png" alt="" style="width: 50%; height: 40%; object-fit: fill">
+
+
+<br>
+
+- Solo el cuerpo del primer `if` se ejecuta
+	- Su ejecución es mutuamente excluyente con todo lo demás
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Tomando decisiones
+### `if-elif` - Ejemplo (2/5)
 
-- En el mundo real:
-	- Hacer algo si una condición se cumple
-		- En otro caso, hacer otra cosa, entre varias, si se cumple una condición
-			- Caso contrario
-				- Hacer algo por defecto
+- Suponga que:  `da_a_luz = False`  y  `pone_huevos = True`
+
+
+<img src="iph/n2/img/if_elif_7.png" alt="" style="width: 50%; height: 40%; object-fit: fill">
+
+
+<br>
+
+- Solo el cuerpo del primer `elif` se ejecuta
+	- Su ejecución es mutuamente excluyente con todo lo demás
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```Python
-# Lenguaje natural:
-si la persona es menor de 5 años
-    entonces, el tiquete es gratis
-si la persona es mayor de 60 años
-    entonces tiene 20% de descuento
-si la persona es estudiante
-    entonces tiene 10% de descuento
-caso contrario
-    el precio es el de adulto
-````
+### `if-elif` - Ejemplo (3/5)
 
-```Python
-# En Python:
-if edad < 5:
-    precio_tiquete = 0
-elif edad > 60:
-    precio_tiquete = precio_adulto * 0.8
-elif es_estudiante():
-    precio_tiquete = precio_adulto * 0.9
-else:
-    precio_tiquete = precio_adulto
-```
+- Suponga que:  `da_a_luz`   y   `pone_huevos`  son `False`  y
+	- `retiene_huevos = True`
+
+<img src="iph/n2/img/if_elif_8.png" alt="" style="width: 50%; height: 40%; object-fit: fill">
+
+
+<br>
+
+- Solo el cuerpo del segundo `elif` se ejecuta
+	- Su ejecución es mutuamente excluyente con todo lo demás
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### La Instrucción `if` - Versión  4 (final)
+### `if-elif` - Ejemplo (4/5)
 
-<img src="iph/n2/img/if_elif_else_1.png" alt="" style="width: 60%; height: 35%; object-fit: fill">
+- Suponga que:  `da_a_luz`, `pone_huevos` y `retiene_huevos` son  `False`  y 
+	- `tipo_bolsa_marsupial = True`
+
+<img src="iph/n2/img/if_elif_9.png" alt="" style="width: 55%; height: 40%; object-fit: fill">
+
+
+<br>
+
+- Solo el cuerpo del tercer `elif` se ejecuta
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `if-elif-else`
+### `if-elif` - Ejemplo (5/5)
 
-- Se puede definir una alternativa final
-- Se ejecutará sólo si 
-	- Todas las demás opciones fueron excluidas
-- `else` debe ubicarse al final de condicional
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+- Suponga que:  `da_a_luz`, `pone_huevos` `retiene_huevos`  y  `tipo_bolsa_marsupial` son  todos `False`  
 
-### `if-elif-else` - Ejemplo 
-- Suponga que `edad = 21`
-	- Y `es_estudiante()` retorna `False`
-
-<img src="iph/n2/img/if_elif_else_2.png" alt="" style="width: 60%; height: 35%; object-fit: fill">
+<img src="iph/n2/img/if_elif_10.png" alt="" style="width: 50%; height: 40%; object-fit: fill">
 
 
-- Solo `else` se ejecuta
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+<br>
 
-### `if-elif-else` - Diagrama de flujo
-
-<img src="iph/n2/img/df_3.png" alt="" style="width: 60%; height: 55%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz X
-
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-temperatura = 10
-
-if temperatura > 35: 
-    print('¡Temperatura extrema!')
-elif temperatura > 18: 
-    print('Sólo un día caluroso')
-else:
-    print('Baja temperatura')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz X - Solución
-
-```Python[7,8]
-temperatura = 10
-
-if temperatura > 35: 
-    print('¡Temperatura extrema!')
-elif temperatura > 18: 
-    print('Sólo un día caluroso')
-else:  # Caso contrario, porque todo lo anterior evalúa a `False`
-    print('Baja temperatura')
-```
-
-- Se imprime:
-	- Baja temperatura
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `len()`
-
-- Retorna la longitud (tamaño) de un objeto    
-- Sintaxis: 
-```Python
-len(objeto)
-```
-
-- Compatible con múltiples objetos
-	- Por ejemplo **strings**
-- Ayuda: `help(len)`ó [len](https://docs.python.org/3/library/functions.html#len)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `len()` - Ejemplos
-
-```Python
-len('')  # → 0 (string vacío)
-
-len('Python')  # → 6 (`Python` tiene 6 caracteres)
-
-len('Hello World!')  # → 12 (Los espacios son caracteres)
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XI
-
-- ¿Qué hace el siguiente programa?
-
-```Python
-pin = input('Por favor digite un PIN de cuatro dígitos: ')
-
-if len(pin) != 4:
-    print('El PIN debe tener cuatro dígitos de longitud')
-else:
-    print('El PIN se ha guardado')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XI - Solución
-
-- Solicita al usuario un PIN de 4 dígitos
-- Si el PIN no coincide con esa longitud
-	- Imprime: 
-		- "El PIN debe tener 4 caracteres de longitud"
-- Caso lo contrario
-	- Imprime: 
-		- "El PIN se ha guardado"
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comparación de cadenas (`==`)
-
-- Es posible comparar dos cadenas usando los operadores relacionales
-- Ej:
-
-```Python
-'a' == 'a'  # → True
-'A' == 'a'  # → False
-'Hola' == 'Hola'  # → True
-'hola' == 'Hola'  # → False
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII
-
-- ¿Qué hace el siguiente programa?
-
-```Python
-pin = input('Por favor digite un PIN de cuatro dígitos: ')
-confirmacion_pin = input('Por favor confirme el PIN: ')
-
-if len(pin) != 4:
-    print('El PIN debe tener cuatro dígitos de longitud')
-
-elif pin == confirmacion_pin:
-    print('El PIN se ha guardado')
-else:
-    print('Error: Los PINs no coinciden')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Solución
-
-- Solicita al usuario un PIN de 4 dígitos
-- Solicita al usuario que confirme el PIN
-- Si el PIN no coincide con esa longitud, imprime: 
-	- "El PIN debe tener 4 dígitos de longitud"
-- Si ambas entradas coinciden, imprime: 
-	- "El PIN se ha guardado"
-- Caso alterno, imprime: 
-	- "Error: los PINs no coinciden"
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `str.isdigit()`
-    
-- Determina si la cadena 
-	- Es completamente dígitos
-		- Esto es: 0 - 9
-- Retorna `True` si todos los caracteres son dígitos
-	- Caso contrario `False`
-- Ayuda: `help(str.isdigit)`ó [str.isdigit](https://docs.python.org/3/library/stdtypes.html#str.isdigit)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `str.isdigit()` - Ejemplos
-
-```Python
-''.isdigit()  # → False (Debe haber al menos un carácter)
-
-'1234'.isdigit()  # → True (Todos son dígitos)
-
-'1.5'.isdigit()  # → False: (El punto `.` no es un dígito)
-
-'1 5'.isdigit()  # → False: (Los espacios no son dígitos)
-
-'$5'.isdigit()  # → False: (Los símbolos no son dígitos)
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XIII
-
-- ¿Qué hace el siguiente programa?
-
-```Python
-pin = input('Por favor digite un PIN de cuatro dígitos: ')
-confirmacion_pin = input('Por favor confirme el PIN: ')
-
-if len(pin) != 4:
-    print('El PIN debe tener cuatro dígitos de longitud')
-elif not pin.isdigit():
-    print('El PIN debe contener sólo dígitos')
-elif pin == confirmacion_pin:
-    print('El PIN se ha guardado')
-else:
-    print('Error: Los PINs no coinciden')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XIII - Solución
-
-- Pide al usuario un PIN de 4 dígitos
-- Pide al usuario que confirme el PIN
-- Si el PIN no coincide con esa longitud, imprime: 
-	- "El PIN debe tener 4 dígitos de longitud"
-- Si el PIN no contiene solo dígitos (0-9), imprime: 
-	- "El PIN debe contener solo dígitos"
-- Si ambas entradas coinciden, imprime: 
-	- "El PIN se ha guardado"
-- Caso alterno, imprime: 
-	- "Error: Los PINs no coinciden"
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Condicionales anidados - Diagrama de flujo
-
-<img src="iph/n2/img/df_4.png" alt="" style="width: 60%; height: 55%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz IX
-
-- ¿Qué hace el siguiente programa?
-
-```Python
-pin = input('Por favor digite un PIN de cuatro dígitos: ')
-confirmacion_pin = input('Por favor confirme el PIN: ')
- 
-if pin == confirmacion_pin:
-    if len(pin) != 4:
-        print('El PIN debe tener cuatro dígitos de longitud')
-    elif not pin.isdigit():
-        print('El PIN debe contener sólo dígitos')
-    else:
-        print('El PIN se ha guardado')
-else:
-    print('Error: PIN distintos')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz IX - Solución
-
-- Pide al usuario un PIN de 4 dígitos y confirmación
-- Si ambas entradas coinciden, chequea:
-	- Si el PIN no tiene 4 dígitos, imprime: 
-		- "El PIN debe tener 4 dígitos de longitud"
-	- Si el PIN no es solo dígitos (0-9), imprime: 
-		- "El PIN debe contener solo dígitos"
-	- Caso alterno, imprime: 
-		- "El PIN se ha guardado"
-- Caso alterno, imprime: "Error: PIN distintos"
+- No se ejecuta ningún cuerpo
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 

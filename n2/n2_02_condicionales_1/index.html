@@ -345,9 +345,9 @@ if num > 0:
         str: 'no aprobado' si la puntuación es menor a 60, 
         caso contrario 'aprobado'.
 
-    >>> resultado_examen(59)
+    >>> resultado_examen(59)  # Caso no aprobado
     'no aprobado'
-    >>> resultado_examen(60)
+    >>> resultado_examen(60)  # Caso aprobado
     'aprobado'
     """
 ```
@@ -433,9 +433,9 @@ def resultado_examen(puntuacion: float) -> str:
         str: 'no aprobado' si la puntuación es menor a 60, 
         caso contrario 'aprobado'.
 
-    >>> resultado_examen(59)
+    >>> resultado_examen(59)  # Caso no aprobado
     'no aprobado'
-    >>> resultado_examen(60)
+    >>> resultado_examen(60)  # Caso aprobado
     'aprobado'
     """
     resultado = 'no aprobado'  # Variable de retorno
@@ -569,11 +569,11 @@ Extracto de la documentación de la función:
         str: 'menor de edad' si la persona tiene menos de 18 años, 
         caso contrario 'adulto'.
 
-    >>> clasificacion_edad(17)
+    >>> clasificacion_edad(17)  # Caso menor de edad
     'menor de edad'
-    >>> clasificacion_edad(18)
+    >>> clasificacion_edad(18)  # Caso mayor de edad, con edad igual a 18
     'adulto'
-    >>> clasificacion_edad(25)
+    >>> clasificacion_edad(25)  # Caso mayor de edad
     'adulto'
     """
 ```
@@ -604,11 +604,11 @@ def clasificacion_edad(edad: int) -> str:
         str: 'menor de edad' si la persona tiene menos de 18 años, 
         caso contrario 'adulto'.
 
-    >>> clasificacion_edad(17)
+    >>> clasificacion_edad(17)  # Caso menor de edad
     'menor de edad'
-    >>> clasificacion_edad(18)
+    >>> clasificacion_edad(18)  # Caso mayor de edad, con edad igual a 18
     'adulto'
-    >>> clasificacion_edad(25)
+    >>> clasificacion_edad(25)  # Caso mayor de edad
     'adulto'
     """
     respuesta = 'menor de edad'  # Variable de retorno
@@ -637,9 +637,9 @@ def clasificacion_edad(edad: int) -> str:
     Returns:
         float: La diferencia absoluta entre los números.
 
-    >>> diferencia_absoluta(5, 3)
+    >>> diferencia_absoluta(5, 3)  # Caso num1 > num2
     2
-    >>> diferencia_absoluta(3, 5)
+    >>> diferencia_absoluta(3, 5)  # Caso num1 < num2
     2
     """
 ```
@@ -660,9 +660,9 @@ def diferencia_absoluta(num1: float, num2: float) -> float:
     Returns:
         float: La diferencia absoluta entre los números.
 
-    >>> diferencia_absoluta(5, 3)
+    >>> diferencia_absoluta(5, 3)  # Caso num1 > num2
     2
-    >>> diferencia_absoluta(3, 5)
+    >>> diferencia_absoluta(3, 5)  # Caso num1 < num2
     2
     """
     resultado = num2 - num1  # Variable de retorno
@@ -688,9 +688,9 @@ def diferencia_absoluta(num1: float, num2: float) -> float:
     Returns:
         float: La diferencia absoluta entre los números.
 
-    >>> diferencia_absoluta(5, 3)
+    >>> diferencia_absoluta(5, 3)  # Caso num1 > num2
     2
-    >>> diferencia_absoluta(3, 5)
+    >>> diferencia_absoluta(3, 5)  # Caso num1 < num2
     2
     """
     resultado = num1 - num2  # Variable de retorno
@@ -699,18 +699,6 @@ def diferencia_absoluta(num1: float, num2: float) -> float:
         resultado = num2 - num1
     return resultado  # Hay un solo retorno
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Para cerrar
-
-
-- Las siguientes buenas prácticas se añaden:
-
-	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/32" target="_blank">BP-17 Retorno directo de expresiones booleanas</a>
-		-  Evitar condicionales cuando se pueda
-
-	- **<a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/39" target="_blank">BP-21 Nunca interrumpir un condicional con un `return`</a>**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
