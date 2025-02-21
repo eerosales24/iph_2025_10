@@ -503,7 +503,205 @@ Según la convención [PEP 8 Style](https://peps.python.org/pep-0008/#comments)
 - Claridad: 
 	- Comente segmentos significativos/complejos de código
 		- ❌ Explicar el código línea a línea
-</div></script></section><section  data-markdown><script type="text/template"></script></section></div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-16  Nonbramiento de funciones booleanas (1/2)
+
+- Las funciones booleanas 
+	- Deben nombrarse como si fuesen preguntas
+		- Cuya respuesta es `True`  o  `False`
+- Ej:
+
+```Python
+esta_activo()
+
+esta_encendido()
+
+tiene_permiso()
+
+es_valido()
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-16  Nonbramiento de funciones booleanas (2/2)
+
+- Se debe nombrar a las funciones booleanas
+	- **Sin usar negaciones**
+- Ej:
+  
+✅
+```Python
+es_valido()   # Nombramiento correcto y claro
+```
+
+❌
+```Python
+ es_invalido()  # Mal nombramiento (evitar negaciones)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-17 Retorno directo de expresiones booleanas (1/2)
+
+- Cuando sea posible
+	- Retorne directamente la expresión booleana
+- Ej:
+
+```Python[3]
+# Práctica correcta:
+def es_par(num: int) -> bool:  
+    return num % 2 == 0
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-17 Retorno directo de expresiones booleanas (2/3)
+
+- Cuando sea posible
+	- Retorne directamente la expresión booleana
+		- **Sin usar condicionales innecesarios**
+- Ej:
+
+```Python
+# Práctica correcta:
+def es_multiplo(dividendo: int, divisor: int) -> bool:
+    return divisor != 0 and dividendo % divisor == 0
+```
+
+- Se evitó el uso de `if`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-17 Retorno directo de expresiones booleanas (3/3)
+
+- Claridad y legibilidad
+	- Hace el código más conciso y legible
+- Eficiencia: 
+	- Evita estructuras condicionales innecesarias
+- Mantenimiento: 
+	- Facilita la modificación 
+		- Y depuración del código
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-18 Uso de operadores relacionales compuestos
+
+-  Evite operaciones ineficientes
+	- Usando operadores relacionales compuestos
+- Ej: 
+
+```Python
+x < y < z 
+
+# No es lo mismo que:
+
+(x < y) and (y < z)
+```
+
+- `x < y < z` es más eficiente aquí
+	- Porque se evalúa a `y` 
+		- **Una sola vez**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-19 Nunca interrumpir un condicional con un `return` (1/2)
+
+- No interrumpir un condicional
+	- Con la instrucción `return` (u otras)
+- Ej:
+```Python
+def resultado_examen(puntuacion: float) -> str:
+    resultado = 'no aprobado'  # variable de retorno
+    if puntuacion >= 60:
+        resultado = 'aprobado'
+    return resultado  # Hay un solo retorno
+```
+
+- ✅ Hay un sólo `return` en la función
+- ✅ Se usa una variable de retorno (`resultado`)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-19 Nunca interrumpir un condicional con un `return` (2/2)
+
+- ❌ Interrumpir un condicional
+	- Con la instrucción `return` (u otras)
+- Ej:
+  
+```Python[3,4]
+def resultado_examen(puntuacion: float) -> str:
+    if puntuacion >= 60:
+        return 'aprobado'
+	return 'no aprobado'
+```
+
+- ❌ Se interrumpe un condicional con `return`
+- ❌ No se usó una variable de retorno
+- ❌ Hay varios `return` en la función
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-20  Comparación con `None` (1/2)
+
+
+- Se debe usar `is`al probar igualdad con `None` 
+- Ej:
+
+✅
+```Python
+x is None  
+```
+
+❌
+```Python
+x == None
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-20  Comparación con `None` (2/2)
+
+- Ser debe usar `is not` al probar desigualdad con `None` 
+- Ej:
+
+✅
+```Python
+x is not None
+```
+
+❌
+```Python
+x != None
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### BP-21  `is` e `is not` no se usan con literales
+
+- No usar `is`  e  `is not` 
+	- Con valores literales
+- Ej:
+
+✅
+```Python
+x == 'abc'
+x != 5
+x == True
+```
+
+❌
+```Python
+x is 'abc'
+x is not 5
+x is True
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+[<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
+</div></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>
