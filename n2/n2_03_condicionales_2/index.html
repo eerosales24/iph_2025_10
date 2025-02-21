@@ -790,7 +790,7 @@ if temperatura > 20:  # if independiente
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Tomando Decisiones
+### Tomando decisiones
 
 - En el mundo real:
 	- Hacer algo si una condición se cumple
@@ -799,7 +799,7 @@ if temperatura > 20:  # if independiente
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Clasificación  animal según desarrollo de la cría (1/2)
+### Tipo de  animal según desarrollo de la cría (1/2)
 
 1. **Vivíparos**:
 	-  La cría se desarrolla en la madre y nace completamente formada (hay placenta)
@@ -819,7 +819,7 @@ if temperatura > 20:  # if independiente
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Clasificación  animal según desarrollo de la cría (2/2)
+### Tipo de  animal según desarrollo de la cría (2/2)
 
 ```Plaintext
 # Lenguaje natural:
@@ -930,6 +930,109 @@ elif tiene_bolsa_marsupial:
 <br>
 
 - No se ejecuta ningún cuerpo
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Tomando decisiones
+
+- En el mundo real:
+	- Hacer algo si una condición se cumple
+		- En otro caso, hacer otra cosa, entre varias, si se cumple una condición
+			- Caso contrario
+				- Hacer algo por defecto
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Tipo de  animal según desarrollo de la cría
+
+```Plaintext
+# Lenguaje natural:
+si el animal da a luz crías vivas
+    entonces, es vivíparo
+si el animal pone huevos
+    entonces, es ovíparo
+si el animal retiene los huevos hasta la eclosión
+    entonces, es ovovivíparo
+si el animal tiene bolsa marsupial
+    entonces, es marsupial
+caso contrario
+    es de tipo desconocido
+````
+
+```Python
+# En Python:
+if da_a_luz:
+    tipo_animal = 'Vivíparo'
+elif pone_huevos:
+    tipo_animal = 'Ovíparo'
+elif retiene_huevos:
+    tipo_animal = 'Ovovivíparo'
+elif tiene_bolsa_marsupial:
+    tipo_animal = 'Marsupial'
+else:
+    tipo_animal = 'Desconocido'
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### La Instrucción `if` - Versión  completa
+
+<img src="iph/n2/img/if_elif_else_1.png" alt="" style="width: 60%; height: 35%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `if-elif-else` - Ejemplo 
+
+- Suponga que:  `da_a_luz`, `pone_huevos` `retiene_huevos`  y  `tipo_bolsa_marsupial` son  todos `False`  
+
+
+<img src="iph/n2/img/if_elif_else.png" alt="" style="width: 70%; height: 65%; object-fit: fill">
+
+
+<br>
+
+- Solo el cuerpo de `else` se ejecuta
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `if-elif-else` - Diagrama de flujo
+
+<img src="iph/n2/img/df_3.png" alt="" style="width: 60%; height: 55%; object-fit: fill">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz X
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+temperatura = 3
+
+if temperatura > 35: 
+    print('¡Temperatura extrema!')
+elif temperatura > 18: 
+    print('Sólo un día caluroso')
+else:
+    print('Baja temperatura')
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz X - Solución
+
+```Python[7,8]
+temperatura = 3
+
+if temperatura > 35: 
+    print('¡Temperatura extrema!')
+elif temperatura > 18: 
+    print('Sólo un día caluroso')
+else:  # Caso contrario, porque todo lo anterior evalúa a `False`
+    print('Baja temperatura')
+```
+
+- Se imprime:
+	- Baja temperatura
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
