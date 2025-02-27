@@ -403,7 +403,7 @@ string.endswith(suffix, start, end)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (1/6)
+###  Actividad II (1/5)
 
 - Cree un archivo llamado: `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO1`:
@@ -440,7 +440,7 @@ def tiene_caracteres_prohibidos(cadena: str) -> bool:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (2/6)
+###  Actividad II (2/5)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO2`:
@@ -476,7 +476,7 @@ def es_url_segura(url: str) -> bool:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (3/6)
+###  Actividad II (3/5)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO3`:
@@ -515,7 +515,7 @@ def tiene_extension_valida(nombre_archivo: str, extension: str) -> bool:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (4/6)
+###  Actividad II (4/5)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO4`:
@@ -575,73 +575,19 @@ def contar_pinta_mas_abundante(mesa: dict) -> int:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (5/6)
-
-- En `logica.py`
-	- Copie y pegue el siguiente código e implemente el `TODO5`:
-
-```python
-def es_correo_uniandes(email: str, min_usuario: int) -> bool:
-    """
-    Verifica si una dirección de correo electrónico dada cumple con el formato
-    de correo uniandes:
-    - El primer carácter del usuario debe ser alfabético
-    - El usuario debe tener como máximo un punto (.)
-    - El email debe contener exactamente un arroba (@)
-    - El nombre de usuario debe tener al menos un número `min_usuario` de caracteres. 
-      Ejemplo, en este correo: ee.rosales24@uniandes.edu.co el usuario tiene 
-      12 caracteres.
-    - Después de la arroba, debe tener el dominio 'uniandes', 
-      seguido del dominio '.edu', terminando con el dominio '.co'
-      
-    Nota: Se puede implementar sin hacer uso de condicionales (si lo prefiere).
-
-    Parámetros:
-        email (str): El correo electrónico a validar.
-        min_usuario (int): Longitud mínima del usuario del email.
-
-    Retorba:
-        bool: True si el correo electrónico es válido, 
-        False en caso contrario. Para el string vacío retorna False.
-
-    >>> es_correo_uniandes('', 0)  # Caso string vacío
-    False
-    >>> es_correo_uniandes('ee.rosales24@uniandes.edu.co', 5)  # Caso email correcto
-    True
-    >>> es_correo_uniandes('1e.rosales24@uniandes.edu.co', 5)  # Caso primer carácter no alfabético
-    False
-    >>> es_correo_uniandes('ee.rosales.24@uniandes.edu.co', 4)  # Caso el usuario tiene dos puntos
-    False
-    >>> es_correo_uniandes('ee.rosales24uniandes.edu.co', 4)   #  Caso no tiene arroba
-    False
-    >>> es_correo_uniandes('ee@uniandes.edu.co', 3)  # Caso usuario es de longitud menor al `min_usuario` dado
-    False
-    >>> es_correo_uniandes('ee.rosales24@edu.co', 4)  # Caso no tiene subdominio 'uniandes'
-    False
-    >>> es_correo_uniandes('ee.rosales24@uniandes.co', 10)  # Caso no tiene subdominio '.edu'
-    False
-    >>> es_correo_uniandes('ee.rosales24@uniandes.edu.co.error', 4)   # Caso no termina con dominio '.co'
-    False
-    """
-    # TODO5: Implemente la función tal y como se describe en la documentación
-
-#doctest.run_docstring_examples(es_correo_uniandes, globals(), verbose=True)
-```
+### Prosiga únicamente si ya implementó los `TODO1` al `TODO4`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Prosiga únicamente si ya implementó los `TODO1` al `TODO5`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-###  Actividad II (6/6)
+###  Actividad II (5/5)
 
 1. Revise si sus funciones cumplen con todas las siguientes buenas prácticas obligatorias del curso:
 	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/30" target="_blank">BP-16 Nombramiento de funciones booleanas</a>
 	 - <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/32" target="_blank">BP-17 Retorno directo de expresiones booleanas</a>
 	 - <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/35" target="_blank">BP-18 Uso de operadores relacionales compuestos</a>
 	 - <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/36" target="_blank">BP-19 Nunca interrumpir un condicional con un `return`</a>
-<br>
+
+	<br>
 
 2. Si una función no cumple todas las anteriores buenas prácticas
 	- Por favor corrija su implementación
