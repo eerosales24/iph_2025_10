@@ -120,7 +120,7 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Lea cuidadosamente la documentación de los siguiente métodos de `str`
+### Lea cuidadosamente la documentación de los siguientes métodos de `str`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -155,7 +155,7 @@ Universidad de los Andes
 - Retorna una copia del string original
 	- En mayúsculas 
 - Se usa para hacer comparaciones 
-	- Sin importar mayúsculas y minúsculas
+	- Sin importar mayúsculas o minúsculas
 - Ayuda:  [str.upper](https://docs.python.org/3/library/stdtypes.html#str.upper)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -179,7 +179,7 @@ Universidad de los Andes
 ### `str.title()`
 
 - Retorna una copia del string original 
-	- En *formato de título* :
+	- En formato de _título_:
 		- La primera letra en mayúscula
 			- El resto en minúsculas
 - Se usa para formatear títulos y encabezados
@@ -244,8 +244,8 @@ string.count(substring, start, end)
 - `end`: Fin de búsqueda (opcional: Fin del string)
 - Retorna `0`  si no encuentra el substring
 - Ayuda:  [str.count](https://docs.python.org/3/library/stdtypes.html#str.count)
-
-
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### `str.count()` - Ejemplos
 
@@ -397,12 +397,13 @@ string.endswith(suffix, start, end)
 #  Actividad II
 
 - **Objetivos:**
-	- Afianzar mediante la practica
+	- Afianzar mediante la práctica
 		- La comprensión de los métodos de los strings estudiados
+		- La comprensión básica de acceso a un diccionario
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (1/5)
+###  Actividad II (1/6)
 
 - Cree un archivo llamado: `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO1`:
@@ -414,13 +415,16 @@ def tiene_caracteres_prohibidos(cadena: str) -> bool:
     """
     Verifica si el string dado contiene alguno de los caracteres prohibidos,
     estos son: !, @, #, $, %.
+    
+    Tip: Use operadores de pertenencia o membresía y no es necesario usar
+    condicionales (ni operador ternario).
 
     Args:
         cadena (str): La cadena de entrada.
 
     Returns:
         bool: True si la cadena tiene los caracteres prohibidos, 
-        False en caso contrario.
+        False en caso contrario. Para el string vacío retorna False.
  
     >>> tiene_caracteres_prohibidos('')  # Caso string vacío
     False
@@ -436,7 +440,7 @@ def tiene_caracteres_prohibidos(cadena: str) -> bool:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (2/5)
+###  Actividad II (2/6)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO2`:
@@ -447,12 +451,14 @@ def es_url_segura(url: str) -> bool:
     Verifica si la URL dada comienza con 'https://'. 
     La comparación es insensible a mayúsculas y minúsculas.
 
+    Tip: No es necesario usar condicionales (ni operador ternario).
+
     Args:
         url (str): La URL a verificar.
 
     Returns:
         bool: True si la cadena tiene los caracteres prohibidos, 
-        False en caso contrario.
+        False en caso contrario. Para el string vacío retorna False.
 
     >>> es_url_segura('')  # Caso string vacío
     False
@@ -470,7 +476,7 @@ def es_url_segura(url: str) -> bool:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (3/5)
+###  Actividad II (3/6)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO3`:
@@ -480,6 +486,7 @@ def tiene_extension_valida(nombre_archivo: str, extension: str) -> bool:
     """
     Verifica si el nombre de archivo dado tiene la extensión especificada. 
     La comparación es insensible a mayúsculas y minúsculas.
+    Nota: *Debe* usar el operador ternario.
 
     Args:
         nombre_archivo (str): El nombre del archivo a verificar.
@@ -508,31 +515,100 @@ def tiene_extension_valida(nombre_archivo: str, extension: str) -> bool:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (4/5)
+###  Actividad II (4/6)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO4`:
 
+
+```python
+def contar_pinta_mas_abundante(mesa: dict) -> int:
+    """
+    Determina cuántas veces aparece la pinta más frecuente en la mesa.
+    Nota: *Debe* usar condicionales y str.count().
+
+    La mesa es un diccionario con una única clave `"Juego"`, que tiene 
+    como valor asociado un string. Este string representa a 5 cartas en 
+    formato `PintaValor`. En este formato, la primera letra representa la 
+    pinta de la carta, entre cuatro posibles opciones:
+    
+        - "C" (Corazones ♥)
+        - "D" (Diamantes ♦)
+        - "T" (Tréboles ♣)
+        - "P" (Picas ♠)
+
+    Se analiza el string y se determina cuántas cartas corresponden a la pinta 
+    más abundante en la mesa. En esta función, no se considera al valor de la
+    carta, solo a su pinta.
+    
+    Recuerde que dada por ejemplo esta mesa: "TA DA PQ T4 T5", es decir,
+    Trébol As (A♣), Diamante As (A♦), Picas Q (Q♠), Trébol 4 (4♣), Trébol 5 (5♣),
+    La representación de una carta es siempre: `PintaValor`, entonces,
+    `str.count()` puede contar correctamente la frecuencia de cada pinta.
+
+    Args:
+        mesa (dict): Diccionario con la llave "Juego", que almacena las cartas
+        en el formato abreviado explicado anteriormente. 
+        Ejemplo: {"Juego": "TA DA PQ T4 T5"}. 
+        Puede asumir que el diccionario siempre tiene esta llave.
+        Puede asumir que el string asociado a esa llave siempre contiene 
+        a la representación de 5 cartas en el formato `PintaValor`.
+
+    Returns:
+        int: Cantidad de cartas con la pinta más frecuente en la mesa.
+
+    >>> contar_pinta_mas_abundante({"Juego": "TA DA PQ T4 T5"})  # Tres tréboles ♣
+    3
+    >>> contar_pinta_mas_abundante({"Juego": "PA PC PD PQ P3"})  # Cinco picas ♠
+    5
+    >>> contar_pinta_mas_abundante({"Juego": "PA DA TA CA P9"})  # Picas ♠ en los extremos
+    2
+    >>> contar_pinta_mas_abundante({"Juego": "D5 D6 D7 C5 C6"})  # Tres diamantes ♦ al inicio
+    3
+    >>> contar_pinta_mas_abundante({"Juego": "C2 T2 C3 D2 C4"})  # Tres corazones ♥ en extremos y mitad
+    3
+    """
+    # TODO4: Implemente la función tal y como se describe en la documentación
+    
+#doctest.run_docstring_examples(contar_pinta_mas_abundante, globals(), verbose=True)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (5/6)
+
+- En `logica.py`
+	- Copie y pegue el siguiente código e implemente el `TODO5`:
+
 ```python
 def es_correo_uniandes(email: str, min_usuario: int) -> bool:
     """
-    Verifica si una dirección de correo electrónico dada cumple con el formato de correo uniandes:
-    - El primer carácter del usuario debe ser alfabético.
-    - El usuario debe tener como máximo un punto (.).
-    - El email debe contener exactamente un arroba (@).
-    - El nombre de usuario debe tener al menos un número `min_usuario` caracteres.
-    - Después de la arroba, debe tener el dominio 'uniandes', seguido del dominio '.edu', terminando con el dominio '.co'.
+    Verifica si una dirección de correo electrónico dada cumple con el formato
+    de correo uniandes:
+    - El primer carácter del usuario debe ser alfabético
+    - El usuario debe tener como máximo un punto (.)
+    - El email debe contener exactamente un arroba (@)
+    - El nombre de usuario debe tener al menos un número `min_usuario` de caracteres. 
+      Ejemplo, en este correo: ee.rosales24@uniandes.edu.co el usuario tiene 
+      12 caracteres.
+    - Después de la arroba, debe tener el dominio 'uniandes', 
+      seguido del dominio '.edu', terminando con el dominio '.co'
+      
+    Nota: Se puede implementar sin hacer uso de condicionales (si lo prefiere).
 
     Parámetros:
-        email (str): el correo electrónico a validar.
-        min_usuario (int): longitud mínima del usuario del email.
+        email (str): El correo electrónico a validar.
+        min_usuario (int): Longitud mínima del usuario del email.
 
     Retorba:
-        bool: True si el correo electrónico es válido, False en caso contrario.
+        bool: True si el correo electrónico es válido, 
+        False en caso contrario. Para el string vacío retorna False.
 
+    >>> es_correo_uniandes('', 0)  # Caso string vacío
+    False
     >>> es_correo_uniandes('ee.rosales24@uniandes.edu.co', 5)  # Caso email correcto
     True
-    >>> es_correo_uniandes('1e.rosales24@uniandes.edu.co', 5)  # Casp primer carácter no alfabético
+    >>> es_correo_uniandes('1e.rosales24@uniandes.edu.co', 5)  # Caso primer carácter no alfabético
     False
     >>> es_correo_uniandes('ee.rosales.24@uniandes.edu.co', 4)  # Caso el usuario tiene dos puntos
     False
@@ -542,23 +618,23 @@ def es_correo_uniandes(email: str, min_usuario: int) -> bool:
     False
     >>> es_correo_uniandes('ee.rosales24@edu.co', 4)  # Caso no tiene subdominio 'uniandes'
     False
-    >>> es_correo_uniandes('ee.rosales24@uniandes.co', 4)  # Caso no tiene subdominio '.edu'
+    >>> es_correo_uniandes('ee.rosales24@uniandes.co', 10)  # Caso no tiene subdominio '.edu'
     False
-    >>> es_correo_uniandes('ee.rosales24@uniandes.edu.co.error', 4)   # Cao no termina con dominio '.co'
+    >>> es_correo_uniandes('ee.rosales24@uniandes.edu.co.error', 4)   # Caso no termina con dominio '.co'
     False
     """
-    # TODO4: Implemente la función tal y como se describe en la documentación
+    # TODO5: Implemente la función tal y como se describe en la documentación
 
 #doctest.run_docstring_examples(es_correo_uniandes, globals(), verbose=True)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Prosiga únicamente si ya implementó los `TODO1` al `TODO4`
+### Prosiga únicamente si ya implementó los `TODO1` al `TODO5`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (5/5)
+###  Actividad II (6/6)
 
 1. Revise si sus funciones cumplen con todas las siguientes buenas prácticas obligatorias del curso:
 	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/30" target="_blank">BP-16 Nombramiento de funciones booleanas</a>
@@ -569,7 +645,6 @@ def es_correo_uniandes(email: str, min_usuario: int) -> bool:
 
 2. Si una función no cumple todas las anteriores buenas prácticas
 	- Por favor corrija su implementación
-		- Nota: No olvide actualizar los doctests si es necesario
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -582,7 +657,7 @@ def es_correo_uniandes(email: str, min_usuario: int) -> bool:
 
 ### Entrega (2/2)
 
-1. Haga el envío del `.zip` en  [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
+2. Haga el envío del `.zip` en  [Bloque Neón](https://bloqueneon.uniandes.edu.co/)
 	- Vaya a **"Actividades"**
 		- **"N2-L2"**
 
@@ -607,7 +682,7 @@ def es_correo_uniandes(email: str, min_usuario: int) -> bool:
 
 	- En [senecode](https://senecode.virtual.uniandes.edu.co/) ya se extendió la tarea de Nivel 2
 	
-		- Complete todos los siguientes ejercicios:
+		- Complete todos los siguientes ejercicios (nuevos en negrilla):
 			- `Potenciador`
 			- `Estado académico`
 			- `La estación de Transmilenio`
@@ -616,6 +691,10 @@ def es_correo_uniandes(email: str, min_usuario: int) -> bool:
 			- **`Movimiento robótico`**
 			- **`Picas y Fijas: contar fijas`**
 			- **`Encriptador de mensajes`**
+	<br>
+	
+	- Nota: No se agregarán más ejercicios
+		- Ni habrá más tareas en Nivel 2
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -624,6 +703,7 @@ def es_correo_uniandes(email: str, min_usuario: int) -> bool:
 - Fecha límite de entrega:
 	- **Lunes 3 de marzo 11pm**
 	- Recuerde: Esta tarea es un **evaluable** de Nivel 2
+	- Recuerde: Desde el 4 de marzo, debe dedicarse a **N2-PROY**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
