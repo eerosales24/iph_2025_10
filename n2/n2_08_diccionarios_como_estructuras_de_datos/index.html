@@ -320,7 +320,7 @@ def crear_libro(
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Nota: Los nombres de los diccionarios usados como parámetros, serán de una letra y un número,por simplicidad y por limitaciones de espacio en las diapositivas
+### Nota: Los nombres de los diccionarios usados como parámetros, serán de una letra y un número, por simplicidad y por limitaciones de espacio en las diapositivas
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -525,7 +525,7 @@ def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## Revisemos la solución para verificar el uso de buenas prácticas del curso
+## Revisemos la solución para verificar el uso de algunas buenas prácticas del curso
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -553,7 +553,7 @@ def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
 - Resuelva el TODO
 
 ```Python
-def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
+def extraer_libros_por_genero(genero: str, l1: dict, l2: dict, l3: dict) -> str:
     """
     Extrae libros que sean del género literario ingresado.
 
@@ -584,7 +584,7 @@ def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
 ### Quiz V - Explicación (2/12)
 
 ```Python
-def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
+def extraer_libros_por_genero(genero: str, l1: dict, l2: dict, l3: dict) -> str:
     libros = ''  # Variable de retorno
     
     # TODO: Completar el resto de la función
@@ -601,7 +601,7 @@ def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
 ### Quiz V - Explicación (3/12)
 
 ```Python[7,9,13]
-def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
+def extraer_libros_por_genero(genero: str, l1: dict, l2: dict, l3: dict) -> str:
 	"""
 	   ...
     Returns:
@@ -631,7 +631,7 @@ def buscar_libro_por_titulo(l1: dict, l2: dict, l3: dict, titulo: str) -> dict:
 	<br>
 
 - ¿Qué valor debe asignarse a la variable de retorno en este caso?
-	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**El o los nombres** de los libros
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**El o los títulos** de los libros
 		- &shy;<!-- .element: class="fragment" data-fragment-index="3" --> Si son varios
 			- Separados por punto y coma (`;`)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -680,7 +680,7 @@ def extraer_libros_por_genero(genero: str, l1: dict, l2: dict, l3: dict) -> str:
 
 ### Quiz V - Explicación (8/12)
 
-```Python[4,6]
+```Python[3,5]
 def extraer_libros_por_genero(genero: str, l1: dict, l2: dict, l3: dict) -> str:
     libros = ''  # Variable de retorno
     if genero == l1['genero']:
@@ -778,7 +778,7 @@ def extraer_libros_por_genero(genero: str, l1: dict, l2: dict, l3: dict) -> str:
 
 - Termine la implementación:
 	- Considerando el tercer libro
-	- Y usando las buenas prácticas del curso
+		- Y usando las buenas prácticas del curso
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -810,7 +810,7 @@ def libro_con_mayor_precio(l1: dict, l2: dict, l3: dict) -> str:
 - ¿Cuál es el valor por defecto a retornar?
     + Se puede asumir que el primer libro 
         + Es el de mayor precio
-            + Entonces se retornará su nombre
+            + Entonces se retornará su título
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -826,7 +826,7 @@ def libro_con_mayor_precio(l1: dict, l2: dict, l3: dict) -> str:
 
 - `titulo_mayor_precio` 
     - Se usa para llevar registro 
-        - Del nombre del libro con mayor precio
+        - Del titulo del libro con mayor precio
 - `mayor_precio`
     - Se usa para llevar registro 
         - Del mayor precio encontrado
@@ -844,7 +844,7 @@ def libro_con_mayor_precio(l1: dict, l2: dict, l3: dict) -> str:
 ```
 
 - `titulo_mayor_precio` 
-    - Se inicializa con el nombre de `l1`
+    - Se inicializa con el título de `l1`
         - Se asume **al inicio** que `l1` 
             - Será el de mayor precio
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -971,7 +971,7 @@ def libro_con_mayor_precio(l1: dict, l2: dict, l3: dict) -> str:
 
 - Termine la implementación:
     - Considerando el tercer libro
-    - Y usando las buenas prácticas del curso
+	    - Y usando las buenas prácticas del curso
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
