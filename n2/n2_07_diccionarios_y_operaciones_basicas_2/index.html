@@ -193,11 +193,9 @@ len(objeto)
 ```Python
 len({})  # → 0: Diccionario vacío
 
-len({'a':1}) 
-# → 1: Diccionario de un solo par llave-valor
+len({'a':1})  # → 1: Diccionario de un solo par llave-valor
 
-len({'a':1, 'b':2, 'c':3}) 
-# → 3: Debido a 3 pares llave-valor
+len({'a':1, 'b':2, 'c':3})  # → 3: Debido a 3 pares llave-valor
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -211,6 +209,7 @@ precio_frutas = {'Manzana': 9000, 'Fresa': 12000, \
                  'Papaya': 5600, 'Naranja': 8700}
 
 longitud = len(precio_frutas)
+
 if longitud == 4:
     print(f'Hay {longitud} precios de frutas disponibles.')
 ```
@@ -224,6 +223,7 @@ precio_frutas = {'Manzana': 9000, 'Fresa': 12000, \
                  'Papaya': 5600, 'Naranja': 8700}
 
 longitud = len(precio_frutas)
+
 if longitud == 4:
     print(f'Hay {longitud} precios de frutas disponibles.')
     # → Hay 4 precios de frutas disponibles.
@@ -298,17 +298,17 @@ else:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Paso de argumentos (1/2)
+### Paso de argumentos (1/3)
 
-- El cómo los argumentos se pasan 
-	- Entre el llamado de la función y la función
+- El paso como argumento se refiere a cómo se envía algo
+	- Entre la invocación de la función y la función
 - Python usa un *"paso por asignación"*
-	- La función recibe una referencia
+	- La función **recibe una referencia**
 		- No el objeto en sí
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Paso de argumentos (2/2)
+### Paso de argumentos (2/3)
 
 - No es el objetivo del curso
 	- Comprender en detalle 
@@ -320,6 +320,13 @@ else:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Paso de argumentos (3/3)
+- Hay dos posibles casos de pasos de argumentos:
+	1. Paso de inmutables
+	2. Paso de mutables
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 ### Paso de argumentos inmutables
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -327,7 +334,7 @@ else:
 ### Tipos de datos inmutables
 
 - Un tipo de dato es inmutable
-	- Si después de crearlo, no se puede cambiar
+	- Si después de crearlo, **no se puede cambiar**
 - Tipos de datos inmutables vistos hasta ahora:
 	- `int`
 	- `float`
@@ -373,7 +380,7 @@ print(mensaje_original)  # → Original
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Paso de argumentos con mutables
+### Paso de argumentos mutables
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -383,7 +390,6 @@ print(mensaje_original)  # → Original
 	- Si después de crearlo, se puede cambiar
 - Tipos de datos mutables vistos hasta ahora:
 	- `dict`
-	-
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -400,7 +406,7 @@ def modificar_diccionario(diccionario: dict) -> None:
 print(diccionario_original)  # → {'clave': 'valor original'}
 modificar_diccionario(diccionario_original)  
 print(diccionario_original)  
-# → {'clave': 'Esto cambió a `diccionario_original`'}
+# → {'clave': 'Se cambió a `diccionario_original`'}
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -408,7 +414,7 @@ print(diccionario_original)
 ### Paso de argumentos mutables - Ejemplo (2/2)
 
 - Un diccionario es mutable
-	- Y por lo tanto, la función puede cambiarlo
+	- Y por lo tanto, **una función puede cambiarlo**
 
 ```Python[4,5,6]
 diccionario_original = {'clave': 'valor original'}
@@ -421,7 +427,7 @@ def modificar_diccionario(diccionario: dict) -> None:
 print(diccionario_original)  # → {'clave': 'valor original'}
 modificar_diccionario(diccionario_original)  
 print(diccionario_original)  
-# → {'clave': 'Esto cambió a `diccionario_original`'}
+# → {'clave': 'Se cambió a `diccionario_original`'}
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -467,13 +473,12 @@ print(dia_actual)  # → Hoy
 - ¿Cuál es el resultado de ejecutar el siguiente código?
 
 ```Python
-valor_inicial = 1
+valor_inicial: int = 1
 
-def intentar_modificar_valor(valor):
+def intentar_modificar_valor(valor: int) -> None:
     print(valor)
     valor = 9
     print(valor)
-
 
 print(valor_inicial)
 intentar_modificar_valor(valor_inicial)
@@ -485,9 +490,9 @@ print(valor_inicial)
 ### Quiz VI - Solución
 
 ```Python
-valor_inicial = 1
+valor_inicial: int = 1
 
-def intentar_modificar_valor(valor):
+def intentar_modificar_valor(valor: int) -> None:
     print(valor)  # → 1
     valor = 9  # Aquí solo se cambió a la variable local
     print(valor)  # → 9
@@ -505,9 +510,9 @@ print(valor_inicial)  # → 1
 - ¿Cuál es el resultado de ejecutar el siguiente código?
 
 ```Python
-valor_inicial = 1
+valor_inicial: int = 1
 
-def retornar_valor(valor):
+def retornar_valor(valor: int) -> int:
     print(valor)
     valor = 9
     print(valor)
@@ -523,9 +528,9 @@ print(valor_inicial)
 ### Quiz VII - Solución
 
 ```Python
-valor_inicial = 1
+valor_inicial: int = 1
 
-def retornar_valor(valor):
+def retornar_valor(valor: int) -> int:
     print(valor)  # → 1
     valor = 9   # Aquí se cambió a la variable local
     print(valor)  # → 9   
@@ -539,6 +544,15 @@ print(valor_inicial)  # → 9
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### En resumen
+
+- Un inmutable: 
+	- **No puede ser cambiado** dentro de una función
+- Un mutable:
+	- **Puede ser cambiado** por una función
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 ### Estudiemos más métodos de los diccionarios
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -546,7 +560,7 @@ print(valor_inicial)  # → 9
 ### `dict.copy()`
 
 - Crea una copia del diccionario 
-- Sintaxis:   
+- Sintaxis:  
 
 ```Python 
 diccionario_copia = diccionario_original.copy()
@@ -555,6 +569,7 @@ diccionario_copia = diccionario_original.copy()
 - No modifica el diccionario original
 - Útil cuando se necesita trabajar con una copia
     - Y evitar modificar el original
+	    - Porque **un diccionario es mutable**
 - Ayuda:  [dict.copy](https://docs.python.org/3/library/stdtypes.html#dict.copy)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -563,6 +578,7 @@ diccionario_copia = diccionario_original.copy()
 
 ```Python
 # Asumir ejecución secuencial de cada línea:
+
 dct_original = {'a':1, 'b':2}
 
 copia_dct = dct_original.copy()  # copia_dct = {'a':1, 'b':2}
