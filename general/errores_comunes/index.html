@@ -107,6 +107,9 @@ Universidad de los Andes
 - [ValueError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/10)
 - [TypeError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/13)
 - [ZeroDivisionError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/17)
+- [IndexError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/21)
+- [KeyError](https://eerosales24.github.io/iph_2025_10/general/errores_comunes/#/25)
+
 
  En construcción...
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -468,10 +471,165 @@ No es posible dividir entre 0
 ```Python
 promedio = 100/0  # ZeroDivisionError: division by zero
 ```
--  **Nunca dividir por cero, usar otro valor:**
+
+- **Nunca dividir por cero, usar otro valor:**
 
 ```Python
 promedio = 100/4  # promedio = 25.0
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `IndexError`
+
+- Excepción que ocurre cuando:
+    - Se intenta acceder a un índice fuera del rango de una lista o tupla.
+- Ayuda: [IndexError](https://docs.python.org/3/library/exceptions.html#IndexError)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `IndexError` - Ejemplo
+
+```python
+lista = [1, 2, 3]
+valor = lista[5]  # Índice fuera de rango
+# IndexError: list index out of range
+```
+
+<div class="callout callout-color7">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-bolt" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Error
+
+</div>
+</div>
+<div class="callout-content">
+
+Índice fuera del rango de la lista
+
+</div>
+</div>
+<!-- .element: style="width: 80%; font-size: 24px; transform: rotate(0deg)" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `IndexError` (1/2)
+
+- **Evitar**:
+    - Acceder a un índice mayor o menor al rango válido
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `IndexError` (2/2)
+
+- ¿Cómo se soluciona el siguiente error?
+
+```python
+lista = [1, 2, 3]
+valor = lista[5]  # IndexError: list index out of range
+```
+
+- *Ejemplo* de verificar el rango antes de acceder al índice:
+
+```python
+valor = lista[5] if len(lista) > 5 else None
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `KeyError`
+
+- Excepción que ocurre cuando:
+    - Se intenta acceder a una llave inexistente en un diccionario
+- Ejemplo:
+    - Acceder a una llave que no ha sido definida
+    - Se produce un `KeyError` si la llave no está presente
+- Ayuda: [KeyError](https://docs.python.org/3/library/exceptions.html#KeyError)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `KeyError` - Ejemplo
+
+```python
+precios = {'Pan': 2200, 'Leche': 15000, 
+           'Arepa': 21000, 'Cafe': 17000}
+
+print(precios['arepa'])  # Error: la llave no coincide
+```
+
+<div class="callout callout-color7">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-bolt" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Error
+
+</div>
+</div>
+<div class="callout-content">
+
+La llave 'arepa' no está en el diccionario
+
+</div>
+</div>
+<!-- .element: style="width: 80%; font-size: 24px; transform: rotate(0deg)" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `KeyError` (1/3)
+
+- Asegurar que la llave existe antes de acceder
+- Usar métodos seguros como `.get()` para obtener valores por defecto
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `KeyError` (2/3)
+
+- ¿Cómo se soluciona el siguiente error?
+
+```python
+precios = {'Pan': 2200, 'Leche': 15000, 
+           'Arepa': 21000, 'Cafe': 17000}
+
+print(precios['arepa'])  # KeyError: 'arepa'
+```
+
+- **Opción 1**: Usar una llave existente
+
+```python
+print(precios['Arepa'])  # → 21000
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `KeyError` (3/3)
+
+- ¿Cómo se soluciona el siguiente error?
+
+```python
+precios = {'Pan': 2200, 'Leche': 15000, 
+           'Arepa': 21000, 'Cafe': 17000}
+
+print(precios['arepa'])  # KeyError: 'arepa'
+```
+
+
+- **Opción 2**: Usar `.get()` con un valor por defecto
+
+```python
+print(precios.get('arepa', 'No disponible'))  # → 'No disponible'
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
