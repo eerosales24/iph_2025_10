@@ -105,7 +105,7 @@ Universidad de los Andes
     - De dos o más argumentos
 - Sintaxis: 
 ```Python
-min(arg1, arg2, *args[, key])
+min(arg1, arg2, *args, key)
 ```
 
 - `arg1, arg2, *args`: Valores a comparar
@@ -147,7 +147,7 @@ min('')  # → ValueError (Secuencia vacía y no hay default)
     - De dos o más argumentos
 - Sintaxis: 
 ```Python
-max(arg1, arg2, *args[, key])
+max(arg1, arg2, *args, key)
 ```
 - `arg1, arg2, *args`: Valores a comparar
 - `key` (opcional): Función de un argumento 
@@ -195,11 +195,17 @@ max('')  # → ValueError (Secuencia vacía y no hay default)
 
 ```Python
 'abcd'.isalpha()  # → True
+
 ''.isalpha()  # → False (Se debe evaluar al menos un carácter)
+
 'abc5'.isalpha()  # → False (5 es un dígito)
+
 'a b'.isalpha()  # → False (Los espacios no son alfabéticos)
+
 'abc#'.isalpha()  # → False (Los símbolos no son alfabéticos)
+
 'a\n'.isalpha()  # → False (`\n` No es alfabético)
+
 'a\t'.isalpha()  # → False (`\t` No es alfabético)
 
 ```
@@ -258,12 +264,19 @@ max('')  # → ValueError (Secuencia vacía y no hay default)
 
 ```Python
 'abcd123'.isalnum()  # → True
+
 'abcd'.isalnum()  # → True
+
 '123'.isalnum()  # → True
+
 ''.isalnum()  # → False (Se debe evaluar al menos un carácter)
+
 'a c'.isalnum()  # → False (Los espacios no son alfanuméricos)
+
 'a$b'.isalnum()  # → False (Los símbolos no son alfanuméricos)
+
 'a\n'.isalnum()  # → False (`\n` no es alfanumérico)
+
 'a\t'.isalnum()  # → False (`\t` no es alfanumérico)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -322,12 +335,18 @@ max('')  # → ValueError (Secuencia vacía y no hay default)
 ### ```str.islower()``` - Ejemplos
 
 ```Python
-'abcd'.islower()  # → True    
+'abcd'.islower()  # → True
+
 '1234'.islower()  # → False (Solo números no son minúsculas)
-'1234a'.islower()  # → True (Números ignorados)   
-'ABCD'.islower()  # → False   
-''.islower()  # → False (Se debe evaluar al menos un carácter)   
-'abcd#'.islower()  # → True (Símbolos no se consideran)   
+
+'1234a'.islower()  # → True (Números ignorados)
+
+'ABCD'.islower()  # → False
+
+''.islower()  # → False (Se debe evaluar al menos un carácter)
+
+'abcd#'.islower()  # → True (Símbolos no se consideran)
+
 'a\n\tb'.islower()  # → True (`\n` and `\t` no se consideran)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -462,7 +481,7 @@ string[start: end :step]  # Slide notation [:]
 ```
 
 - `start`: Inicio de subcadena (opcional: 0, inclusivo)
-- `end`: Fin de subcadena (opcional: fin de la cadena, excluyente)
+- `end`: Fin de subcadena (opcional: Fin de la cadena, excluyente)
 - `step`: incremento (opcional: 1)
 - Ayuda: [Slicings](https://docs.python.org/3/reference/expressions.html#slicings)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -578,13 +597,35 @@ usuario = 'user@uniandes.edu.co'[:4]
 
 ### Quiz X
 
-- Usando indexación de strings, ¿cómo extraer la arroba (`'@'`) de `'user@uniandes.edu.co'` y asignarla a la variable `arroba`?
+- ¿Cómo obtener el usuario  en un correo en la forma `'usuario@uniandes.edu.co'` y asignarla a la variable `usuario`?
+- Puede asumir que solo hay una arroba en el correo y 
+	- Que el usuario se ubica antes de esta
+
+Ej: ee.rosales24@uniandes.edu.co
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz X
+
+```python
+correo = 'ee.rosales24@uniandes.edu.co'
+indice = correo.find('@')
+usuario = correo[:indice]
+```
+
+<img src="iph/n3/img/s_51.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XI
+
+- Usando indexación de strings, ¿cómo extraer la arroba (`'@'`) en la posición fija en que está en `'user@uniandes.edu.co'` y asignarla a la variable `arroba`?
 
 <img src="iph/n3/img/s_6.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz X - Solución
+### Quiz XI - Solución
 
 ```Python
 # Use indexación para extraer un solo carácter
@@ -597,7 +638,30 @@ arroba = 'user@uniandes.edu.co'[4]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XI
+### Quiz XII
+
+- ¿Cómo obtener el índice en donde está arroba (`'@'`) en un correo en la forma `'usuario@uniandes.edu.co'` y asignarla a la variable `indice`?
+- Puede asumir que solo hay una arroba en el correo
+
+Ej: ee.rosales24@uniandes.edu.co
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Solución
+
+```Python
+# Use find() para encontrar el índice de un carácter especifíco
+correo = 'ee.rosales24@uniandes.edu.co'
+indice = correo.find('@')
+# print(indice) → 12
+```
+
+
+<img src="iph/n3/img/s_61.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XIII
 
 - Usando string slicing, ¿cómo extraer el dominio (`'uniandes.edu.co'`) de: `'user@uniandes.edu.co'` y asignarla a la variable `dominio`?
 
@@ -605,7 +669,7 @@ arroba = 'user@uniandes.edu.co'[4]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XI - Solución
+### Quiz XIII - Solución
 
 ```Python
 # `start` es incluyente, esto es: 5, incluyendo 5 ('u')  
@@ -617,7 +681,29 @@ dominio = 'user@uniandes.edu.co'[5:]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XII
+### Quiz XIV
+
+- ¿Cómo obtener el índice en donde inicia `'uniandes.edu.co'` en un correo en la forma: `'user@uniandes.edu.co'` y asignarla a la variable `dominio`?
+- Puede asumir que solo hay una arroba en el correo y 
+	- Que `uniandes.edu.co` se ubica después de esta
+
+Ej: ee.rosales24@uniandes.edu.co
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XIV - Solución
+
+```Python
+correo = 'ee.rosales24@uniandes.edu.co'
+indice = correo.find('@')
+dominio = correo[indice + 1:]
+```
+
+<img src="iph/n3/img/s_62.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XV
 
 - Usando string slicing, ¿cómo extraer el subdominio (`'co'`) de: `'user@uniandes.edu.co'` y asignarla a la variable `co`?
 
@@ -625,7 +711,7 @@ dominio = 'user@uniandes.edu.co'[5:]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XII - Solución
+### Quiz XV - Solución
 
 ```Python
 # `start` es inclusivo, esto es: -2 es 'c'  
@@ -640,7 +726,29 @@ co = 'user@uniandes.edu.co'[-2:]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XIII
+### Quiz XVI
+
+-  ¿Cómo saber si un correo termina en `co` y asignar la respuesta a la variable `respuesta`?
+
+Ej: ee.rosales24@uniandes.edu.co
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XVI - Solución
+
+```Python
+
+respuesta = 'ee.rosales24@uniandes.edu.co'.endswith(".co")
+# print(respuesta) → True
+
+```
+
+
+<img src="iph/n3/img/s_81.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XVII
 
 - ¿Cuál es el valor retornado por cada expresión?
 
@@ -656,7 +764,7 @@ co = 'user@uniandes.edu.co'[-2:]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XIII - Solución
+### Quiz XVII - Solución
 
 ```Python
 'todo'[:]  # → 'todo' 
@@ -670,7 +778,7 @@ co = 'user@uniandes.edu.co'[-2:]
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XIV
+### Quiz XVIII
 
 - ¿Cuál es el resultado de ejecutar el siguiente código?
 
@@ -686,7 +794,7 @@ print(frase_corregida)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz XIV - Solución
+### Quiz XVIII - Solución
 
 ```Python
 frase = '¡Hay, me duele!, me duele justo ay'
@@ -698,51 +806,10 @@ print(frase)
 print(frase_corregida)
 ```
 
-```
+```plaintext
 ¡Hay, me duele!, me duele justo ay
 
 ¡Ay, me duele!, me duele justo allí
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XV
-
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-phrase = 'abracadabra'
-first_slice = phrase[0:4]  
-# `end` específica a print(...) el qué añadir al final de la impresión.
-# Por defecto es salto de línea (`\n`), pero aquí se cambia por cadena vacía:
-print(first_slice, end='')
-print(phrase.replace(first_slice, ''), end='')
-# Aquí `end` por defecto es nuevamente salto de línea (`\n`):
-print(phrase[7:])
-print(phrase[:])
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XV - Solución
-
-```Python
-phrase = 'abracadabra'
-first_slice = phrase[0:4]  
-# `end` específica a print(...) el qué añadir al final de la impresión.
-# Por defecto es salto de línea (`\n`), pero aquí se cambia por cadena vacía:
-print(first_slice, end='')
-print(phrase.replace(first_slice, ''), end='')
-# Aquí `end` por defecto es nuevamente salto de línea (`\n`):
-print(phrase[7:])
-print(phrase[:])
-```
-
-
-```Python
-abracadabra
-
-abracadabra
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">

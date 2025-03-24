@@ -585,6 +585,33 @@ def factorial(n: int) -> int:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### Pila
+
+- Estructura de datos con comportamiento LIFO
+	- Último en entrar, primero en salir (Last In, First Out)
+
+<img src="Pasted image 20250126111839.png" alt="" style="width: 60%; height: 35%; object-fit: fill">
+
+
+- El Stack de Python es una pila
+	- Donde se almacenan invocaciones a funciones y variables locales
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Stack de Python y recursividad
+
+- Almacena invocaciones a funciones y variables locales 
+	- Durante la ejecución de un programa
+- Cada vez que una función es invocada
+	- Su contexto (parámetros y variables locales) se apila
+		- En un _frame_
+- El contexto se desapila, solo cuando la función termina
+	- Al retornar, el estado de la pila vuelve al estado antes de apilar
+- Permite seguir el flujo de ejecución 
+	- Y resolver llamadas anidadas o recursivas de manera ordenada
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 ### Comprendiendo la recursividad (1/17)
 
 ```python
@@ -1039,8 +1066,171 @@ def contar_digitos(n: int) -> int:
     6
     """
     return 1 if n < 10 else 1 + contar_digitos(n // 10)
-
 ```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Aclaración (1/2)
+
+- Esta es solo una implementación de ejemplo con fines de práctica
+    
+- No es eficiente para valores grandes de `n`
+    
+- Para calcular eficientemente se usaría `int(math.log10(n)) + 1`
+	- El logaritmo base 10 de un número
+		- Indica el orden de magnitud en potencias de 10 
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Número</th>
+      <th>log10(n)</th>
+      <th>int(log10(n))</th>
+      <th>Dígitos (esperados)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9</td>
+      <td>0.95</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>1.99</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>123456</td>
+      <td>5.09</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Aclaración (2/2)
+
+```python
+import math
+
+def contar_digitos(n: int) -> int:
+    """
+    Cuenta la cantidad de dígitos en un número entero no negativo de forma eficiente.
+
+    Args:
+        n (int): El número entero no negativo.
+
+    Returns:
+        int: La cantidad de dígitos del número.
+
+    >>> contar_digitos(1)
+    1
+    >>> contar_digitos(987654)
+    6
+    """
+    return 1 if n == 0 else int(math.log10(n)) + 1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IV
+
+- Implemente una función `suma_digitos()`  recursivamente
+	- Cuenta la cantidad de caracteres de un string no son alfanumérico
+	- Ej: 
+		- `suma_digitos(5)` debe retornar `5`
+		- `suma_digitos(123)` debe retornar `6`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IV - Solución
+
+```python
+def suma_digitos(n: int) -> int:
+    """
+    Suma recursivamente los dígitos de un número entero no negativo.
+
+    Args:
+        n (int): El número entero no negativo cuyos dígitos se van a sumar.
+
+    Returns:
+        int: La suma de los dígitos del número.
+
+    >>> suma_digitos(5)
+    5
+    >>> suma_digitos(123)
+    6
+    >>> suma_digitos(9876)
+    30
+    """
+    return n if n < 10 else (n % 10) + suma_digitos(n // 10)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Aclaración
+
+- Esta es solo una implementación de ejemplo con fines de práctica
+
+- No es eficiente para valores grandes de `n`
+    
+- Próximamente estudiaremos una versión **iterativa** y eficiente
+	- De la función `suma_digitos`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### ¿Cuándo la recursividad  es eficiente?
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tipo de problema*</th>
+      <th>¿Cuándo la recursión es eficiente o conveniente?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Algunos algoritmos de árboles</td>
+      <td>Siempre. Por su naturaleza jerárquica</td>
+    </tr>
+    <tr>
+      <td>Divide &amp; vencerás</td>
+      <td>Cuando el problema puede dividirse en mitades</td>
+    </tr>
+    <tr>
+      <td>Backtracking</td>
+      <td>Cuando hay que probar muchas combinaciones</td>
+    </tr>
+    <tr>
+      <td>Programación dinámica</td>
+      <td>Si se usa memoización para evitar redundancias</td>
+    </tr>
+    <tr>
+      <td>Algunos algoritmos de grafos</td>
+      <td>Por claridad y alineación con la lógica de pila</td>
+    </tr>
+  </tbody>
+</table>
+
+\* Temas estudiados en el siguiente curso (Estructuras de Datos y Algoritmos - EDA)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
