@@ -89,7 +89,7 @@
 
 ### <i class="fas fa-award"></i> IP Honores
 
- ####  *Recursividad*
+ ####  *Instrucciones Iterativas - while*
 
 [Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
 
@@ -99,1143 +99,978 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Repetición en Python
-
-1. **Recursividad**
-
-	<br>
-
-2. Iterativa - ciclos:
-	- `while`
-	- `for`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Recursividad
-
-- La función se invoca a sí misma
-	- Para resolver una instancia más pequeña del problema
-- Divide y vencerás
-	- Descomponer problemas en sub-problemas
-- En la vida  real → Muñecas  rusas
-	- Versiones más pequeñas anidadas
-	- Profundidad finita
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Recursividad
-
-- Componentes:
-	- **Caso base**: 
-		- Condición que detiene la recursión
-			- La función no se invoca a sí misma
-	- **Caso recursivo**: 
-		- Función se invoca a sí misma 
-			- En una versión más pequeña del problema
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Metodología del curso
-
-- El orden importa:
-	
-<img src="iph/n1/img/sw.png" alt="" style="object-fit: scale-down">
-
-<!-- .element: style="width: 15%; height: 25%" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Análisis (1/9)
-
-1.  Identificar y especificar el problema
-2.  Identificar restricciones
-3.  Documentar
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Análisis (2/9)
-
-- **¿Cuál es el problema a solucionar?**
-	- El cálculo del factorial
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Factorial (1/2)
-
-- Denotado como `n!`, donde `n` es un número
-	- Producto de todos los enteros positivos `≤ n`
+### Iterable (repaso)
+    
+- Estructura de datos que permite
+	- Recorrer sus elementos uno por uno
 - Ej:
+	-  Diccionarios, listas, tuplas, etc.
+		- Las listas y tuplas 
+			- Se estudiarán después en el curso...
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```plaintext
-No hay enteros positivos menores que 1, así que el producto vacío es 1:
-factorial(0) = 1 
+### Motivación (1/2)
 
-factorial(1) = 1
+- Considerando a los iterables:
+	- ¿Cómo realizar tareas elemento por elemento?
+	- ¿Cómo imprimir todos los elementos?
+	- ¿Cómo encontrar elementos que cumplen con criterios personalizados?
+	- ¿Cómo actualizar valores bajo condiciones dadas?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-factorial(2) = 2 × factorial(1) = 2
+### Motivación (2/2)
 
-factorial(3) = 3 × factorial(2) = 6
+- Manejar muchos valores en un iterable de manera eficiente:
+	- ¿Qué tan repetitivo se volvería el código si hay un gran número de elementos?
+	- ¿Qué tan propenso a errores puede ser el indexado manual?
+	- ¿Hay alguna alternativa para realizar estas y otras tareas repetitivas?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-factorial(4) = 4 × factorial(3) = 24
+### Iteración e instrucción repetitiva 
 
-factorial(5) = 5 × factorial(4) = 120
+- *Iteración*
+	- Ejecución repetida de un bloque de código
+- *Instrucción iterativa*
+
+	- Instrucción que repite un bloque de código 
+		- Mientras se cumpla una condición
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Repitiendo instrucciones
+
+- Hay acciones repetitivas que
+	- Se hacen mientras se cumpla una condición
+    
+```Python
+# Lenguaje natural:
+mientras haya correos sin leer
+    leer un correo
+    hay un correo sin leer menos
+````
+
+```Python
+# En Python:
+while correos_sin_leer > 0:
+    leer_correo()
+    correos_sin_leer -= 1
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Factorial (2/2)
+### La Instrucción `while` 
 
-```plaintext
-factorial(0) = 1 
-factorial(1) = 1
-factorial(2) = 2 × factorial(1) = 2
-factorial(3) = 3 × factorial(2) = 6
-factorial(4) = 4 × factorial(3) = 24
-factorial(5) = 5 × factorial(4) = 120
+<img src="iph/n3/img/Screenshot 2024-10-03 at 12.56.46 PM.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `while`
+
+- Palabra clave usada para crear un ciclo ó bucle
+- *bucle* ó *ciclo*: 
+	- Ejecución repetitiva de un bloque de código
+		- Mientras se cumpla una condición
+
+- La instrucción `while` es conocida también como:
+	- *Bucle while*
+	- *Ciclo while*
+	- Ó simplemente *while*
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `while` - Expresión (condición) (1/2)
+<img src="iph/n3/img/Screenshot 2024-10-03 at 1.03.56 PM.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `while` - Expresión (condición) (2/2)
+
+```Python
+while expresion:
+    # Cuerpo de while
 ```
 
-<img src="eda/modulo_1/img/factorial.png" alt="" style="width: 70%; height: 10%; object-fit: fill">
-
-
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->✅  Entender la definición matemática del factorial
+- Si `expresion` evalúa a `True` 
+	- Se ejecuta el cuerpo de  `while`
+- Caso contrario
+	- Se omite el cuerpo de  `while`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Análisis (3/9)
+### `while` - Cuerpo (1/2)
 
-- **¿Cuál es el propósito de la función?**
-	- Calcular el factorial de un número entero positivo
-	
-<br>
-
-- **¿Cuál será el nombre la función?**
-	- El nombre debe ser **auto explicativo**
-		- Ej:
-			- `factorial`
+- El cuerpo de `while`
+	- Es un bloque de código
+- No hay límite en el número de instrucciones
+- **Toda instrucción** que sea parte de `while`
+	- Debe estar indentada
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Análisis (4/9)
-		
-- **¿Qué dato(s) de entrada requiere?**
-	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Un número entero
+### `while` - Cuerpo (2/2)
 
-<br>
+<img src="iph/n3/img/Screenshot 2024-10-03 at 1.08.24 PM.png" alt="" style="object-fit: scale-down">
 
-- **¿Qué salida (resultado) producirá?**
-	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Un número entero que es
-		- El factorial del número dado
+
+- El cuerpo de `while` está indentado
+	- 4 espacios
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Análisis (5/9)
-		
-- **Especificar las restricciones:**
+### `while` Ejemplo (1/6)
 
-<br>
+```Python[1]
+while correos_sin_leer > 0:
+    leer_correo()
+    correos_sin_leer -= 1
+```
 
-- **¿Qué restricciones le aplican a los datos de entrada?**
-	- El factorial sólo está definido para enteros no negativos
-	
-<br>
-
-- **¿Qué restricciones le aplican a la salida?**
-	- Debe ser un número entero positivo
+- **Mientras haya emails sin leer**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Análisis (6/9)
-
-- Escribir la documentación: 
-	- **¿Cuál es el propósito de la función?**
+### `while` Ejemplo (2/6)
 
 ```Python[2]
-    """
-    Calcula el factorial de un número (n!).
-
-    Args:
-        numero (int): El número positivo para calcular su factorial.
-
-    Returns:
-        int: El factorial del número proporcionado.
-    """
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Análisis (7/9)
-
-- Escribir la documentación: 
-	-  **¿Qué dato(s) de entrada requiere?**
-
-```Python[4,5]
-    """
-    Calcula el factorial de un número (n!).
-
-    Args:
-        numero (int): El número positivo para calcular su factorial.
-
-    Returns:
-        int: El factorial del número proporcionado.
-    """
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Análisis (8/9)
-
-- Escribir la documentación: 
-	- **¿Qué salida (resultado) producirá?**
-
-```Python[7,8]
-    """
-    Calcula el factorial de un número (n!).
-
-    Args:
-        numero (int): El número positivo para calcular su factorial.
-
-    Returns:
-        int: El factorial del número proporcionado.
-    """
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Análisis (9/9)
-
-- Así se ve la documentación básica producida en el análisis:
-
-```Python
-    """
-    Calcula el factorial de un número (n!).
-
-    Args:
-        numero (int): El número positivo para calcular su factorial.
-
-    Returns:
-        int: El factorial del número proporcionado.
-    """
+while correos_sin_leer > 0:
+    leer_correo()
+    correos_sin_leer -= 1
 ```
 
-- Note que la documentación refleja las restricciones
-	- `(int)` indica 
-		- Que el tipo de dato de entrada esperado es un entero
-		- Que el tipo de dato a retornar es un entero
-	- Se especifica la naturaleza positiva de la entrada
-		- El factorial es por definición positivo
+- Mientras haya emails sin leer
+	- **Entonces, leer el correo**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Diseño (1/8)
+### `while` Ejemplo (3/6)
 
- 1. Formular ejemplos
-	- Casos significativos y no redundantes
- 2. Diseñar el algoritmo
- 3. Diseñar y documentar las pruebas
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Diseño (2/8)
-
-- **Formular ejemplos**
-	- Usando casos significativos y no redundantes
-
-```plaintext
-factorial(0) = 1 
-factorial(1) = 1
-factorial(2) = 2
-factorial(3) = 6
-factorial(4) = 24
-factorial(5) = 120
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Diseño (3/8)
-
-- Diseñar el algoritmo para solucionar el problema 
-	- A partir de la formulación de ejemplos
-
-<br>
-
-- El algoritmo será recursivo
-	- Entonces se necesita:
-	    1. Caso base
-	    2. Caso recursivo
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Diseño (4/8)
-
-- ¿Cuál es el **caso base**?
-	- Cuando la función NO se llama a sí misma
-	
-```plaintext
-factorial(0) = 1
-factorial(1) = 1
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Diseño (5/8)
-
-- ¿Cuál es el **caso recursivo**?
-	- Cuando la función se llama a sí misma
-	
-```plaintext
-factorial(2) = 2 × factorial(1) = 2
-factorial(3) = 3 × factorial(2) = 6
-factorial(4) = 4 × factorial(3) = 24
-factorial(5) = 5 × factorial(4) = 120
+```Python[3]
+while correos_sin_leer > 0:
+    leer_correo()
+    correos_sin_leer -= 1
 ```
 
-- Es decir:
-	- `n` multiplicado por el factorial de `n − 1`
+- Mientras haya emails sin leer
+	- Entonces, leer el correo
+		-  **Hay un correo sin leer menos**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Diseño (6/8)
+### `while` Ejemplo (4/6)
+<img src="iph/n3/img/Screenshot 2024-10-03 at 1.19.17 PM.png" alt="" style="object-fit: scale-down">
 
-- Se define y documenta cada caso de prueba
-	- Así se veía un ejemplo:
-```plaintext
-factorial(0) = 1
-```
-- Así se ve un caso de prueba, documentado:
-```Python
->>> factorial(0)  #  Caso base
-1
-```
+
+- La `expresion`  de `while`
+	- Se evalúa en cada iteración
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Diseño (7/8)
+### `while` Ejemplo (5/6)
 
-```Python
->>> factorial(0)  #  Caso base
-1
-```
+<img src="iph/n3/img/Screenshot 2024-10-03 at 1.21.57 PM.png" alt="" style="object-fit: scale-down">
 
-- Explicación:
-	- Si se llama a la función `factorial()`
-		- Usando como dato de entrada: **`0`** 
-		- Se **debe** obtener como resultado: **`1`**
+
+- Si `expresion` evalúa a `True`
+	- El cuerpo de `while` se ejecuta de nuevo
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Diseño (8/8)
+### `while` Ejemplo (6/6)
 
-- En este caso se usarán solo **6** casos
+<img src="iph/n3/img/Screenshot 2024-10-03 at 1.23.47 PM.png" alt="" style="object-fit: scale-down">
 
-```Python
-"""
-    >>> factorial(0)  # Caso base
-    1
-    >>> factorial(1)  # Caso base
-    1
-    >>> factorial(2)  # Caso recursivo - 2
-    2
-    >>> factorial(3)  # Caso recursivo - 3
-    6
-    >>> factorial(4)  # Caso recursivo - 4
-    24
-    >>> factorial(5)  # Caso recursivo - 5
-    120
-"""
-```
+
+- Si `expresion` evalúa a `False`
+	- El cuerpo de `while` no se ejecuta
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Construcción (1/9)
-
-- **Construcción**:
-	- Codificar/implementar el diseño usando:
-		- Documentación
-        - Convenciones
-        - Buenas prácticas de programación
+¿Por qué se **disminuye** a la variable `correos_sin_leer`?
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Construcción (2/9)
+### Variable de control (1/2)
 
-- Definir (declarar) la función:
-
-```Python
-def factorial(n: int) -> int:
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Construcción (3/9)
-
--  Escribir la implementación de la función
-- Por ahora, se omitirá la validación de las restricciones
-	- Sólo serán documentadas
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Construcción (4/9)
-
-- Escribir el caso base:
-        
-```Python
-    if n == 0 or n == 1:
-        resultado = 1
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Construcción (5/9)
-
-- Escribir el caso recursivo:
-        
-```Python[3-11]
-if n == 0 or n == 1:
-    resultado = 1
-elif n == 2:
-        resultado = 2 * factorial(2 - 1)
-    elif n == 3:
-        resultado = 3 * factorial(3 - 1)
-    elif n == 4:
-        resultado = 4 * factorial(4 - 1)
-    elif n == 5:
-        resultado = 5 * factorial(5 - 1)
-# Y continuaría…
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Construcción (6/9)
-
-- Escribir el caso recursivo:
-        
-```Python
-elif n == 2:
-        resultado = 2 * factorial(2 - 1)
-    elif n == 3:
-        resultado = 3 * factorial(3 - 1)
-    elif n == 4:
-        resultado = 4 * factorial(4 - 1)
-    elif n == 5:
-        resultado = 5 * factorial(5 - 1)
-# Y continuaría…
+```Python[1, 3]
+while correos_sin_leer > 0:
+    leer_correo()
+    correos_sin_leer -= 1
 ```
 
-❌ Esta implementación sería impráctica para `n` muy grandes
+- `correos_sin_leer`
+	- Es una *variable de control*
+	- Sirve para **terminar el ciclo**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Construcción (7/9)
+### Variable de control (2/2)
 
-- Se refina el código con base a la definición matemática:
-<img src="eda/modulo_1/img/factorial.png" alt="" style="width: 55%; height: 8%; object-fit: fill">
-
-
-```python
-    if n == 0 or n == 1:
-        resultado = 1
-    else:
-        resultado = n * factorial(n - 1)
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Construcción (8/9)
-
--   Pulir el código:
-
-```python
-def factorial(n: int) -> int:
-    return 1 if n <= 1 else n * factorial(n - 1)
+```Python[]
+while correos_sin_leer > 0:
+    leer_correo()
+    # correos_sin_leer -= 1
 ```
 
-- Se usa un solo `return` en la función
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Construcción (9/9)
-
-- Así se ve la implementación completa de la función `factorial()`:
-
-```Python
-def factorial(n: int) -> int:
-    """
-    Calcula el factorial de un número (n!).
-
-    Args:
-        numero (int): El número positivo para calcular su factorial.
-
-    Returns:
-        int: El factorial del número proporcionado.
-
-    >>> factorial(0)  # Caso base
-    1
-    >>> factorial(1)  # Caso base
-    1
-    >>> factorial(2)  # Caso recursivo - 2
-    2
-    >>> factorial(3)  # Caso recursivo - 3
-    6
-    >>> factorial(4)  # Caso recursivo - 4
-    24
-    >>> factorial(5)  # Caso recursivo - 5
-    120
-    """
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Pila
-
-- Estructura de datos con comportamiento LIFO
-	- Último en entrar, primero en salir (Last In, First Out)
-
-<img src="Pasted image 20250126111839.png" alt="" style="width: 60%; height: 35%; object-fit: fill">
-
-
-- El Stack de Python es una pila
-	- Donde se almacenan invocaciones a funciones y variables locales
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Stack de Python y recursividad
-
-- Almacena invocaciones a funciones y variables locales 
-	- Durante la ejecución de un programa
-- Cada vez que una función es invocada
-	- Su contexto (parámetros y variables locales) se apila
-		- En un _frame_
-- El contexto se desapila, solo cuando la función termina
-	- Al retornar, el estado de la pila vuelve al estado antes de apilar
-- Permite seguir el flujo de ejecución 
-	- Y resolver llamadas anidadas o recursivas de manera ordenada
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (1/17)
-
-```python
-def factorial(n: int) -> int:
-    return 1 if n <= 1 else n * factorial(n - 1)
-
-factorial(4)
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (2/17)
-
-```python
-def factorial(n: int) -> int:
-    return 1 if n <= 1 else n * factorial(n - 1)
-
-factorial(4)
-```
-
-<img src="iph/n3/img/fb_1.png" alt="" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (3/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_2.png" alt="" style="width: 55%; height: 40%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (4/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_3.png" alt="" style="width: 55%; height: 45%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (5/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_4.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (6/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_5.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (7/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_6.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (8/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_7.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (9/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_8.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (10/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_9.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (11/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_10.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (12/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_11.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (13/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_12.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (14/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_13.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (15/17)
-
-```python
-    return 1 if n <= 1 else n * factorial(n - 1)
-```
-
-<img src="iph/n3/img/fb_14.png" alt="" style="width: 55%; height: 50%; object-fit: fill">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (16/17)
-
-<img src="iph/n3/img/fb_15.png" alt="" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Comprendiendo la recursividad (17/17)
-
-```python
-def factorial(n: int) -> int:
-    return 1 if n <= 1 else n * factorial(n - 1)
-
-factorial(4)  # → 24
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Pruebas (1/3)
-
-1. Verificar si el resultado obtenido es el esperado
-2. Depurar:
-	- Corregir errores
-	- Pulir/mejorar/optimizar
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Pruebas (2/3)
-
-- Ejecutar los doctests:
-
-```Python[1,28]
-import doctest
-
-def factorial(n: int) -> int:
-    """
-    Calcula el factorial de un número (n!).
-
-    Args:
-        numero (int): El número positivo para calcular su factorial.
-
-    Returns:
-        int: El factorial del número proporcionado.
-
-    >>> factorial(0)  # Caso base
-    1
-    >>> factorial(1)  # Caso base
-    1
-    >>> factorial(2)  # Caso recursivo - 2
-    2
-    >>> factorial(3)  # Caso recursivo - 3
-    6
-    >>> factorial(4)  # Caso recursivo - 4
-    24
-    >>> factorial(5)  # Caso recursivo - 5
-    120
-    """
-    return 1 if n <= 1 else n * factorial(n - 1)
-
-doctest.run_docstring_examples(factorial, globals(), verbose=True)
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Pruebas (3/3)
-
-- Revisar los resultados y corregir si es necesario:
-
-```plaintext
-Trying:
-    factorial(0)
-Expecting:
-    1
-ok
-Trying:
-    factorial(1)
-Expecting:
-    1
-ok
-Trying:
-    factorial(2)
-Expecting:
-    2
-ok
-Trying:
-    factorial(3)
-Expecting:
-    6
-ok
-Trying:
-    factorial(4)
-Expecting:
-    24
-ok
-Trying:
-    factorial(5)
-Expecting:
-    120
-ok
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Reglas de recursividad:
-
-1. Definir el(los) caso(s) base con solución conocida
-2. Establecer el(los) caso(s) recursivo(s) que resuelvan sub-problemas similares
-3. Garantizar que los casos recursivos converjan al caso base
-4. Si hay múltiples casos recursivos, deben ser disyuntos
-5. La solución debe combinar los resultados de los casos base y recursivos
+- Si no se usa una variable de control
+	- No terminaría el ciclo:
+		- `leer_correo()`
+			- Se ejecutaría una y otra vez
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz I
 
-- Implemente la función `fibonacci()` recursivamente
+- ¿Cuál es el resultado de ejecutar el siguiente código?
 
-- **Serie de fibonacci**:
-	- Serie en donde cada número es la suma de los dos anteriores
-	- Ej:
-```plaintext
-fibonacci(0) = 0
-fibonacci(1) = 1
-fibonacci(2) = fibonacci(1) + fibonacci(0) = 1 + 0 = 1
-fibonacci(3) = fibonacci(2) + fibonacci(1) = 1 + 1 = 2
-fibonacci(4) = fibonacci(3) + fibonacci(2) = 2 + 1 = 3
-fibonacci(5) = fibonacci(4) + fibonacci(3) = 3 + 2 = 5
-…
-fibonacci(n) = fibonacci(n−1) + fibonacci(n−2)
+```Python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz I - Solución
 
-```python
-def fibonacci(n: int) -> int:
-    """
-    Calcula el n-ésimo número de la secuencia de Fibonacci.
+```Python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
 
-    :param n: La posición en la secuencia de Fibonacci (entero no negativo).
-    :type n: int
-
-    :returns: El n-ésimo número de Fibonacci.
-    :rtype: int
-
-    >>> fibonacci(0)  # Caso base
-    0
-    >>> fibonacci(1)  # Caso base
-    1
-    >>> fibonacci(2)  # Caso recursivo - 2
-    1
-    >>> fibonacci(12)  # Caso recursivo - 12
-    144
-    >>> fibonacci(24)  # Caso recursivo - 24
-    46368
-    """
-    return n if n <= 1 else fibonacci(n - 1) + fibonacci(n - 2)
+```  
+0
+1
+2
+3
+4
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz II
 
-- Implemente una función `sum_n()`  recursivamente
-	- Calcula la suma de todos los enteros desde 1 hasta un número positivo `n`
+- ¿Cuál es el resultado de ejecutar el siguiente código?
 
-```
-∑ⁱⁿᵢ₌₁ i: 1
-
-∑ⁱⁿᵢ₌₁ i: 1 + 2 = 3
-
-∑ⁱⁿᵢ₌₁ i: 1 + 2 + 3 = 6
-
-∑ⁱⁿᵢ₌₁ i: 1 + 2 + 3 + 4 = 10
-
-∑ⁱⁿᵢ₌₁ i: 1 + 2 + 3 + 4 + 5 = 15
+```Python
+i = 5
+while i >= 0:
+    print(i)
+    i -= 1
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz II - Solución
 
-```python
-def sum_n(n: int) -> int:
-    """
-    Calcula la suma de los enteros desde 1 hasta n, de forma recursiva.
-
-    Args:
-        n (int): Límite superior positivo de la suma.
-
-    Returns:
-        int: La suma de los enteros desde 1 hasta n.
-
-    >>> sum_n(1)
-    1
-    >>> sum_n(7)
-    28
-    >>> sum_n(10)
-    55
-    """
-    return 1 if n == 1 else n + sum_n(n - 1)
+```Python
+i = 5
+while i >= 0:
+    print(i)
+    i -= 1
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Aclaración (1/2)
-
-- Esta es solo una implementación de ejemplo con fines de práctica
-    
-- No es eficiente para valores grandes de `n`
-    
-- Para calcular eficientemente la suma de un rango de enteros positivos
-	- Use la siguiente fórmula:
-    
-
-    **n(n + 1) / 2**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Aclaración (2/2)
-
-```python
-def sum_n(n: int) -> int:
-    """
-    Calcula la suma de los enteros desde 1 hasta n usando una fórmula matemática.
-
-    Args:
-        n (int): Límite superior positivo de la suma.
-
-    Returns:
-        int: La suma de los enteros desde 1 hasta n.
-
-    >>> sum_n(1)
-    1
-    >>> sum_n(5)
-    15
-    >>> sum_n(100)
-    5050
-    """
-    return n * (n + 1) // 2
+```  
+5
+4
+3
+2
+1
+0
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz III
 
-- Implemente una función `contar_digitos()`  recursivamente
-	- Cuenta la cantidad de dígitos en un número entero mayor a cero
-	- Ej: 
-		- `contar_digitos(7)` debe retornar `1`
-		- `contar_digitos(12345)` debe retornar `5`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+- ¿Cuál es el resultado de ejecutar el siguiente código?
 
-### Quiz III - Tips
-
-- Use `n // 10` para eliminar el último dígito
-- Repetir esto recursivamente 
-	- Hasta que el número tenga un solo dígito 
-
-
-```python
-    """
-    Cuenta recursivamente la cantidad de dígitos en un número entero no negativo.
-
-    Args:
-        n (int): El número entero no negativo al que se le contarán los dígitos.
-
-    Returns:
-        int: La cantidad de dígitos del número proporcionado.
-
-    >>> contar_digitos(1)
-    1
-    >>> contar_digitos(987654)
-    6
-    """
+```Python
+i = 0
+while i <= 7:
+    print(i)
+    i += 2
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz III - Solución
 
-
-```python
-def contar_digitos(n: int) -> int:
-    """
-    Cuenta recursivamente la cantidad de dígitos en un número entero no negativo.
-
-    Args:
-        n (int): El número entero no negativo al que se le contarán los dígitos.
-
-    Returns:
-        int: La cantidad de dígitos del número proporcionado.
-
-    >>> contar_digitos(1)
-    1
-    >>> contar_digitos(987654)
-    6
-    """
-    return 1 if n < 10 else 1 + contar_digitos(n // 10)
+```Python
+i = 0
+while i <= 7:
+    print(i)
+    i += 2
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Aclaración (1/2)
-
-- Esta es solo una implementación de ejemplo con fines de práctica
-    
-- No es eficiente para valores grandes de `n`
-    
-- Para calcular eficientemente se usaría `int(math.log10(n)) + 1`
-	- El logaritmo base 10 de un número
-		- Indica el orden de magnitud en potencias de 10 
-
-<table border="1">
-  <thead>
-    <tr>
-      <th>Número</th>
-      <th>log10(n)</th>
-      <th>int(log10(n))</th>
-      <th>Dígitos (esperados)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>9</td>
-      <td>0.95</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>99</td>
-      <td>1.99</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>100</td>
-      <td>2.0</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>123456</td>
-      <td>5.09</td>
-      <td>5</td>
-      <td>6</td>
-    </tr>
-  </tbody>
-</table>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Aclaración (2/2)
-
-```python
-import math
-
-def contar_digitos(n: int) -> int:
-    """
-    Cuenta la cantidad de dígitos en un número entero no negativo de forma eficiente.
-
-    Args:
-        n (int): El número entero no negativo.
-
-    Returns:
-        int: La cantidad de dígitos del número.
-
-    >>> contar_digitos(1)
-    1
-    >>> contar_digitos(987654)
-    6
-    """
-    return 1 if n == 0 else int(math.log10(n)) + 1
+```  
+0
+2
+4
+6
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz IV
 
-- Implemente una función `suma_digitos()`  recursivamente
-	- Cuenta la cantidad de caracteres de un string no son alfanumérico
-	- Ej: 
-		- `suma_digitos(5)` debe retornar `5`
-		- `suma_digitos(123)` debe retornar `6`
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+i = 10
+while i >= 2:
+    print(i)
+    i -= 2
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz IV - Solución
 
-```python
-def suma_digitos(n: int) -> int:
-    """
-    Suma recursivamente los dígitos de un número entero no negativo.
+```Python
+i = 10
+while i >= 2:
+    print(i)
+    i -= 2
+```
 
-    Args:
-        n (int): El número entero no negativo cuyos dígitos se van a sumar.
-
-    Returns:
-        int: La suma de los dígitos del número.
-
-    >>> suma_digitos(5)
-    5
-    >>> suma_digitos(123)
-    6
-    >>> suma_digitos(9876)
-    30
-    """
-    return n if n < 10 else (n % 10) + suma_digitos(n // 10)
+```  
+10
+8
+6
+4
+2
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Aclaración
+### Quiz V
 
-- Esta es solo una implementación de ejemplo con fines de práctica
+- ¿Cuál es el resultado de ejecutar el siguiente código?
 
-- No es eficiente para valores grandes de `n`
-    
-- Próximamente estudiaremos una versión **iterativa** y eficiente
-	- De la función `suma_digitos`
+```Python
+i = 1
+while i <= 10:
+    print(i)
+    i *= 2
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### ¿Cuándo la recursividad  es eficiente?
+### Quiz V - Solución
 
+```Python
+i = 1
+while i <= 10:
+    print(i)
+    i *= 2
+```
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>Tipo de problema*</th>
-      <th>¿Cuándo la recursión es eficiente o conveniente?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Algunos algoritmos de árboles</td>
-      <td>Siempre. Por su naturaleza jerárquica</td>
-    </tr>
-    <tr>
-      <td>Divide &amp; vencerás</td>
-      <td>Cuando el problema puede dividirse en mitades</td>
-    </tr>
-    <tr>
-      <td>Backtracking</td>
-      <td>Cuando hay que probar muchas combinaciones</td>
-    </tr>
-    <tr>
-      <td>Programación dinámica</td>
-      <td>Si se usa memoización para evitar redundancias</td>
-    </tr>
-    <tr>
-      <td>Algunos algoritmos de grafos</td>
-      <td>Por claridad y alineación con la lógica de pila</td>
-    </tr>
-  </tbody>
-</table>
-
-\* Temas estudiados en el siguiente curso (Estructuras de Datos y Algoritmos - EDA)
+```  
+1
+2
+4
+8
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="iph/n3/img/re_meme.png" alt="" style="object-fit: scale-down">
+### Quiz VI
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+iteraciones = 0
+sumatoria = 0
+i = 1
+n = 10
+
+while i <= n:
+    iteraciones += 1
+    sumatoria += i
+    i += 1  
+  
+print(f'Sumatoria = {sumatoria}')
+print(f'Iteraciones = {iteraciones}')
+print(f'i = {i}')
+print(f'n = {n}')
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VI
+
+<img src="iph/n3/img/Screenshot 2024-10-04 at 4.34.12 PM.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VI - Solución
+
+```Python
+iteraciones = 0
+sumatoria = 0
+i = 1
+n = 10
+
+while i <= n:
+    iteraciones += 1
+    sumatoria += i
+    i += 1  
+  
+print(f'Sumatoria = {sumatoria}')  # → Sumatoria = 55
+print(f'Iteraciones = {iteraciones}')  # → Iteraciones = 10
+print(f'i = {i}')  # → i = 11
+print(f'n = {n}')  # → n = 10
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VII
+
+- ¿Cuál es el problema en el siguiente código?
+
+```Python
+i = 0
+while i >= 0:
+    i += 1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VII - Solución
+
+```Python
+i = 0
+while i >= 0:
+    i += 1
+```
+
+- La variable de control `i`  solo se incrementa    
+	- Entonces `i >= 0` siempre evalúa a `True`
+- A esto se le denomina
+	- *Ciclo/Bucle infinito*
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VIII
+
+- ¿Cuál es el problema en el siguiente código?
+
+```Python
+var = True
+while var:
+    var = True
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VIII - Solución
+
+```Python
+var = True
+while var:
+    var = True
+```
+
+- La variable de control siempre es `True`
+	- Entonces `while` siempre se ejecuta
+- A esto se le denomina
+	- *Ciclo/Bucle infinito*
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IX
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+var = True
+i = 0
+
+while var:
+    print(i)
+    i += 1
+    if i % 2 == 0:
+        var = False
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IX - Solución
+
+```Python
+var = True
+i = 0
+
+while var:
+    print(i)
+    i += 1
+    if i % 2 == 0:
+        var = False
+```
+
+```
+0
+1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Centinela (1/2)
+
+- Variable que indica cuándo terminar un ciclo 
+- Se utiliza en `while` para controlar su continuidad
+- Cambia de valor cuando se cumple una condición
+	- Terminando el ciclo
+- Evita la ejecución indefinida del ciclo
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Centinela (2/2)
+
+ - Típicamente una variable centinela es booleana 
+ - Que se inicializa en `False`
+ - Estructura general:
+ 
+```Python
+centinela = False  # Declaración de variable centinela
+while not centinela:  # while chequea al centinela
+    # Cuerpo de while
+    centinela = True  # Cambio del centinela
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Centinela - Ejemplo (1/3)
+
+```Python[2]
+contador = 0 
+es_cinco = False
+while not es_cinco: 
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 5: 
+        es_cinco = True 
+print("Fin del ciclo")
+```
+
+- `es_cinco` es una variable centinela
+	- Es boolena
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Centinela - Ejemplo (2/3)
+
+```Python[2, 3, 8]
+contador = 0 
+es_cinco = True  # Variable centinela 
+while not es_cinco:  # Evalúa a False
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 5: 
+        es_cinco = True 
+print("Fin del ciclo")
+```
+
+- `while` depende de la variable centinela
+	- Si `es_cinco` es `True`
+		- Su negación será `False`
+			- El cuerpo de `while` no se ejecuta
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Centinela - Ejemplo (3/3)
+
+```Python
+contador = 0 
+es_cinco = False  # Variable centinela 
+while not es_cinco:  # Evalúa a True
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 5: 
+        es_cinco = True 
+print("Fin del ciclo")
+```
+
+- `while` depende de la variable centinela
+	- Si `es_cinco` es `False`
+		- Su negación será `True`
+			- El cuerpo de `while` se  ejecuta
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz X
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+contador = 0 
+es_tres = True
+while not es_tres:
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 3: 
+        es_tres = True 
+print("Fin")
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz X - Solución
+
+```Python
+contador = 0 
+es_tres = True
+while not es_tres:
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 3: 
+        es_tres = True 
+print("Fin")
+```
+
+```Python
+Fin
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XI
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+contador = 0 
+es_tres = False
+while not es_tres:
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 3: 
+        es_tres = True 
+print("Fin")
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XI - Solución
+
+```Python
+contador = 0 
+es_tres = False
+while not es_tres:
+    print(f"Iteración {contador}") 
+    contador += 1 
+    if contador == 3: 
+        es_tres = True 
+print("Fin")
+```
+
+```Python
+Iteración 0
+Iteración 1
+Iteración 2
+Fin
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Repaso  (ejercicio condicionales)
+
+```Python
+pin = input('Por favor digite un PIN de cuatro dígitos: ')
+confirmacion_pin = input('Por favor confirme el PIN: ')
+
+if len(pin) != 4:
+    print('El PIN debe tener cuatro dígitos de longitud')
+elif not pin.isdigit():
+    print('El PIN debe contener sólo dígitos')
+elif pin == confirmacion_pin:
+    print('El PIN se ha guardado')
+else:
+    print('Error: Los PINs no coinciden')
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII
+
+- ¿Qué hace el siguiente código?
+
+```Python
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (1/7)
+
+
+```Python[4]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    # ...
+```
+
+-  El bucle depende de 2 expresiones:
+	- Número de intentos mayor a cero
+	- PIN no haya sido guardado
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (2/7)
+
+```Python[1,4,18]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+
+-  `intentos` es una variable de control
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (3/7)
+
+```Python[1,4,18]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+
+- Cada intento erróneo
+	- Decrece el número de intentos
+		- Cambiando a la variable `intentos`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (4/7)
+
+```Python[1,4,18]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+
+- Si `intentos` llega a ser `0`
+	- El cuerpo de `while` no se ejecutaría más
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (5/7)
+
+```Python[1,4,18]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+
+- `pin_guardado` es la variable centinela
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (6/7)
+
+```Python[2,4,15]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+
+- Si el PIN cumple con las condiciones
+	- Se guarda y se cambia a `pin_guardado`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Explicación (7/7)
+
+```Python[2,4,15]
+intentos = 3
+pin_guardado = False
+
+while intentos > 0 and not pin_guardado:
+    pin = input('Por favor digite un PIN de cuatro dígitos: ')
+    confirmacion_pin = input('Por favor confirme el PIN: ')
+
+    if pin == confirmacion_pin:
+        if len(pin) != 4:
+            print('El PIN debe tener cuatro dígitos de longitud')
+        elif not pin.isdigit():
+            print('El PIN debe contener sólo dígitos')
+        else:
+            print('El PIN se ha guardado')
+            pin_guardado = True
+    else:
+        print('Error: los PINs no coinciden')
+    intentos -= 1
+
+if not pin_guardado:
+   print('Error: el PIN no fue guardado')
+```
+
+- Si `pin_guardado` llega a ser `True`
+	- El cuerpo de `while` no se ejecutaría más
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XII - Respuesta
+
+- Pide un PIN de 4 dígitos al usuario
+- Valida el PIN:
+	- Debe tener 4 dígitos y ser solo dígitos
+- Si el PIN es válido
+	-  Se guarda, informa al usuario y acaba el ciclo
+- Si el PIN es inválido ó no coincide la confirmación
+	- Se informa al usuario y se repite el proceso
+- Si en 3 intentos no se guarda el PIN
+	- Se acaba el ciclo e informa al usuario
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XIII
+
+- ¿Cómo se podría modificar el siguiente código para que repetidamente solicite al usuario un número, hasta que ingrese un número positivo?
+
+```Python
+from math import sqrt
+numero = float(input('Digite un número positivo: '))
+print(f'La raíz cuadrada de {numero} es: {round(sqrt(numero),2)}')
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz XIII - Solución
+
+
+```Python
+from math import sqrt
+
+def pedir_numero() -> float:
+    return float(input('Digite un número positivo: '))
+
+numero = pedir_numero()
+while numero <= 0:  # Se ejecuta solo si el número es negativo:
+    print('El número debe ser positivo, por favor intente de nuevo')
+    numero = pedir_numero()
+    
+print(f'La raíz cuadrada de {numero} es: {round(sqrt(numero),2)}')
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
