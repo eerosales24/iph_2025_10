@@ -435,11 +435,11 @@ def ocultar_usuario_email(email: str, caracteres_visibles: int=2) -> str:
         o el email sin modificar, cuando caracteres_visibles sea mayor o igual a
          la longitud del usuario.
 
-    >>> ocultar_usuario_email('ejemplo@dominio.com') # Oculta 2 caracteres (por defecto)
+    >>> ocultar_usuario_email('ejemplo@dominio.com') # Caso oculta 2 caracteres (por defecto)
     'ej*****@dominio.com'
-    >>> ocultar_usuario_email('ejemplo@dominio.com', 4) # Oculta 4 caracteres (de 7)
+    >>> ocultar_usuario_email('ejemplo@dominio.com', 4) # Caso oculta 4 caracteres (de 7)
     'ejem***@dominio.com'
-    >>> ocultar_usuario_email('ejemplo@dominio.com', 8) # No oculta nada porque 8 > 7 ('ejemplo')
+    >>> ocultar_usuario_email('ejemplo@dominio.com', 8) # Caso no oculta nada porque 8 > 7 ('ejemplo')
     'ejemplo@dominio.com'
     """
     # TODO7: Implemente la función tal y como se describe en la documentación
@@ -473,9 +473,9 @@ def formatear_numero_telefono(numero: str, formato: str = "NACIONAL") -> str:
         str: El número formateado si es válido y el formato es reconocido,
              o el número original sin modificar en caso contrario.
 
-    >>> formatear_numero_telefono("3001234567")  # Número móvil, formato nacional
+    >>> formatear_numero_telefono("3001234567")  # Caso número móvil, formato nacional
     '300 123 4567'
-    >>> formatear_numero_telefono("3001234567", "INTERNACIONAL")  # Número móvil, formato internacional
+    >>> formatear_numero_telefono("3001234567", "INTERNACIONAL")  # Caso Número móvil, formato internacional
     '+57 300 123 4567'
     >>> formatear_numero_telefono("1234567890", "OTRO")  # Caso formato no reconocido
     '1234567890'
