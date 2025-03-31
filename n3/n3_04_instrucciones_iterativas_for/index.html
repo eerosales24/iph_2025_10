@@ -89,7 +89,7 @@
 
 ### <i class="fas fa-award"></i> IP Honores
 
- ####  *Instrucciones Iterativas - while*
+ ####  *Instrucciones Iterativas - for*
 
 [Eduardo Rosales](mailto:ee.rosales24@uniandes.edu.co)
 
@@ -99,226 +99,117 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Iterable (repaso)
-    
-- Estructura de datos que permite
-	- Recorrer sus elementos uno por uno
-- Ej:
-	-  Diccionarios, listas, tuplas, etc.
-		- Las listas y tuplas 
-			- Se estudiarán después en el curso...
+### La Instrucción `for` 
+
+<img src="iph/n3/img/Screenshot 2024-10-03 at 4.02.28 PM.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Motivación (1/2)
-
-- Considerando a los iterables:
-	- ¿Cómo realizar tareas elemento por elemento?
-	- ¿Cómo imprimir todos los elementos?
-	- ¿Cómo encontrar elementos que cumplen con criterios personalizados?
-	- ¿Cómo actualizar valores bajo condiciones dadas?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Motivación (2/2)
-
-- Manejar muchos valores en un iterable de manera eficiente:
-	- ¿Qué tan repetitivo se volvería el código si hay un gran número de elementos?
-	- ¿Qué tan propenso a errores puede ser el indexado manual?
-	- ¿Hay alguna alternativa para realizar estas y otras tareas repetitivas?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Iteración e instrucción repetitiva 
-
-- *Iteración*
-	- Ejecución repetida de un bloque de código
-- *Instrucción iterativa*
-
-	- Instrucción que repite un bloque de código 
-		- Mientras se cumpla una condición
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Repitiendo instrucciones
-
-- Hay acciones repetitivas que
-	- Se hacen mientras se cumpla una condición
-    
-```Python
-# Lenguaje natural:
-mientras haya correos sin leer
-    leer un correo
-    hay un correo sin leer menos
-````
-
-```Python
-# En Python:
-while correos_sin_leer > 0:
-    leer_correo()
-    correos_sin_leer -= 1
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### La Instrucción `while` 
-
-<img src="iph/n3/img/Screenshot 2024-10-03 at 12.56.46 PM.png" alt="" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `while`
+### `for`
 
 - Palabra clave usada para crear un ciclo ó bucle
-- *bucle* ó *ciclo*: 
-	- Ejecución repetitiva de un bloque de código
-		- Mientras se cumpla una condición
 
-- La instrucción `while` es conocida también como:
-	- *Bucle while*
-	- *Ciclo while*
-	- Ó simplemente *while*
+- La instrucción `for` es conocida también como:
+	- *Bucle for*
+	- *Ciclo for*
+	- *for each*
+	- Ó simplemente *for*
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` - Expresión (condición) (1/2)
+<img src="iph/n3/img/Screenshot 2024-10-03 at 4.05.23 PM.png" alt="" style="object-fit: scale-down">
 
-<img src="iph/n3/img/Screenshot 2024-10-03 at 1.03.56 PM.png" alt="" style="object-fit: scale-down">
+ 
+-`for`  itera o recorre
+- Un iterable
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` - Expresión (condición) (2/2)
+## **¿Qué es un iterable?**
 
-```Python
-while expresion:
-    # Cuerpo de while
-```
-
-- Si `expresion` evalúa a `True` 
-	- Se ejecuta el cuerpo de  `while`
-- Caso contrario
-	- Se omite el cuerpo de  `while`
+- Un objeto que puede ser recorrido 
+	- De elemento en elemento
+		- Ej: Mediante `for`
+- Ejemplos de iterables comunes en Python:
+	- Listas, tuplas, strings, diccionarios, sets
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` - Cuerpo (1/2)
+<img src="iph/n3/img/Screenshot 2024-10-03 at 4.06.23 PM.png" alt="" style="object-fit: scale-down">
 
-- El cuerpo de `while`
+
+- `in`
+	-  Palabra clave usada para configurar el bucle 
+		- Para recorrer cada elemento del iterable
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="iph/n3/img/Screenshot 2024-10-03 at 4.08.03 PM.png" alt="" style="object-fit: scale-down">
+
+
+- *item*
+	- Nombre dado al elemento actual recorrido
+		- En *singular*
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `for` - Cuerpo (1/2)
+
+- El cuerpo de `for`
 	- Es un bloque de código
 - No hay límite en el número de instrucciones
-- **Toda instrucción** que sea parte de `while`
+- **Toda instrucción** que sea parte de `for`
 	- Debe estar indentada
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` - Cuerpo (2/2)
+### `for` - Cuerpo (2/2)
 
-<img src="iph/n3/img/Screenshot 2024-10-03 at 1.08.24 PM.png" alt="" style="object-fit: scale-down">
+<img src="iph/n3/img/Screenshot 2024-10-03 at 4.09.46 PM.png" alt="" style="object-fit: scale-down">
 
 
-- El cuerpo de `while` está indentado
+- El cuerpo de `for` está indentado
 	- 4 espacios
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` Ejemplo (1/6)
+### `for` Ejemplo (1/3)
 
 ```Python[1]
-while correos_sin_leer > 0:
-    leer_correo()
-    correos_sin_leer -= 1
+for caracter in 'Hola':
+    print(caracter)
 ```
 
-- **Mientras haya emails sin leer**
+- **Para cada carácter en `'Hola'`**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` Ejemplo (2/6)
+### `for` Ejemplo (2/3)
 
 ```Python[2]
-while correos_sin_leer > 0:
-    leer_correo()
-    correos_sin_leer -= 1
+for caracter in 'Hola':
+    print(caracter)
 ```
 
-- Mientras haya emails sin leer
-	- **Entonces, leer el correo**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+- Para cada carácter en `'Hola'`
+	- **Imprimir cada carácter**
 
-### `while` Ejemplo (3/6)
-
-```Python[3]
-while correos_sin_leer > 0:
-    leer_correo()
-    correos_sin_leer -= 1
+```Python
+H
+o
+l
+a
 ```
-
-- Mientras haya emails sin leer
-	- Entonces, leer el correo
-		-  **Hay un correo sin leer menos**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### `while` Ejemplo (4/6)
-<img src="iph/n3/img/Screenshot 2024-10-03 at 1.19.17 PM.png" alt="" style="object-fit: scale-down">
+### `for` Ejemplo (3/3)
+
+<img src="iph/n3/img/Screenshot 2024-10-03 at 4.22.24 PM.png" alt="" style="object-fit: scale-down">
 
 
-- La `expresion`  de `while`
-	- Se evalúa en cada iteración
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `while` Ejemplo (5/6)
-
-<img src="iph/n3/img/Screenshot 2024-10-03 at 1.21.57 PM.png" alt="" style="object-fit: scale-down">
-
-
-- Si `expresion` evalúa a `True`
-	- El cuerpo de `while` se ejecuta de nuevo
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### `while` Ejemplo (6/6)
-
-<img src="iph/n3/img/Screenshot 2024-10-03 at 1.23.47 PM.png" alt="" style="object-fit: scale-down">
-
-
-- Si `expresion` evalúa a `False`
-	- El cuerpo de `while` no se ejecuta
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-¿Por qué se **disminuye** a la variable `correos_sin_leer`?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Variable de control (1/2)
-
-```Python[1, 3]
-while correos_sin_leer > 0:
-    leer_correo()
-    correos_sin_leer -= 1
-```
-
-- `correos_sin_leer`
-	- Es una *variable de control*
-	- Sirve para **terminar el ciclo**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Variable de control (2/2)
-
-```Python[]
-while correos_sin_leer > 0:
-    leer_correo()
-    # correos_sin_leer -= 1
-```
-
-- Si no se usa una variable de control
-	- No terminaría el ciclo:
-		- `leer_correo()`
-			- Se ejecutaría una y otra vez
+- Si el iterable está vacío
+	- No se imprime nada
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -327,24 +218,358 @@ while correos_sin_leer > 0:
 - ¿Cuál es el resultado de ejecutar el siguiente código?
 
 ```Python
-i = 0
-while i < 5:
-    print(i)
-    i += 1
+for letra in 'vertical':
+    print(letra)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz I - Solución
 
+
 ```Python
-i = 0
-while i < 5:
-    print(i)
-    i += 1
+for letra in 'vertical':
+    print(letra)
 ```
 
-```  
+```Python
+v
+e
+r
+t
+i
+c
+a
+l
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II
+
+-  Implemente la función `ocurrencias_caracter()`:
+
+```Python
+def ocurrencias_caracter(cadena: str, caracter_buscado: str) -> int:
+    """
+    Retorna el número de veces que un carácter aparece en una cadena.  
+    Nota: usar for.
+
+    Args:
+        cadena (str): La cadena de caracteres en donde buscar.
+        caracter (str): El carácter a contar en la cadena.
+
+    Returns:
+        int: El número de ocurrencias del carácter en la cadena.
+
+    >>> ocurrencias_caracter('hola mundo', 'o')
+    2
+    >>> ocurrencias_caracter('repetición', 'r')
+    1
+    >>> ocurrencias_caracter('ejemplo', 'z')
+    0
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Explicación (1/6)
+
+```Python
+def ocurrencias_caracter(cadena: str, caracter_buscado: str) -> int:
+    ocurrencias = 0  # Variable de retorno y contador
+    
+    # TODO: Completar el resto de la función
+    
+    return ocurrencias  # Un solo return
+```
+
+- `ocurrencias` se inicializa con el que sería
+	- El valor por defecto a retornar
+		- Al ser un contador
+			- El mínimo conteo es `0`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Explicación (2/6)
+
+```Python
+def ocurrencias_caracter(cadena: str, caracter_buscado: str) -> int:
+    ocurrencias = 0  # Variable de retorno y contador
+    
+    # TODO: Completar el resto de la función
+    
+    return ocurrencias  # Un solo return
+```
+
+- Si `ocurrencias` nunca cambia
+	- Se retornaría `0`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Explicación (3/6)
+
+- ¿Qué condición puede cambiar a la variable de retorno?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Que existan ocurrencias del carácter buscado
+- ¿Cómo se puede buscar estas ocurrencias?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Recorriendo el string
+- ¿Es necesario recorrer todo el string?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Sí, porque se buscan **todas las ocurrencias**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Explicación (4/6)
+
+¿Cómo recorrer todo el string?
+
+```Python
+    for caracter_actual in cadena:
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Explicación (5/6)
+
+¿Cómo saber si el carácter actual es el carácter buscado?
+
+```Python[2]
+    for caracter_actual in cadena:
+        if caracter_actual == caracter_buscado:
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Explicación (6/6)
+
+¿Cómo contar que se encontró una ocurrencia?
+
+```Python[1,5]
+    ocurrencias = 0  # Variable de retorno y contador
+    
+    for caracter_actual in cadena:
+        if caracter_actual == caracter_buscado:
+            ocurrencias += 1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Solución
+
+```Python
+def ocurrencias_caracter(cadena: str, caracter_buscado: str) -> int:
+    """
+    Retorna el número de veces que un carácter aparece en una cadena.  
+    Nota: usar for.
+
+    Args:
+        cadena (str): La cadena de caracteres en donde buscar.
+        caracter (str): El carácter a contar en la cadena.
+
+    Returns:
+        int: El número de ocurrencias del carácter en la cadena.
+
+    >>> ocurrencias_caracter('hola mundo', 'o')
+    2
+    >>> ocurrencias_caracter('repetición', 'r')
+    1
+    >>> ocurrencias_caracter('ejemplo', 'z')
+    0
+    """
+    ocurrencias = 0  # Variable de retorno y contador
+
+    for caracter_actual in cadena:  # Recorrer toda la cadena
+        if caracter_actual == caracter_buscado:
+            ocurrencias += 1
+            
+    return ocurrencias  # Un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III
+
+-  Implemente la función `cantidad_digitos()`:
+
+```Python
+def cantidad_digitos(cadena: str) -> int:
+    """
+    Retorna la cantidad de dígitos positivos (1-9) encontrados 
+    en la cadena de entrada. Recordatorio: la función 
+    str.isdigit() retorna True si el string contiene solo dígitos. 
+    Nota: usar for.
+
+    Args:
+        cadena (str): La cadena de entrada en la que buscar números.
+
+    Returns:
+        int: La cantidad de dígitos encontrados en la cadena,
+        o 0 si no hay dígitos o la cadena está vacía.
+
+    >>> cantidad_digitos('a5b5d55z')
+    4
+    >>> cantidad_digitos('abdz')
+    0
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III - Tips (1/3)
+
+- ¿De qué tipo es la variable de retorno?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Un contador entero (`int`)
+- ¿Qué valor debe asignarse inicialmente a la variable de retorno?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->`0`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III - Tips (2/3)
+
+ - ¿Qué condición puede cambiar a la variable de retorno?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Que existan ocurrencias de dígitos en la cadena
+- ¿Cómo se puede buscar estas ocurrencias?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Recorriendo el string
+- ¿Es necesario recorrer todo el string?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Sí, porque se buscan **todas las ocurrencias**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III - Tips (3/3)
+
+ - ¿Cómo saber si el carácter actual es un dígito?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Usando `str.isdigit()`
+- ¿Cómo contar la ocurrencia de un dígito?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Incrementando el contador (`+=1`)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III - Solución
+
+```Python
+def cantidad_digitos(cadena: str) -> int:
+    """
+    Retorna la cantidad de dígitos positivos (1-9) encontrados 
+    en la cadena de entrada. Recordatorio: la función 
+    str.isdigit() retorna True si el string contiene solo dígitos. 
+    Nota: usar for.
+
+    Args:
+        cadena (str): La cadena de entrada en la que buscar números.
+
+    Returns:
+        int: La cantidad de dígitos encontrados en la cadena,
+        o 0 si no hay dígitos o la cadena está vacía.
+
+    >>> cantidad_digitos('a5b5d55z')
+    4
+    >>> cantidad_digitos('abdz')
+    0
+    """
+    cantidad = 0  # Variable de retorno y contador
+    
+    for caracter_actual in cadena:
+        if caracter_actual.isdigit():
+            cantidad += 1
+            
+    return cantidad  # Un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IV
+
+-  Implemente la función `sumar_digitos_positivos()`:
+
+```Python
+def sumar_digitos_positivos(cadena: str) -> int:
+    """
+    Retorna la suma de todos los dígitos positivos (1-9) encontrados en la cadena de entrada. Recordatorio: la función str.isdigit() retorna True si el string contiene solo dígitos.
+
+    Args:
+        cadena (str): La cadena de entrada en la que buscar números.
+
+    Returns:
+        int: La suma de todos los dígitos encontrados en la cadena, o 0 si no hay dígitos o la cadena está vacía.
+
+    >>> sumar_digitos_positivos('a5b5d55z')
+    20
+    >>> sumar_digitos_positivos('abdz')
+    0
+    """
+
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IV - Solución
+
+-  Implemente la función `sumar_digitos_positivos()`:
+
+```Python
+def sumar_digitos_positivos(cadena: str) -> int:
+    """
+    Retorna la suma de todos los dígitos positivos (1-9) encontrados en la cadena de entrada. Recordatorio: la función str.isdigit() retorna True si el string contiene solo dígitos.
+
+    Args:
+        cadena (str): La cadena de entrada en la que buscar números.
+
+    Returns:
+        int: La suma de todos los dígitos encontrados en la cadena, o 0 si no hay dígitos o la cadena está vacía.
+
+    >>> sumar_digitos_positivos('a5b5d55z')
+    20
+    >>> sumar_digitos_positivos('abdz')
+    0
+    """
+
+    suma = 0  # Variable de retorno y contador
+    
+    for caracter_actual in cadena:
+        if caracter_actual.isdigit():
+            suma += int(caracter_actual)
+            
+    return suma  # Un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `range()`
+
+- Genera un *rango*
+	- Secuencia inmutable e iterable de enteros
+- Sintaxis: 
+```Python
+range(end) ó range(start, end, step)
+```
+	- `start`: inicio (inclusivo, opcional: 0)
+	- `end`: fin (excluyente)
+	- `step`: incremento (opcional: 1)
+- Genera números bajo demanda
+- Ayuda: `help(range)`o [range](https://docs.python.org/3/library/functions.html#func-range)
+-
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `range()` - Ejemplo con `for` (1/2)
+
+```Python
+for i in range(5): # start = 0, end = 4, step = 1
+    print(i)
+```
+- `start`: Por defecto es 0 
+- `end`: Es excluyente, es decir `4` (no `5`)
+- `step`: Por defecto es `1`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `range()` - Ejemplo con `for` (2/2)
+
+```Python
+for i in range(5): # start = 0, end = 4, step = 1
+    print(i)
+```
+
+```Python
 0
 1
 2
@@ -354,29 +579,149 @@ while i < 5:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz II
+### Quiz V
 
-- ¿Cuál es el resultado de ejecutar el siguiente código?
+- ¿Cuáles son los valores de `start`, `end`  y `step`  configurados para `range()`?
 
 ```Python
-i = 5
-while i >= 0:
+for i in range(5, 9):
     print(i)
-    i -= 1
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz II - Solución
+### Quiz V - Solución
+
 
 ```Python
-i = 5
-while i >= 0:
+for i in range(5, 9):  # start = 5, end = 8, step = 1
     print(i)
-    i -= 1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VI
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+for i in range(5, 9):  # start = 5, end = 8, step = 1
+    print(i)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VI - Solución
+
+```Python
+for i in range(5, 9):  # start = 5, end = 8, step = 1
+    print(i)
 ```
 
-```  
+```Python
+5
+6
+7
+8
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VII
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+for i in range(2, 13, 2):  # start = 2, end = 12, step = 2
+    print(i)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VII - Solución
+
+
+```Python
+for i in range(2, 13, 2):  # start = 2, end = 12, step = 2
+    print(i)
+```
+
+```Python
+2
+4
+6
+8
+10
+12
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VIII
+
+- ¿Cuál es el resultado de ejecutar el siguiente código?
+
+```Python
+for i in range(1, 12, 2):
+    print(i)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz VIII - Solución
+
+```Python
+for i in range(1, 12, 2):  # start = 1, stop = 11, end = 2
+    print(i)
+```
+
+```Python
+1
+3
+5
+7
+9
+11
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IX
+
+- ¿Qué instrucción `for`  con `range()` imprimiría la siguiente salida?
+
+```Python
+0
+1
+2
+3
+4
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz IX - Solución
+
+```Python
+for i in range(5):
+    print(i)
+```
+
+```Python
+0
+1
+2
+3
+4
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz X
+
+- ¿Qué instrucción `for`  con `range()` imprimiría la siguiente salida?
+
+```Python
 5
 4
 3
@@ -387,60 +732,30 @@ while i >= 0:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz III
+### Quiz X - Solución
 
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-i = 0
-while i <= 7:
-    print(i)
-    i += 2
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz III - Solución
 
 ```Python
-i = 0
-while i <= 7:
+for i in range(5, -1, -1):
     print(i)
-    i += 2
 ```
 
-```  
-0
-2
+```Python
+5
 4
-6
+3
+2
+1
+0
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz IV
+### Quiz XI
 
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-i = 10
-while i >= 2:
-    print(i)
-    i -= 2
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz IV - Solución
+- ¿Qué instrucción `for`  con `range()` imprimiría la siguiente salida?
 
 ```Python
-i = 10
-while i >= 2:
-    print(i)
-    i -= 2
-```
-
-```  
 10
 8
 6
@@ -450,67 +765,27 @@ while i >= 2:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz V
+### Quiz XI - Solución
 
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-i = 1
-while i <= 10:
-    print(i)
-    i *= 2
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz V - Solución
 
 ```Python
-i = 1
-while i <= 10:
+for i in range(10, 1, -2):
     print(i)
-    i *= 2
 ```
 
-```  
-1
-2
-4
+```Python
+10
 8
+6
+4
+2
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz VI
+### Quiz XII
 
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-iteraciones = 0
-sumatoria = 0
-i = 1
-n = 10
-
-while i <= n:
-    iteraciones += 1
-    sumatoria += i
-    i += 1  
-  
-print(f'Sumatoria = {sumatoria}')
-print(f'Iteraciones = {iteraciones}')
-print(f'i = {i}')
-print(f'n = {n}')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz VI
-
-<img src="iph/n3/img/Screenshot 2024-10-04 at 4.34.12 PM.png" alt="" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz VI - Solución
+- ¿Cuál sería el código equivalente usando la instrucción for?
 
 ```Python
 iteraciones = 0
@@ -531,527 +806,45 @@ print(f'n = {n}')  # → n = 10
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz VII
-
-- ¿Cuál es el problema en el siguiente código?
+### Quiz XII - Solución
 
 ```Python
-i = 0
-while i >= 0:
-    i += 1
+iteraciones = 0
+sumatoria = 0
+n = 10
+
+for i in range(1, n + 1):  # n inclusivo
+    iteraciones += 1
+    sumatoria += i
+
+print(f'Sumatoria = {sumatoria}')  # → Sumatoria = 55
+print(f'Iteraciones = {iteraciones}')  # → Iteraciones = 10
+print(f'i = {i}')  # → i = 10
+print(f'n = {n}')  # → n = 10
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz VII - Solución
-
-```Python
-i = 0
-while i >= 0:
-    i += 1
-```
-
-- La variable de control `i`  solo se incrementa    
-	- Entonces `i >= 0` siempre evalúa a `True`
-- A esto se le denomina
-	- *Ciclo/Bucle infinito*
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz VIII
-
-- ¿Cuál es el problema en el siguiente código?
-
-```Python
-var = True
-while var:
-    var = True
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz VIII - Solución
-
-```Python
-var = True
-while var:
-    var = True
-```
-
-- La variable de control siempre es `True`
-	- Entonces `while` siempre se ejecuta
-- A esto se le denomina
-	- *Ciclo/Bucle infinito*
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz IX
-
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-var = True
-i = 0
-
-while var:
-    print(i)
-    i += 1
-    if i % 2 == 0:
-        var = False
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz IX - Solución
-
-```Python
-var = True
-i = 0
-
-while var:
-    print(i)
-    i += 1
-    if i % 2 == 0:
-        var = False
-```
-
-```
-0
-1
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Centinela (1/2)
-
-- Variable que indica cuándo terminar un ciclo 
-- Se utiliza en `while` para controlar su continuidad
-- Cambia de valor cuando se cumple una condición
-	- Terminando el ciclo
-- Evita la ejecución indefinida del ciclo
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Centinela (2/2)
-
- - Típicamente una variable centinela es booleana 
- - Que se inicializa en `False`
- - Estructura general:
- 
-```Python
-centinela = False  # Declaración de variable centinela
-while not centinela:  # while chequea al centinela
-    # Cuerpo de while
-    centinela = True  # Cambio del centinela
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Centinela - Ejemplo (1/3)
-
-```Python[2]
-contador = 0 
-es_cinco = False
-while not es_cinco: 
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 5: 
-        es_cinco = True 
-print("Fin del ciclo")
-```
-
-- `es_cinco` es una variable centinela
-	- Es boolena
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Centinela - Ejemplo (2/3)
-
-```Python[2, 3, 8]
-contador = 0 
-es_cinco = True  # Variable centinela 
-while not es_cinco:  # Evalúa a False
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 5: 
-        es_cinco = True 
-print("Fin del ciclo")
-```
-
-- `while` depende de la variable centinela
-	- Si `es_cinco` es `True`
-		- Su negación será `False`
-			- El cuerpo de `while` no se ejecuta
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Centinela - Ejemplo (3/3)
-
-```Python
-contador = 0 
-es_cinco = False  # Variable centinela 
-while not es_cinco:  # Evalúa a True
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 5: 
-        es_cinco = True 
-print("Fin del ciclo")
-```
-
-- `while` depende de la variable centinela
-	- Si `es_cinco` es `False`
-		- Su negación será `True`
-			- El cuerpo de `while` se  ejecuta
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz X
-
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-contador = 0 
-es_tres = True
-while not es_tres:
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 3: 
-        es_tres = True 
-print("Fin")
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz X - Solución
-
-```Python
-contador = 0 
-es_tres = True
-while not es_tres:
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 3: 
-        es_tres = True 
-print("Fin")
-```
-
-```Python
-Fin
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XI
-
-- ¿Cuál es el resultado de ejecutar el siguiente código?
-
-```Python
-contador = 0 
-es_tres = False
-while not es_tres:
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 3: 
-        es_tres = True 
-print("Fin")
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XI - Solución
-
-```Python
-contador = 0 
-es_tres = False
-while not es_tres:
-    print(f"Iteración {contador}") 
-    contador += 1 
-    if contador == 3: 
-        es_tres = True 
-print("Fin")
-```
-
-```Python
-Iteración 0
-Iteración 1
-Iteración 2
-Fin
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Repaso  (ejercicio condicionales)
-
-```Python
-pin = input('Por favor digite un PIN de cuatro dígitos: ')
-confirmacion_pin = input('Por favor confirme el PIN: ')
-
-if len(pin) != 4:
-    print('El PIN debe tener cuatro dígitos de longitud')
-elif not pin.isdigit():
-    print('El PIN debe contener sólo dígitos')
-elif pin == confirmacion_pin:
-    print('El PIN se ha guardado')
-else:
-    print('Error: Los PINs no coinciden')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII
-
-- ¿Qué hace el siguiente código?
-
-```Python
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (1/7)
-
-
-```Python[4]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    # ...
-```
-
--  El bucle depende de 2 expresiones:
-	- Número de intentos mayor a cero
-	- PIN no haya sido guardado
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (2/7)
-
-```Python[1,4,18]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-
--  `intentos` es una variable de control
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (3/7)
-
-```Python[1,4,18]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-
-- Cada intento erróneo
-	- Decrece el número de intentos
-		- Cambiando a la variable `intentos`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (4/7)
-
-```Python[1,4,18]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-
-- Si `intentos` llega a ser `0`
-	- El cuerpo de `while` no se ejecutaría más
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (5/7)
-
-```Python[1,4,18]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-
-- `pin_guardado` es la variable centinela
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (6/7)
-
-```Python[2,4,15]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-
-- Si el PIN cumple con las condiciones
-	- Se guarda y se cambia a `pin_guardado`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Explicación (7/7)
-
-```Python[2,4,15]
-intentos = 3
-pin_guardado = False
-
-while intentos > 0 and not pin_guardado:
-    pin = input('Por favor digite un PIN de cuatro dígitos: ')
-    confirmacion_pin = input('Por favor confirme el PIN: ')
-
-    if pin == confirmacion_pin:
-        if len(pin) != 4:
-            print('El PIN debe tener cuatro dígitos de longitud')
-        elif not pin.isdigit():
-            print('El PIN debe contener sólo dígitos')
-        else:
-            print('El PIN se ha guardado')
-            pin_guardado = True
-    else:
-        print('Error: los PINs no coinciden')
-    intentos -= 1
-
-if not pin_guardado:
-   print('Error: el PIN no fue guardado')
-```
-
-- Si `pin_guardado` llega a ser `True`
-	- El cuerpo de `while` no se ejecutaría más
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Quiz XII - Respuesta
-
-- Pide un PIN de 4 dígitos al usuario
-- Valida el PIN:
-	- Debe tener 4 dígitos y ser solo dígitos
-- Si el PIN es válido
-	-  Se guarda, informa al usuario y acaba el ciclo
-- Si el PIN es inválido ó no coincide la confirmación
-	- Se informa al usuario y se repite el proceso
-- Si en 3 intentos no se guarda el PIN
-	- Se acaba el ciclo e informa al usuario
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Quiz XIII
 
-- ¿Cómo se podría modificar el siguiente código para que repetidamente solicite al usuario un número, hasta que ingrese un número positivo?
+- ¿Cuál sería el código equivalente usando la instrucción for?
 
 ```Python
-from math import sqrt
-numero = float(input('Digite un número positivo: '))
-print(f'La raíz cuadrada de {numero} es: {round(sqrt(numero),2)}')
+palabra = 'python'
+i = 0
+
+while i < len(palabra):
+    print(palabra[i])
+    i += 1
+```
+
+```Python
+p
+y
+t
+h
+o
+n
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -1060,17 +853,19 @@ print(f'La raíz cuadrada de {numero} es: {round(sqrt(numero),2)}')
 
 
 ```Python
-from math import sqrt
+palabra = 'python'
 
-def pedir_numero() -> float:
-    return float(input('Digite un número positivo: '))
+for letra in palabra:
+    print(letra)
+```
 
-numero = pedir_numero()
-while numero <= 0:  # Se ejecuta solo si el número es negativo:
-    print('El número debe ser positivo, por favor intente de nuevo')
-    numero = pedir_numero()
-    
-print(f'La raíz cuadrada de {numero} es: {round(sqrt(numero),2)}')
+```Python
+p
+y
+t
+h
+o
+n
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
