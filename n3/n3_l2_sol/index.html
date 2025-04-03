@@ -212,7 +212,6 @@ def contar_vocales_for(cadena: str) -> int:
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO3`:
 	- Tip: Use string slicing:
-		- `cadena[:1]`
 		- `cadena[1:]`
 
 ```python
@@ -238,10 +237,12 @@ def contar_vocales_recursivo(cadena: str) -> int:
     >>> contar_vocales_recursivo("Python 3.10")  # Caso con mezcla de caracteres
     1
     """
-    primera = cadena[:1].lower()
-    es_vocal = 1 if primera in 'aeiou' else 0
-    restante = cadena[1:] if cadena else ""
-    return es_vocal + contar_vocales_recursivo(restante)
+    es_vocal = 0
+    if cadena:
+        primera = cadena[0].lower()
+        es_vocal = 1 if primera in 'aeiou' else 0
+        es_vocal += contar_vocales_recursivo(cadena[1:])
+    return es_vocal
     # TODO3: Implemente la función tal y como se describe en la documentación
 
 #doctest.run_docstring_examples(contar_vocales_recursivo, globals(), verbose=True)
