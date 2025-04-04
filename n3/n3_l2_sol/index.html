@@ -337,17 +337,17 @@ def validar_password_for(password: str) -> bool:
     Returns:
         bool: True si la contraseña es válida, False en caso contrario.
 
-    >>> validar_password("")  # Caso de string vacío
+    >>> validar_password_for("")  # Caso de string vacío
     False
-    >>> validar_password("12345678")  # Solo números
+    >>> validar_password_for("12345678")  # Solo números
     False
-    >>> validar_password("abcdefgh")  # Solo minúsculas
+    >>> validar_password_for("abcdefgh")  # Solo minúsculas
     False
-    >>> validar_password("ABCDEFGH")  # Solo mayúsculas
+    >>> validar_password_for("ABCDEFGH")  # Solo mayúsculas
     False
-    >>> validar_password("Abcdefgh")  # Letras pero sin números
+    >>> validar_password_for("Abcdefgh")  # Letras pero sin números
     False
-    >>> validar_password("Abcdefg1")  # Cumple con todo
+    >>> validar_password_for("Abcdefg1")  # Cumple con todo
     True
     """
     tiene_mayuscula = False
