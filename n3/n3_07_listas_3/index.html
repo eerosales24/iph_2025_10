@@ -381,16 +381,16 @@ def funcion(data: list) -> list:
 
 ```Python
 def intercambiar_extremos(data: list) -> list:
-    '''
+    """
     Retorna una nueva lista en donde se intercambiaron los
     primeros y últimos elementos de la lista que es pasada 
     como argumento. La lista original (aquella pasada como
     argumento) permanece sin cambios.
 
-    Parámetros:
+    Args:
         data (list): La lista de elementos.
 
-    Retorna:
+    Returns:
         list: Una lista con los primeros y últimos elementos
         intercambiados.
         
@@ -400,7 +400,7 @@ def intercambiar_extremos(data: list) -> list:
     [5, 2, 3, 4, 1]
     >>> intercambiar_extremos([10.0, 20.5, 30.5, 40.0])  # Caso lista ordenada float
     [40.0, 20.5, 30.5, 10.0]
-    '''
+    """
     resultado = data[:]  # Variable de retorno
     
     if len(data) > 1:
@@ -733,15 +733,15 @@ def f(x):
 
 ```Python
 def invertir_palabras(oracion: str) -> str:
-    '''
+    """
     Invierte el orden de las palabras en una oración dada.
     Utiliza str.split() para dividir la oración y str.join() para unirla.
 
-    Parámetros:
+    Args:
         oracion (str): La oración de entrada con palabras separadas 
         por espacios.
 
-    Retorna:
+    Returns:
         (str): La oración con las palabras en orden inverso.
 
     >>> invertir_palabras('')  # Caso string vacío
@@ -750,7 +750,7 @@ def invertir_palabras(oracion: str) -> str:
     'bienvenido'
     >>> invertir_palabras('Python es divertido')  # Caso string de 3 palabras
     'divertido es Python'
-    '''
+    """
     resultado = ''  # Variable de retorno
     
     if len(oracion) > 1:
@@ -790,29 +790,6 @@ print(lista_original)  # → [1, 2, 3, 4]
 duplicar_lista(lista_original)  
 print(lista_original)  # → [2, 4, 6, 8]
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Buenas prácticas con el paso de listas (1/3)
- 
-- Evitar pasar listas como argumentos
-	- A no ser que se necesite 
-		- Dado el propósito de la función
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Buenas prácticas con paso de listas (2/3)
-
-- Evitar modificar listas dentro de una función
-	- A no ser que se necesite 
-		- Dado el propósito de la función
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-### Buenas Prácticas con Paso de Listas (3/3)
-- Pasar una copia de una lista a la función
-	- En lugar de la lista original
-	- Evitando posibles modificaciones indeseadas
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -880,7 +857,7 @@ Dado que la lista de puntuaciones es un objeto mutable, puede ser modificado cua
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Quiz (VI) - El Problema:
+### Quiz VI - El problema:
 
 ```Python
 def normalize_scores(scores: list) -> list:

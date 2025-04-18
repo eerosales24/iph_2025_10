@@ -634,6 +634,91 @@ print(precios.get('arepa', 'No disponible'))  # → 'No disponible'
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### `RecursionError`
+
+- Excepción que ocurre cuando:
+    - Una función se llama a sí misma demasiadas veces
+        
+- Causa:
+    - Recursión sin caso base
+	    - Solo hay caso recursivo
+    - Función mal diseñada
+	    - La ejecución no alcanza el caso base
+        
+- Python limita la profundidad recursiva (~1000 llamadas)
+    
+- Ayuda: [RecursionError](https://docs.python.org/3/library/exceptions.html#RecursionError)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `RecursionError` - Ejemplo
+
+```python
+def infinito():
+    return infinito()
+
+infinito()  # Llamada infinita
+```
+
+
+<div class="callout callout-color7">
+<div class="callout-title">
+<div class="callout-icon">
+
+<i class="fas fa-bolt" ></i>
+
+
+</div>
+<div class="callout-title-inner">
+
+Error
+
+</div>
+</div>
+<div class="callout-content">
+
+RecursionError: maximum recursion depth exceeded
+
+</div>
+</div>
+<!-- .element: style="width: 80%; font-size: 24px; transform: rotate(0deg)" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `RecursionError` (1/2)
+
+- Asegurar que la función:
+
+    1. Tenga **un caso base**
+        
+    2. **Avance hacia el o los caso base**
+	    - En cada recursión
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Solucionando un `RecursionError` (2/2)
+
+- ¿Cómo se soluciona el siguiente error?
+
+```python
+def fibonacci(n: int) -> int:
+    # No hay caso base:
+    return fibonacci(n - 1) + fibonacci(n - 2)  # → 'RecursionError'
+
+fibonacci(12)  
+```
+
+- ✅ Añadir caso base:
+
+```python
+def fibonacci(n: int) -> int:
+    return n if n <= 1 else fibonacci(n - 1) + fibonacci(n - 2)
+
+fibonacci(12)  # → 144
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
 </div></script></section></div>
     </div>

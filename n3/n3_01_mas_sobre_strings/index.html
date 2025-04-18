@@ -182,10 +182,42 @@ max('')  # → ValueError (Secuencia vacía y no hay default)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### `str.isspace()`
+
+- Determina si la cadena
+    - Está compuesta únicamente por caracteres de espacio
+- Retorna `True` si todos los caracteres son espacios (en blanco)
+    - Caso contrario, `False`
+- Ayuda: [str.isspace](https://docs.python.org/3/library/stdtypes.html#str.isspace)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `str.isspace()` - Ejemplos
+
+```python
+' '.isspace()  # → True (Espacio simple)
+
+'   '.isspace()  # → True (Varios espacios)
+
+' a '.isspace()  # → False (Contiene una letra)
+
+''.isspace()  # → False (Se debe evaluar al menos un carácter)
+
+'\t'.isspace()  # → True (`\t` Considerados espacios)
+
+'\n'.isspace()  # → True (`\n` Considerados espacios)
+
+' \n\t'.isspace()  # → True (Solo caracteres de espacio)
+
+'x\n\t'.isspace()  # → False (Contiene una letra)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 ### ```str.isalpha()```
 - Determina si la cadena 
 	- Es completamente alfabética
-- Retorna `True` si los caracteres son alfabéticos
+- Retorna `True` si todos los caracteres son alfabéticos
 	- Caso contrario False
 - Ayuda:  [str.alpha](https://docs.python.org/3/library/stdtypes.html#str.isalpha)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
@@ -811,6 +843,14 @@ print(frase_corregida)
 
 ¡Ay, me duele!, me duele justo allí
 ```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Para cerrar
+
+- Revise las siguientes buenas prácticas:
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/44" target="_blank" rel="noopener noreferrer">BP-22: Uso seguro de min() y max()</a>
+	- <a href="https://eerosales24.github.io/iph_2025_10/general/buenas_practicas/#/45" target="_blank" rel="noopener noreferrer">BP-23: Validaciones seguras de métodos de str</a>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
