@@ -944,6 +944,73 @@ print('Normalized scores:', norm_scores)
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### `sorted()`
+    
+- Ordena los elementos de un iterable
+    
+- **Sintaxis**:
+```python
+sorted(iterable, key, reverse)
+```
+    
+- iterable: objeto iterable (por ejemplo, string, lista)
+    
+- key: función de un solo argumento que define la clave de comparación
+	- Opcional, por defecto `None`
+    
+- **reverse**: si es `True`, ordena en orden descendente
+	- -Opcional, por defecto `False`)
+    
+- Retorna una **nueva lista ordenada** con los elementos del iterable
+    
+- **No modifica** el iterable original (a diferencia de `list.sort(...)`)
+    
+- Ayuda: [sorted](https://docs.python.org/es/3/library/functions.html#sorted)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `sorted()` - Ejemplos con strings
+
+```python
+s1 = 'defabc'
+l1 = sorted(s1) # l1 → ['a', 'b', 'c', 'd', 'e', 'f']  
+      
+s2 = '34012'
+l2 = sorted(s2, reverse=True) # l2 → ['4', '3', '2', '1', '0']  
+      
+s3 = 'ACbEd'
+l3 = sorted(s3, key=str.lower) # l3 → ['A', 'b', 'C', 'd', 'E']
+    
+s4 = '201bca'
+l4 = sorted(s4) # l4 → ['0', '1', '2', 'a', 'b', 'c']**
+```
+
+- Se usan nombres cortos y no auto explicativos por espacio
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### `sorted()` - Ejemplos con listas
+
+```python
+
+l1 = [1, 2, 0]
+    
+l1_sorted = sorted(l1) # l1_sorted → [0, 1, 2]
+l1_sorted = sorted(l1, reverse=True) # l1_sorted → [2, 1, 0]  
+      
+l2 = ['abc', 'z', 'xy'];     
+l2_sorted = sorted(l2, key=len) # l2_sorted → ['z', 'xy', 'abc']
+```
+
+- Errores:
+
+```python
+sorted(['a', 1]) 
+# → TypeError: '<' not supported between instances of 'int' and 'str
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 <i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
 
 <br>
