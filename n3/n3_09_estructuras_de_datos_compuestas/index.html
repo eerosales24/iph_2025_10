@@ -291,16 +291,17 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 
@@ -318,16 +319,17 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 
@@ -344,16 +346,17 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 
@@ -527,7 +530,7 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
+            vuelo_info = {
 		    ...
             }
 
@@ -545,15 +548,15 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
 ```Python
 def cargar_vuelos(ruta_archivo: str) -> dict:
 ...
-        vuelo_info = [
-            {titulos[0]: datos[0]},              # aerolinea
-            {titulos[2]: datos[2]},              # origen
-            {titulos[3]: datos[3]},              # destino
-            {titulos[4]: int(datos[4])},         # distancia
-            {titulos[5]: int(datos[5])},         # salida
-            {titulos[6]: int(datos[6])},         # duracion
-            {titulos[7]: int(datos[7])}          # retraso
-        ]
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
 ...
 ```
 
@@ -568,15 +571,15 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
 ```Python
 def cargar_vuelos(ruta_archivo: str) -> dict:
 ...
-        vuelo_info = [
-            {titulos[0]: datos[0]},              # aerolinea
-            {titulos[2]: datos[2]},              # origen
-            {titulos[3]: datos[3]},              # destino
-            {titulos[4]: int(datos[4])},         # distancia
-            {titulos[5]: int(datos[5])},         # salida
-            {titulos[6]: int(datos[6])},         # duracion
-            {titulos[7]: int(datos[7])}          # retraso
-        ]
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
 ...
 ```
 
@@ -605,53 +608,56 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
 
 ### Ejemplo de carga del archivo `vuelos.csv` (14/21)
 
-```Python[16]
+```Python[7]
 def cargar_vuelos(ruta_archivo: str) -> dict:
     vuelos = {}
     with open(ruta_archivo, 'r', encoding='utf-8') as archivo:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 
-- ¿Qué hace esta línea?
+- ¿Para qué se extrae el código de vuelo en esta línea?
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Ejemplo de carga del archivo `vuelos.csv` (15/21)
 
-```Python[2,7-16]
+```Python[17]
 def cargar_vuelos(ruta_archivo: str) -> dict:
     vuelos = {}
     with open(ruta_archivo, 'r', encoding='utf-8') as archivo:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 - `vuelo_info` se hace un sub-diccionario 
 	- De `vuelos` usando (`datos[1]`) como llave
+		- `datos[1]` es el **código de vuelo**:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -703,16 +709,17 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 
@@ -733,16 +740,17 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
         titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
             datos = linea.strip('\n').split(',')
-            vuelo_info = [
-                {titulos[0]: datos[0]},  # aerolinea
-                {titulos[2]: datos[2]},  # origen
-                {titulos[3]: datos[3]},  # destino
-                {titulos[4]: int(datos[4])},  # distancia
-                {titulos[5]: int(datos[5])},  # salida
-                {titulos[6]: int(datos[6])},  # duracion
-                {titulos[7]: int(datos[7])}   # retraso
-            ]
-            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
+            codigo_vuelo = datos[1]  # El código de vuelo está en la 2da columna
+            vuelo_info = {
+                titulos[0]: datos[0],          # aerolínea
+                titulos[2]: datos[2],          # origen
+                titulos[3]: datos[3],          # destino
+                titulos[4]: int(datos[4]),     # distancia
+                titulos[5]: int(datos[5]),     # salida
+                titulos[6]: int(datos[6]),     # duración
+                titulos[7]: int(datos[7])      # retraso
+            }
+            vuelos[codigo_vuelo] = vuelo_info
     return vuelos
 ```
 
