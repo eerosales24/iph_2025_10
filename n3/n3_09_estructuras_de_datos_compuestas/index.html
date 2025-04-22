@@ -730,18 +730,19 @@ def cargar_vuelos(ruta_archivo: str) -> dict:
 def cargar_vuelos(ruta_archivo: str) -> dict:
     vuelos = {}
     with open(ruta_archivo, 'r', encoding='utf-8') as archivo:
-        titulos = archivo.readline().strip().split(',')
+        titulos = archivo.readline().strip('\n').split(',')
         for linea in archivo:
-            datos = linea.strip().split(',')
-            vuelo_info = []
-            for i in range(len(titulos)):
-                if titulos[i] != 'codigo_vuelo':
-                    if titulos[i] in {'distancia', 'salida', 'duracion', 'retraso'}:
-                        valor = int(datos[i])
-                    else:
-                        valor = datos[i]
-                    vuelo_info.append({titulos[i]: valor})
-            vuelos[datos[1]] = vuelo_info
+            datos = linea.strip('\n').split(',')
+            vuelo_info = [
+                {titulos[0]: datos[0]},  # aerolinea
+                {titulos[2]: datos[2]},  # origen
+                {titulos[3]: datos[3]},  # destino
+                {titulos[4]: int(datos[4])},  # distancia
+                {titulos[5]: int(datos[5])},  # salida
+                {titulos[6]: int(datos[6])},  # duracion
+                {titulos[7]: int(datos[7])}   # retraso
+            ]
+            vuelos[datos[1]] = vuelo_info  # datos[1] = codigo_vuelo
     return vuelos
 ```
 
