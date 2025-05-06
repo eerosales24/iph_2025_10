@@ -335,8 +335,8 @@ print(tupla)  # → (1, 2, 3, 4, 5)
 diccionario = {'uno': 1, 'dos': 2, 'tres': 3}
 
 # Crea una tupla a partir de las llaves del diccionario:
-tupla_claves = tuple(diccionario.keys())
-print(tupla_claves)  # → ('uno', 'dos', 'tres')
+tupla_llaves = tuple(diccionario.keys())
+print(tupla_llaves)  # → ('uno', 'dos', 'tres')
 
 # Crea una tupla a partir de los valores del diccionario:
 tupla_valores = tuple(diccionario.values())
@@ -383,7 +383,7 @@ print(items_list)  # → [('a', 1), ('b', 2), ('c', 3)]
 
 ### `dict.items()` - Ejemplos
 
-- Obtener una vista de todos los pares clave-valor:
+- Obtener una vista de todos los pares llave-valor:
 
 ```Python
 diccionario = {'a': 1, 'b': 2}
@@ -434,13 +434,13 @@ for llave, valor in dict.items():
 ```Python
 diccionario = {'a': 1, 'b': 2, 'c': 3}
 for llave_actual, valor_actual in diccionario.items():
-    print(f"Clave: {llave_actual}, Valor: {valor_actual}")
+    print(f"Llave: {llave_actual}, Valor: {valor_actual}")
 ```
 
 ```Python
-Clave: a, Valor: 1
-Clave: b, Valor: 2
-Clave: c, Valor: 3
+Llave: a, Valor: 1
+Llave: b, Valor: 2
+Llave: c, Valor: 3
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
