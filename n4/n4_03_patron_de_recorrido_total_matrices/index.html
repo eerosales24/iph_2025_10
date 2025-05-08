@@ -526,7 +526,7 @@ Fila 1: [0, 1]
 # Ciclo para recorrer cada columna por separado
 for columna in range(len(matriz[0])):
     # Procesar cada columna
-    # for i in range(len(matriz)):
+    # for columna in range(len(matriz)):
 ```
 - Recorre la matriz columna por columna
 - Útil para trabajar con columnas específicas
@@ -661,10 +661,14 @@ def encontrar_posiciones_mayores(matriz: list, valor: int) -> list:
 
 ```Python
 matriz = [['p', 'e'], ['r', 'r'], ['i', 't'], ['o', 's']]
-for filas in range(len(matriz)):
-    for columnas in range(len(matriz[0])):
-        print(matriz[filas][columnas], end='')
+num_filas = len(matriz)
+num_columnas = len(matriz[0])
+for fila in range(num_filas:
+    for columna in range(num_columnas:
+        print(matriz[fila][columna], end='')
 ```
+
+- Nota: `end=''` hace que todo se imprima seguido
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -672,9 +676,11 @@ for filas in range(len(matriz)):
 
 ```Python
 matriz = [['p', 'e'], ['r', 'r'], ['i', 't'], ['o', 's']]
-for filas in range(len(matriz)):
-    for columnas in range(len(matriz[0])):
-        print(matriz[filas][columnas], end='')
+num_filas = len(matriz)
+num_columnas = len(matriz[0])
+for fila in range(num_filas:
+    for columna in range(num_columnas:
+        print(matriz[fila][columna], end='')
 ```
 
 ```Plaintext
@@ -709,7 +715,7 @@ suma = 0.0
 for fila in range(len(matriz)):
     for columna in range(len(matriz[0])):
         suma += matriz[fila][columna]
-  
+# Esto
 print(suma/len(matriz))
 ```
 
@@ -718,12 +724,6 @@ print(suma/len(matriz))
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-<i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
-
-
-
-
 
 <i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
 
