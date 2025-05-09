@@ -120,7 +120,7 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (1/2)
+###  Actividad I (1/3)
 
 - Cree un archivo llamado: `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO1`:
@@ -141,18 +141,18 @@ def es_primo(n: int) -> bool:
         bool: True si el número es primo, False en caso contrario.
     """
     i = 2
-    es_primo_flag = True
+    es_numero_primo = True
 
     if n < 2:
-        es_primo_flag = False
+        es_numero_primo = False
 
-    while i * i <= n and es_primo_flag:
+    while i * i <= n and es_numero_primo:
         if n % i == 0:
-            es_primo_flag = False
+            es_numero_primo = False
         i += 1
 
-    return es_primo_flag
-
+    return es_numero_primo
+    
 
 def contar_primos_en_matriz(matriz: list) -> int:
     """
@@ -167,20 +167,20 @@ def contar_primos_en_matriz(matriz: list) -> int:
     Returns:
         int: Cantidad de números primos en la matriz.
 
-    >>> contar_primos_en_matriz([])
+    >>> contar_primos_en_matriz([])  # Caso matriz vacía
     0
+    
+    >>> contar_primos_en_matriz([[1, 4], [6, 8]])  # Ningún primo
+    0
+    
+    >>> contar_primos_en_matriz([[0, -3], [-2, 2]])  # Un solo primo: 2
+    1
 
-    >>> contar_primos_en_matriz([[2, 3], [4, 5]])
+    >>> contar_primos_en_matriz([[2, 3], [4, 5]])  # Tres primos: 2, 3 y 5
     3
 
-    >>> contar_primos_en_matriz([[1, 4], [6, 8]])
-    0
-
-    >>> contar_primos_en_matriz([[7, 11, 13], [17, 19, 20], [22, 23, 29]])
+    >>> contar_primos_en_matriz([[7, 11, 13], [17, 19, 20], [22, 23, 29]])  # Siete primos
     7
-
-    >>> contar_primos_en_matriz([[0, -3], [-2, 2]])
-    1
     """
     # TODO1: Implemente la función tal y como se describe en la documentación
     contador = 0
@@ -195,7 +195,7 @@ def contar_primos_en_matriz(matriz: list) -> int:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad I (2/2)
+###  Actividad I (2/3)
 
 - En `logica.py`
 	- Copie y pegue el siguiente código e implemente el `TODO2`:
@@ -212,14 +212,14 @@ def extraer_columna(matriz: list, indice_columna: int) -> list:
     Returns:
         list: Elementos de la columna como lista.
 
-    >>> extraer_columna([], 0)
+    >>> extraer_columna([], 0)  # Caso matriz vacía
     []
-
-    >>> extraer_columna([[1, 2], [3, 4]], 1)
-    [2, 4]
-
-    >>> extraer_columna([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]], 0)
+    
+    >>> extraer_columna([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]], 0)  # Extrae la primera columna
     ['a', 'd', 'g']
+
+    >>> extraer_columna([[1, 2], [3, 4]], 1)  # Extrae la segunda columna
+    [2, 4]
     """
     # TODO2: Implemente la función tal y como se describe en la documentación
     columna = []
@@ -227,8 +227,71 @@ def extraer_columna(matriz: list, indice_columna: int) -> list:
         columna.append(fila[indice_columna])
     return columna
 
-
 #doctest.run_docstring_examples(extraer_columna, globals(), verbose=True)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad I (3/3)
+
+- En `logica.py`
+	- Copie y pegue el siguiente código e implemente el `TODO3`:
+
+```python
+def imprimir_elementos_por_columna(matriz: list) -> None:
+    """
+    Imprime los elementos de cada columna en orden, 
+    recorriendo la matriz columna por columna.
+    
+    Si la matriz recibida está vacía, imprime:
+    La matriz está vacía
+
+    Parámetros:
+        matriz (list): Una lista de listas que representa la matriz.
+
+    Retorna:
+        None.
+    
+    >>> imprimir_elementos_por_columna([])  # Caso matriz vacía
+    La matriz está vacía
+    
+    >>> imprimir_elementos_por_columna([[1, 2], [3, 4]])  # Imprime por columna, matriz 2x2
+    1
+    3
+    2
+    4
+
+    >>> imprimir_elementos_por_columna([[1, 2, 3], [4, 5, 6], [7, 8, 9]])  # Imprime por columna, matriz 3x3
+    1
+    4
+    7
+    2
+    5
+    8
+    3
+    6
+    9
+
+    >>> imprimir_elementos_por_columna([[1, 2, 3, 4], [5, 6, 7, 8]])  # Imprime por columna, matriz 2x4
+    1
+    5
+    2
+    6
+    3
+    7
+    4
+    8
+    """
+    # TODO3: Implemente la función tal y como se describe en la documentación
+    if not matriz:
+        print("La matriz está vacía")
+    else:
+        # Ciclo para recorrer cada columna
+        for columna in range(len(matriz[0])):
+            for fila in range(len(matriz)):
+                print(matriz[fila][columna])
+
+#doctest.run_docstring_examples(imprimir_elementos_por_columna, globals(), verbose=True)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -236,14 +299,69 @@ def extraer_columna(matriz: list, indice_columna: int) -> list:
 ###  Actividad II
 
 - **Objetivo:**
-	- Afianzar la comprensión del **patrón de recorrido parcia**l** en matrices
+	- Afianzar la comprensión del **patrón de recorrido parcial** en matrices
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  Actividad II (1/1)
+### Actividad II (1/2)
 
 - En `logica.py`
-	- Copie y pegue el siguiente código e implemente el `TODO3`:
+	- Copie y pegue el siguiente código e implemente el `TODO4`:
+
+
+```python
+def buscar_posicion_matriz(matriz: list, buscado: int) -> tuple:
+    """
+    Busca la posición de un elemento en una matriz dada. 
+    Retorna una tupla con los índices (fila, columna) de la primera ocurrencia
+    del elemento buscado o (-1, -1) si el elemento no está presente.
+    
+    Utiliza un recorrido parcial con while y centinela.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        buscado (int): El elemento que se quiere encontrar.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del elemento, o (-1, -1) si no se encuentra.
+
+    >>> buscar_posicion_matriz([], 3)  # Caso matriz vacía
+    (-1, -1)
+    
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 7)  # Matriz 3x2, elemento no encontrado
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 4)  # Matriz 3x2, primera ocurrencia en (1, 1)
+    (1, 1)
+
+    >>> buscar_posicion_matriz([[7, 8, 9], [10, 11, 12]], 12)  # Matriz 2x3, primera ocurrencia en (1, 2)
+    (1, 2)
+    """
+    # TODO4: Implemente la función tal y como se describe en la documentación
+    fila = 0
+    posicion = (-1, -1)  # Variable de retorno
+    encontrado = False  # Centinela
+    
+    while fila < len(matriz) and not encontrado:
+        columna = 0  # Reiniciar para cada nueva fila
+        while columna < len(matriz[fila]) and not encontrado:
+            if matriz[fila][columna] == buscado:
+                encontrado = True  # Cambio del centinela
+                posicion = (fila, columna)
+            columna += 1
+        fila += 1
+    
+    return posicion  # Se usa un solo return
+
+#doctest.run_docstring_examples(buscar_posicion_matriz, globals(), verbose=True)
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Actividad II (2/2)
+
+- En `logica.py`
+	- Copie y pegue el siguiente código e implemente el `TODO5`:
 
 ```python
 def hay_primo_en_matriz(matriz: list) -> bool:
@@ -258,25 +376,25 @@ def hay_primo_en_matriz(matriz: list) -> bool:
     Returns:
         bool: True si hay al menos un número primo, False si no hay ninguno.
 
-    >>> hay_primo_en_matriz([])
+    >>> hay_primo_en_matriz([])  # Caso matriz vacía
     False
 
-    >>> hay_primo_en_matriz([[4, 6], [8, 9]])
+    >>> hay_primo_en_matriz([[1, 1], [1, 1]])  # Matriz 2x2 sin números primos
     False
 
-    >>> hay_primo_en_matriz([[2, 4], [6, 8]])
+    >>> hay_primo_en_matriz([[4, 6], [8, 9]])  # Matriz 2x2 sin números primos
+    False
+
+    >>> hay_primo_en_matriz([[2, 4], [6, 8]])  # Matriz 2x2, contiene el primo 2
     True
 
-    >>> hay_primo_en_matriz([[4, 6], [8, 3]])
+    >>> hay_primo_en_matriz([[4, 6], [8, 3]])  # Matriz 2x2, contiene el primo 3
     True
 
-    >>> hay_primo_en_matriz([[1, 1], [1, 1]])
-    False
-
-    >>> hay_primo_en_matriz([[10, 15, 21], [22, 25, 27], [30, 31, 32]])  # 31 es primo
+    >>> hay_primo_en_matriz([[10, 15, 21], [22, 25, 27], [30, 31, 32]])  # Matriz 3x3, contiene el primo 31
     True
     """
-    # TODO3: Implemente la función tal y como se describe en la documentación
+    # TODO5: Implemente la función tal y como se describe en la documentación
     fila = 0
     encontrado = False
 
@@ -386,13 +504,15 @@ imprimir_diagonal_principal(matriz)
 ###  Actividad III (1/4)
 
 - En `logica.py`
-	- Copie y pegue el siguiente código e implemente el `TODO4`:
+	- Copie y pegue el siguiente código e implemente el `TODO6`:
 
 ```python
 def imprimir_x_con_forma(n: int) -> None:
     """
     Imprime una "X" en una matriz de tamaño n x n, usando el carácter 'x'.
     El resto de las posiciones se imprimen como espacios sencillos.
+    
+    Puede asumir que x siempre será mayor o igual a 3.
 
     Args:
         n (int): Tamaño de la matriz (número de filas y columnas).
@@ -400,29 +520,28 @@ def imprimir_x_con_forma(n: int) -> None:
     Returns:
         None
 
-    Ejemplos:
-        >>> imprimir_x_con_forma(3)
-        x x
-         x 
-        x x
+    >>> imprimir_x_con_forma(3)  # Matriz 3x3 en forma de "X"
+    x x
+     x 
+    x x
 
-        >>> imprimir_x_con_forma(5)
-        x   x
-         x x 
-          x  
-         x x 
-        x   x
+    >>> imprimir_x_con_forma(5)  # Matriz 5x5 en forma de "X"
+    x   x
+     x x 
+      x  
+     x x 
+    x   x
 
-        >>> imprimir_x_con_forma(7)
-        x     x
-         x   x 
-          x x  
-           x   
-          x x  
-         x   x 
-        x     x
+    >>> imprimir_x_con_forma(7)  # Matriz 7x7 en forma de "X"
+    x     x
+     x   x 
+      x x  
+       x   
+      x x  
+     x   x 
+    x     x
     """
-    # TODO4: Implemente la función tal y como se describe en la documentación
+    # TODO6: Implemente la función tal y como se describe en la documentación
     for fila in range(n):
         linea = ""
         for columna in range(n):
@@ -469,13 +588,15 @@ def imprimir_x_con_forma(n: int) -> None:
 ###  Actividad III (2/4)
 
 - En `logica.py`
-	- Copie y pegue el siguiente código e implemente el `TODO5`:
+	- Copie y pegue el siguiente código e implemente el `TODO7`:
 
 ```python
 def imprimir_borde_exterior(matriz: list) -> None:
     """
     Imprime los elementos en el borde exterior de la matriz, 
     recorriendo en sentido horario: arriba → derecha → abajo → izquierda.
+    
+    Puede asumir que la mínima matriz dada es de 2 x 2.
 
     Parámetros:
         matriz (list): Una lista de listas que representa la matriz rectangular.
@@ -483,46 +604,42 @@ def imprimir_borde_exterior(matriz: list) -> None:
     Retorna:
         None
 
-    Ejemplos:
-        >>> imprimir_borde_exterior(1)
-        1
+    >>> imprimir_borde_exterior([[1, 2], [3, 4]])  # Matriz 2x2, recorre el borde
+    1
+    2
+    4
+    3
 
-        >>> imprimir_borde_exterior([[1, 2], [3, 4]])
-        1
-        2
-        4
-        3
+    >>> imprimir_borde_exterior([[1, 2, 3], [4, 5, 6], [7, 8, 9]])  # Matriz 3x3, recorre el borde
+    1
+    2
+    3
+    6
+    9
+    8
+    7
+    4
 
-        >>> imprimir_borde_exterior([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-        1
-        2
-        3
-        6
-        9
-        8
-        7
-        4
-
-        >>> imprimir_borde_exterior([
-        ...     [11, 12, 13, 14],
-        ...     [21, 22, 23, 24],
-        ...     [31, 32, 33, 34],
-        ...     [41, 42, 43, 44]
-        ... ])
-        11
-        12
-        13
-        14
-        24
-        34
-        44
-        43
-        42
-        41
-        31
-        21
+    >>> imprimir_borde_exterior([
+    ...     [11, 12, 13, 14],
+    ...     [21, 22, 23, 24],
+    ...     [31, 32, 33, 34],
+    ...     [41, 42, 43, 44]
+    ... ])  # Matriz 4x4, recorre el borde
+    11
+    12
+    13
+    14
+    24
+    34
+    44
+    43
+    42
+    41
+    31
+    21
     """
-    # TODO5: Implemente la función tal y como se describe en la documentación
+    # TODO7: Implemente la función tal y como se describe en la documentación
     if not matriz or not matriz[0]:
         elementos = []
     else:
@@ -550,6 +667,7 @@ def imprimir_borde_exterior(matriz: list) -> None:
 
     for valor in elementos:
         print(valor)
+
 #doctest.run_docstring_examples(imprimir_borde_exterior, globals(), verbose=True)
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
