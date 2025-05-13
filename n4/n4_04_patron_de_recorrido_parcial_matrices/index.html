@@ -130,7 +130,7 @@ Universidad de los Andes
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-#### Patrón de recorrido parcial - `while` con centinela
+### Patrón de recorrido parcial - `while` con centinela
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -176,7 +176,408 @@ while fila < len(matriz) and not encontrado:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Continuará ...
+### Quiz I
+
+- Implemente la función `buscar_posicion_matriz()` **con centinela**:
+
+```Python
+def buscar_posicion_matriz(matriz: list, buscado: int) -> tuple:
+    """
+    Busca la posición de un elemento en una matriz dada. 
+    Retorna una tupla con los índices (fila, columna) de la primera ocurrencia
+    del elemento buscado o (-1, -1) si el elemento no está presente.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        buscado (int): El elemento que se quiere encontrar.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del elemento, 
+        o (-1, -1) si no se encuentra.
+
+    >>> buscar_posicion_matriz([], 3)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 4)
+    (1, 1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[7, 8, 9], [10, 11, 12]], 11)
+    (1, 1)
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz I - Solución
+
+```Python
+def buscar_posicion_matriz(matriz: list, buscado: int) -> tuple:
+    """
+    Busca la posición de un elemento en una matriz dada. 
+    Retorna una tupla con los índices (fila, columna) de la primera ocurrencia
+    del elemento buscado o (-1, -1) si el elemento no está presente.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        buscado (int): El elemento que se quiere encontrar.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del elemento, 
+        o (-1, -1) si no se encuentra.
+
+    >>> buscar_posicion_matriz([], 3)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 4)
+    (1, 1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[7, 8, 9], [10, 11, 12]], 11)
+    (1, 1)
+    """
+    fila = 0
+    posicion = (-1, -1)  # Variable de retorno
+    encontrado = False  # Centinela
+    
+    while fila < len(matriz) and not encontrado:
+        columna = 0  # Reiniciar para cada nueva fila
+        while columna < len(matriz[fila]) and not encontrado:
+            if matriz[fila][columna] == buscado:
+                encontrado = True  # Cambio del centinela
+                posicion = (fila, columna)
+            columna += 1
+        fila += 1
+    
+    return posicion  # Se usa un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Patrón de recorrido parcial - `while`  sin  centinela
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Patrón de recorrido parcial - `while` sin centinela (1/4)
+
+```Python
+# Inicializar índices y posición
+fila, columna = 0, 0
+posicion = (-1, -1)  # Variable de retorno y centinela
+
+# Ciclo para recorrer la matriz parcialmente
+while fila < len(matriz) and posicion == (-1, -1):
+    columna = 0  # Reiniciar columna para cada nueva fila
+    while columna < len(matriz[fila]) and posicion == (-1, -1):
+        if matriz[fila][columna] == buscado:
+            # Actualizar posición si se encuentra el valor
+            posicion = (fila, columna)
+        columna += 1
+    fila += 1
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Patrón de recorrido parcial - `while` sin centinela (2/4)
+
+```Python[2,6,8,11,12]
+# Inicializar índices y posición
+fila, columna = 0, 0
+posicion = (-1, -1)  # Variable de retorno y centinela
+
+# Ciclo para recorrer la matriz parcialmente
+while fila < len(matriz) and posicion == (-1, -1):
+    columna = 0  # Reiniciar columna para cada nueva fila
+    while columna < len(matriz[fila]) and posicion == (-1, -1):
+        if matriz[fila][columna] == buscado:
+            # Actualizar posición si se encuentra el valor
+            posicion = (fila, columna)
+        columna += 1
+    fila += 1
+```
+
+- El ciclo se detiene (I) 
+	- Cuando se alcance el límite de la matriz
+    - Las condiciones `i` y `k` `< len(matriz)` 
+	    - Aseguran que el ciclo termine
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Patrón de recorrido parcial - `while` sin centinela (3/4)
+
+```Python[3,6,8,10]
+# Inicializar índices y posición
+fila, columna = 0, 0
+posicion = (-1, -1)  # Variable de retorno y centinela
+
+# Ciclo para recorrer la matriz parcialmente
+while fila < len(matriz) and posicion == (-1, -1):
+    columna = 0  # Reiniciar columna para cada nueva fila
+    while columna < len(matriz[fila]) and posicion == (-1, -1):
+        if matriz[fila][columna] == buscado:
+            # Actualizar posición si se encuentra el valor
+            posicion = (fila, columna)
+        columna += 1
+    fila += 1
+```
+
+- El ciclo se detiene (II): 
+	- Si se encuentra el valor buscado
+    - La condición `posicion == (-1, -1)` 
+	    - Asegura que el ciclo termine
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Patrón de recorrido parcial - `while` sin centinela (4/4)
+
+```Python[3, 6, 8, 10]
+# Inicializar índices y posición
+fila, columna = 0, 0
+posicion = (-1, -1)  # Variable de retorno y centinela
+
+# Ciclo para recorrer la matriz parcialmente
+while fila < len(matriz) and posicion == (-1, -1):
+    columna = 0  # Reiniciar columna para cada nueva fila
+    while columna < len(matriz[fila]) and posicion == (-1, -1):
+        if matriz[fila][columna] == buscado:
+            # Actualizar posición si se encuentra el valor
+            posicion = (fila, columna)
+        columna += 1
+    fila += 1
+```
+
+- Aquí el centinela es no booleano
+	- Y aprovecha la variable de retorno
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II
+
+- Implemente la función `buscar_posicion_matriz()` **sin centinela**::
+
+```Python
+def buscar_posicion_matriz(matriz: list, buscado: int) -> tuple:
+    """
+    Busca la posición de un elemento en una matriz dada. 
+    Retorna una tupla con los índices (fila, columna) de la primera ocurrencia
+    del elemento buscado o (-1, -1) si el elemento no está presente.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        buscado (int): El elemento que se quiere encontrar.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del elemento, 
+        o (-1, -1) si no se encuentra.
+
+    >>> buscar_posicion_matriz([], 3)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 4)
+    (1, 1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[7, 8, 9], [10, 11, 12]], 11)
+    (1, 1)
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz II - Solución
+
+```Python
+def buscar_posicion_matriz(matriz: list, buscado: int) -> tuple:
+    """
+    Busca la posición de un elemento en una matriz dada. 
+    Retorna una tupla con los índices (fila, columna) de la primera ocurrencia
+    del elemento buscado o (-1, -1) si el elemento no está presente.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        buscado (int): El elemento que se quiere encontrar.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del elemento, 
+        o (-1, -1) si no se encuentra.
+
+    >>> buscar_posicion_matriz([], 3)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 4)
+    (1, 1)
+
+    >>> buscar_posicion_matriz([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_posicion_matriz([[7, 8, 9], [10, 11, 12]], 11)
+    (1, 1)
+    """
+    posicion = (-1, -1)  # Variable de retorno y centinela
+    fila = 0
+
+    while fila < len(matriz) and posicion == (-1, -1):
+        columna = 0  # Reiniciar columna para cada nueva fila
+        while columna < len(matriz[fila]) and posicion == (-1, -1):
+            if matriz[fila][columna] == buscado:
+                # Actualizar posición si se encuentra el valor
+                posicion = (fila, columna)  
+            columna += 1
+        fila += 1
+
+    return posicion  # Se usa un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III
+
+- Implemente la función `buscar_posicion_matriz()` con/sin centinela:
+
+```Python
+def buscar_primero_mayor(matriz: list, umbral: int) -> tuple:
+    """
+    Busca la posición del primer elemento en la matriz que sea mayor que un
+    valor umbral. Retorna una tupla con los índices (fila, columna) de la
+    primera ocurrencia del elemento mayor que el umbral o (-1, -1) si no se
+    encuentra.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        umbral (int): El valor con el cual se comparan los elementos de la matriz.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del primer elemento
+           mayor que el umbral, o (-1, -1) si no se encuentra.
+
+    >>> buscar_primero_mayor([], 5)
+    (-1, -1)
+
+    >>> buscar_primero_mayor([[1, 2], [3, 4], [5, 6]], 4)
+    (2, 0)
+
+    >>> buscar_primero_mayor([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_primero_mayor([[7, 8, 9], [10, 11, 12]], 8)
+    (0, 2)
+    """
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III - Solución 1
+
+- Implemente la función `buscar_posicion_matriz()` con centinela:
+
+```Python
+def buscar_primero_mayor(matriz: list, umbral: int) -> tuple:
+    """
+    Busca la posición del primer elemento en la matriz que sea mayor que un
+    valor umbral. Retorna una tupla con los índices (fila, columna) de la
+    primera ocurrencia del elemento mayor que el umbral o (-1, -1) si no se
+    encuentra.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        umbral (int): El valor con el cual se comparan los elementos de la matriz.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del primer elemento
+           mayor que el umbral, o (-1, -1) si no se encuentra.
+
+    >>> buscar_primero_mayor([], 5)
+    (-1, -1)
+
+    >>> buscar_primero_mayor([[1, 2], [3, 4], [5, 6]], 4)
+    (2, 0)
+
+    >>> buscar_primero_mayor([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_primero_mayor([[7, 8, 9], [10, 11, 12]], 8)
+    (0, 2)
+    """
+    posicion = (-1, -1)  # Variable de retorno
+    encontrado = False  # Centinela
+    fila = 0
+
+    while fila < len(matriz) and not encontrado:
+        columna = 0  # Reiniciar columna para cada nueva fila
+        while columna < len(matriz[fila]) and not encontrado:
+            if matriz[fila][columna] > umbral:
+                encontrado = True  # Cambio del centinela
+                posicion = (fila, columna)
+            columna += 1
+        fila += 1
+
+    return posicion  # Se usa un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quiz III - Solución 2
+
+- Implemente la función `buscar_posicion_matriz()` sin centinela:
+
+```Python
+def buscar_primero_mayor(matriz: list, umbral: int) -> tuple:
+    """
+    Busca la posición del primer elemento en la matriz que sea mayor que un
+    valor umbral. Retorna una tupla con los índices (fila, columna) de la
+    primera ocurrencia del elemento mayor que el umbral o (-1, -1) si no se
+    encuentra.
+
+    Args:
+        matriz (list): La matriz en la que se busca el elemento.
+        umbral (int): El valor con el cual se comparan los elementos de la matriz.
+
+    Returns:
+        tuple: Una tupla (fila, columna) con la posición del primer elemento
+           mayor que el umbral, o (-1, -1) si no se encuentra.
+
+    >>> buscar_primero_mayor([], 5)
+    (-1, -1)
+
+    >>> buscar_primero_mayor([[1, 2], [3, 4], [5, 6]], 4)
+    (2, 0)
+
+    >>> buscar_primero_mayor([[1, 2], [3, 4], [5, 6]], 7)
+    (-1, -1)
+
+    >>> buscar_primero_mayor([[7, 8, 9], [10, 11, 12]], 8)
+    (0, 2)
+    """
+    posicion = (-1, -1)  # Variable de retorno y centinela
+    fila = 0
+
+    while fila < len(matriz) and posicion == (-1, -1):
+        columna = 0  # Reiniciar columna para cada nueva fila
+        while columna < len(matriz[fila]) and posicion == (-1, -1):
+            if matriz[fila][columna] > umbral:
+                # Actualizar posición si se encuentra 
+                # un valor mayor que el umbral:
+                posicion = (fila, columna)  
+            columna += 1
+        fila += 1
+
+    return posicion  # Se usa un solo return
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="has-light-background drop" data-background-color="#f8f8f8" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<i class="fas fa-question-circle fa-2x fa-spin fa-4x"></i>
+
+<br>
+<br>
+
+ [<i class="fas fa-home  fa-3x"></i>](https://eerosales24.github.io/iph_2025_10/#)
 </div></script></section></div>
     </div>
 
